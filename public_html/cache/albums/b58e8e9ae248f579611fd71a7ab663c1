@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SongAbout.FM | Discover what a song is about.</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" >
+    <meta name="robots" content="index, follow" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="Description" content="Where you go to find out about a song." /><meta name="Keywords" content="Music, Song Lyrics, Song About, Song Meaning" /><meta name="Author" content="SongAbout.fm" /><meta property="og:title" content="SongAbout.fm - Where you go to find out about a song." /><meta property="og:title" content="Song meanings about artist, songs and albums in the arists own words." /><meta property="og:type" content="website" /><meta property="og:url" content="http://www.songabout.fm" /><meta property="og:image" content="http://www.songabout.fm/images/logos/songaboutNavLogo.png" /><link rel="shortcut icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/main.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/homepageImage.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/album.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/artist.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/song.css" /><link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'><link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+<div id="songAboutWrapper">
+    <div id="headerWrapper">    
+        <div id="headerMenuBar">
+        	<div id="headerMenuWrapper" class="center">  
+                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="/images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
+                <div id="headerNav" class="left">
+                	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
+                </div>
+                <div id="headerSearch" class="left">
+                    <div id="headerSocialMenu" class="right">
+                        <div id="socialTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialInstagram" class="socialNav"><a href="http://instagram.com/songaboutfm" target="_blank"></a></div><div id="socialTumbler" class="socialNav"><a href="http://songaboutfm.tumblr.com/" target="_blank"></a></div>        
+                    </div>                	
+                    <div id="searchBox"><input type="text" id="searchSongAboutTxt" name="searchSongAboutTxt" size="38" maxlength="255"><div id="searchSongButton"><a href="#"></a></div></div>
+                </div>
+            </div>
+        </div>
+    </div>    <div id="contentWrapper" class="left"> 
+        <div id="songAboutContent" class="center">   
+			<div id="" class="left col-1"> 
+                    <div id="artistDetailSuggestedSongs" class="left">
+        <div id="topArtistTitle" class="center">
+            SUGGESTED SONGS
+        </div>
+        <div id="suggestedSongList">    
+			<div id="suggestedArtist-SOQCGWA143E0CA4A19" class="songItem left"><div class="songItemImg left"><a href="/artist/Todd-Terje/song/Leisure-Suit-Preben"><img src="http://cdn.7static.com/static/img/sleeveart/00/033/618/0003361892_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Leisure Suit Preben<br><span class="songItemTitleFootnote">Todd Terje</span></div></div><div id="suggestedArtist-SOBWAUB1393C910AD4" class="songItem left"><div class="songItemImg left"><a href="/artist/Peter-Visti/song/My-Advice"><img src="http://cdn.7static.com/static/img/sleeveart/00/016/537/0001653724_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">My Advice<br><span class="songItemTitleFootnote">Peter Visti</span></div></div><div id="suggestedArtist-SOMCWFQ14134BEC509" class="songItem left"><div class="songItemImg left"><a href="/artist/TieDye/song/Road-Less-Travelled"><img src="http://cdn.7static.com/static/img/sleeveart/00/029/429/0002942920_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Road Less Travelled<br><span class="songItemTitleFootnote">TieDye</span></div></div><div id="suggestedArtist-SONHVGM1311AFE70D5" class="songItem left"><div class="songItemImg left"><a href="/artist/Blackbelt-Andersen/song/November"><img src="http://cdn.7static.com/static/img/sleeveart/00/007/799/0000779973_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">November<br><span class="songItemTitleFootnote">Blackbelt Andersen</span></div></div><div id="suggestedArtist-SOOUEVJ1338A5D817D" class="songItem left"><div class="songItemImg left"><a href="/artist/diskJokke/song/Staying-In"><img src="http://cdn.7static.com/static/img/sleeveart/00/018/163/0001816373_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Staying In<br><span class="songItemTitleFootnote">diskJokke</span></div></div>        </div>               				
+    </div>	
+           
+                
+                	<div id="artistDetailSuggestedArtist" class="left">
+        <div id="topArtistTitle" class="center">SUGGESTED ARTISTS</div>
+        <div id="suggestedArtistList">
+            <div id="suggestedArtist-AR9SWJO1187FB47837" class="songItem left"><div class="songItemImg left"><a href="/artist/Prins-Thomas"><img src="http://userserve-ak.last.fm/serve/_/424026.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Prins Thomas<br></div></div><div id="suggestedArtist-ARR3ZVQ1187FB4B79F" class="songItem left"><div class="songItemImg left"><a href="/artist/Lindstr%C3%B8m"><img src="http://userserve-ak.last.fm/serve/500/54547643/Lindstrm+lpr2.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Lindstrøm<br></div></div><div id="suggestedArtist-AR3LBRT1187B9B5BC7" class="songItem left"><div class="songItemImg left"><a href="/artist/diskJokke"><img src="http://userserve-ak.last.fm/serve/500/36345949/diskJokke.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">diskJokke<br></div></div><div id="suggestedArtist-ARC0RPH1187B9AE304" class="songItem left"><div class="songItemImg left"><a href="/artist/Blackbelt-Andersen"><img src="http://userserve-ak.last.fm/serve/500/25809017/Blackbelt+Andersen+l_c514d347a860a1d382d9aaec1bc4.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Blackbelt Andersen<br></div></div><div id="suggestedArtist-AR4MTOW1187B9AEA00" class="songItem left"><div class="songItemImg left"><a href="/artist/Magnus-International"><img src="http://userserve-ak.last.fm/serve/_/29100633/Magnus+International+R8172681164104957.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Magnus International<br></div></div>        </div> 
+    </div>	                
+ 		
+            </div>
+			<div id="col-2" class="left col-2"> 			
+                <div class="artistDetailBox"> 
+                    <div class="artistItemImg">
+                        <img src="http://userserve-ak.last.fm/serve/_/5116091/Todd+Terje+2006122110151526583RE.jpg" height="125" width="125" border="0">                     
+                    </div>
+                    <div id="artistItemSocialIcons" class="right">
+                    	<div id="artistItemSocialFB"><a href="#"></a></div>
+                        <div id="artistItemSocialTwitter"><a href="#"></a></div>
+                        <div id="artistItemSocialShare"><a href="#"></a></div>
+                    </div>
+    				<div class="artistItemDetailText">
+                    	Todd Terje                       <br />
+                       <span style="font-size:12px; font-weight: 200;">
+						   balearic, current, discovery                       </span>
+                    </div>
+                    <div class="artistItemDetailMenu left">
+                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/Todd+Terje/bio"></a></div>
+                        <div class="right" id="buttonClaimPage"><a href="#"></a></div>
+                       	<input type="hidden" name="artistNameInput" value="Todd-Terje" />
+                    </div>        
+                </div>
+                
+                <br />
+                
+                <div id="artistDetailSongs">
+					<div id="suggestedArtist-3dff8396-82b1-4a35-93a9-77ad34a994a9" class="left"><div class="albumDetails left"><div class="songItemImg left"><img src="http://userserve-ak.last.fm/serve/64s/97614757.png" height="60" width="60"></div><div class="songItemTitle left">It's Album Time<br></div></div><div id="artistAlbumSetList" class="left"><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Intro-%28It%27s-Album-time%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">1) <a href="/~songabou/artist/Todd-Terje/song/Intro-%28It%27s-Album-time%29">Intro (It's Album time)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Leisure-Suit-Preben"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">2) <a href="/~songabou/artist/Todd-Terje/song/Leisure-Suit-Preben">Leisure Suit Preben</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Preben-Goes-To-Acapulco"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">3) <a href="/~songabou/artist/Todd-Terje/song/Preben-Goes-To-Acapulco">Preben Goes To Acapulco</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Svensk-S%C3%A5s"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">4) <a href="/~songabou/artist/Todd-Terje/song/Svensk-S%C3%A5s">Svensk Sås</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Strandbar"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">5) <a href="/~songabou/artist/Todd-Terje/song/Strandbar">Strandbar</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Delorean-Dynamite"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">6) <a href="/~songabou/artist/Todd-Terje/song/Delorean-Dynamite">Delorean Dynamite</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Johnny-and-Mary"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">7) <a href="/~songabou/artist/Todd-Terje/song/Johnny-and-Mary">Johnny and Mary</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Alfonso-Muskedunder"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">8) <a href="/~songabou/artist/Todd-Terje/song/Alfonso-Muskedunder">Alfonso Muskedunder</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Swing-Star%2C-Part-1"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">9) <a href="/~songabou/artist/Todd-Terje/song/Swing-Star%2C-Part-1">Swing Star, Part 1</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Swing-Star%2C-Part-2"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">10) <a href="/~songabou/artist/Todd-Terje/song/Swing-Star%2C-Part-2">Swing Star, Part 2</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Oh-Joy"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">11) <a href="/~songabou/artist/Todd-Terje/song/Oh-Joy">Oh Joy</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Inspector-Norse"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">12) <a href="/~songabou/artist/Todd-Terje/song/Inspector-Norse">Inspector Norse</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Leisure-Suit-Preben-%28Single-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">13) <a href="/~songabou/artist/Todd-Terje/song/Leisure-Suit-Preben-%28Single-Edit%29">Leisure Suit Preben (Single Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Preben-Goes-To-Acapulco-%28Single-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">14) <a href="/~songabou/artist/Todd-Terje/song/Preben-Goes-To-Acapulco-%28Single-Edit%29">Preben Goes To Acapulco (Single Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Johnny-And-Mary-%28Radio-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">15) <a href="/~songabou/artist/Todd-Terje/song/Johnny-And-Mary-%28Radio-Edit%29">Johnny And Mary (Radio Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Oh-Joy-%28Radio-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">16) <a href="/~songabou/artist/Todd-Terje/song/Oh-Joy-%28Radio-Edit%29">Oh Joy (Radio Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Svensk-S%C3%A5s-%28long-version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">17) <a href="/~songabou/artist/Todd-Terje/song/Svensk-S%C3%A5s-%28long-version%29">Svensk Sås (long version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Delorean-Dynamite-%28Radio-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">18) <a href="/~songabou/artist/Todd-Terje/song/Delorean-Dynamite-%28Radio-Edit%29">Delorean Dynamite (Radio Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Johnny-And-Mary-%28Instrumental%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">19) <a href="/~songabou/artist/Todd-Terje/song/Johnny-And-Mary-%28Instrumental%29">Johnny And Mary (Instrumental)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Strandbar-%28Samba-Radio-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">20) <a href="/~songabou/artist/Todd-Terje/song/Strandbar-%28Samba-Radio-Edit%29">Strandbar (Samba Radio Edit)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Todd-Terje/song/Swing-Star-%28Short-Edit%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">21) <a href="/~songabou/artist/Todd-Terje/song/Swing-Star-%28Short-Edit%29">Swing Star (Short Edit)</a></div></div><span class="clear"></span></div><span class="clear"></span></div>                    
+                </div>
+                 <span class="clear"></span>
+            </div>                		
+            <span class="clear"></span>
+		</div>
+    </div>
+	<span class="clear"></span>
+    <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
+    <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>
+    <div id="artistVideoPop"  >   
+    				 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
+            <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
+		        
+    </div>    
+        <div id="footerWrapper" class="left">
+		<div id="footerMenuWrapper" class="center">  
+            <div id="footerCol1" class="left"><div id="footerLogo"><img src="/images/logos/logoSongAboutFooter.png" width="244" height="42"/></div><div id="footerDescription"><p> What's this song about? Fans, share your meanings here on SongAbout!</p></div><div id="footerSocialMenu"><div id="socialFooterTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFooterFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterGooglePlus" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterTumble" class="socialNav"><a href="http://songaboutfm.tumblr.com/"></a></div></div></div>
+            <div id="footerCol2" class="left">
+				<div id="footerNav"><a href="/lyrics.php">LYRICS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/artist.php">ARTISTS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/albums.php">ALBUMS</a><br><a href="/verified_artist.php">VERIFIED ARTIST</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/songabout-careers.php">JOBS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/about-us.php">ABOUT US</a></div><div id="footerPolicy"><a href="/privacy-policy.php">PRIVACY POLICY</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/conditions.php">TERMS AND CONDITIONS</a></div><div id="songAboutStatBubble">MILLIONS OF SONGS & SONG LYRICS</div><div id="copyrightInfo">Copyright Songabout.fm 2014, All Rights Reserved</div></div>
+            <div id="footerCol3" class="left"><div id="footerContact"><div class="contactItem" id="contactEmail"><a href="mailto: info@songabout.fm">info@songabout.fm</a></div><div class="contactItem" id=""></div><div id="contactAddress"></div></div></div></div>
+	</div>
+</div>
+<div id="verifyPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">Please search for your artist page and select the claim page button.  If you already claimed your page just go to your page and begin entering the meanings of your songs.  </div>
+</div>
+<div id="loadVerifyConfirmationPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">A Request has been sent to the adminstration to verify your account.  Once your account has been verified you will receive an email confirming your ability to edit your page and songs.  </div>
+</div>
+</body>
+</html>
+<!--- All script files are the bottom of page to help with loading--->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="http://www.songabout.fm/scripts/simpSocialPop.js"></script>
+<script type="text/javascript" src="http://www.songabout.fm/scripts/facebook/facebookLogin.js"></script>
+<script src="http://www.songabout.fm/scripts/hooks/echonest-hook.js"></script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=487191714631608";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+$(document).ready(function() {
+	$("#socialTwitter a").click(function() {
+		twitterPopUp();
+		return false;
+	});
+	$("#socialFacebook a").click(function() {
+		postToFBFeed();
+		return false;
+	});		
+	$('#verifyPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});	
+	$('#loadVerifyConfirmationPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});				
+	$('#searchSongAboutTxt').keypress(function (e) {
+		  if (e.which == 13) {songAboutSearch($(this).val());}
+	});	
+		
+		
+		$('#artistVideoPop').dialog({ autoOpen: false });
+		$('#buttonPlayVideo').click(function(e) {
+			$('#artistVideoPop').dialog("open");
+			return false;
+		});
+	  	  $('#buttonClaimPage').click(function(e) {
+									fbLogin();
+						
+				return false;
+			});		
+	});
+</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47099521-1', 'songabout.fm');ga('send', 'pageview');</script>

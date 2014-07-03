@@ -1,0 +1,285 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201403 will be lost/reset.
+# Last config file used to build this data file was /home/songabou/tmp/awstats/awstats.songabout.fm.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2006                
+POS_TIME 2688                
+POS_VISITOR 7032                
+POS_DAY 7426                
+POS_DOMAIN 3260                
+POS_LOGIN 3535                
+POS_ROBOT 3690                
+POS_WORMS 3911                
+POS_EMAILSENDER 4042                
+POS_EMAILRECEIVER 4185                
+POS_SESSION 7533                
+POS_SIDER 7721                
+POS_FILETYPES 4320                
+POS_DOWNLOADS 4496                
+POS_OS 4544                
+POS_BROWSER 4625                
+POS_SCREENSIZE 4770                
+POS_UNKNOWNREFERER 4844                
+POS_UNKNOWNREFERERBROWSER 5089                
+POS_ORIGIN 5171                
+POS_SEREFERRALS 5307                
+POS_PAGEREFS 5451                
+POS_SEARCHWORDS 5750                
+POS_KEYWORDS 5902                
+POS_MISC 2352                
+POS_ERRORS 5961                
+POS_CLUSTER 3391                
+POS_SIDER_404 6058                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20140401022827 848 189805 9497104586562
+FirstTime 20140330143711
+LastTime 20140331235333
+LastUpdate 20140401061535 848 0 847 0 0
+TotalVisits 12                  
+TotalUnique 8                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 8                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 2 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+2 0 0 0 0 0 0
+3 0 0 0 0 0 0
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 0 0
+7 0 0 0 320 321 1625977
+8 0 0 0 430 430 2232722
+9 0 0 0 0 0 0
+10 0 0 0 0 0 0
+11 0 0 0 0 0 0
+12 0 0 0 0 0 0
+13 0 0 0 0 0 0
+14 26 121 1040126 0 1 1150
+15 5 51 213982 2 17 350819
+16 11 43 1054708 0 6 59847
+17 0 0 0 0 0 0
+18 1 23 429481 0 0 0
+19 2 4 18714 0 0 0
+20 3 25 441450 1 1 28825
+21 0 0 0 1 1 28195
+22 1 3 8089 0 0 0
+23 9 56 1087930 1 7 125044
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 4
+us 38 225 2143822
+gb 10 42 1048894
+ca 9 58 1072939
+cn 1 1 28825
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+bot[\s_+:,\.\;\/\\-] 742 3858699 20140331083206 0
+no_user_agent 3 60176 20140331205344 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 6
+php 17 89189 0 0
+png 198 3585362 0 0
+html 27 182063 0 0
+jpg 44 169404 0 0
+js 26 178816 0 0
+Unknown 14 89646 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 4
+macosx 123
+Unknown 2
+winvista 172
+win7 29
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 6
+firefox28.0 29
+safari7.0 29
+chrome33.0.1750.154 172
+chrome33.0.1750.152 42
+mozilla 2
+safari 52
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 2
+Mozilla/5.0_(compatible;_heritrix/3.1.1__http://www.baidu.com) 20140331235333
+Mozilla/5.0_(compatible;_Embedly/0.2;__http://support.embed.ly/) 20140331150152
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 31 38
+From1 0 0
+From2 0 0
+From3 1 21
+From4 26 267
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 2
+http://utah.stormfrontproductions.net/~songabou/artist/Lady-Gaga/album/ARTPOP 1 3
+http://utah.stormfrontproductions.net/~songabou/styles/main.css 0 18
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 2
+206 28 531404
+404 9 0
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 9
+/robots.txt 1 -
+/artist/Ciara/song/Get-In,-Fit-In-%28Main-Version%29 1 http://www.songabout.fm/artist/Ciara
+/artist/Ciara/song/One,-Two-Step 1 http://www.songabout.fm/artist/Ciara
+/artist/Ciara/song/1,-2-Step-Featuring-Missy-Elliott 1 http://www.songabout.fm/artist/Ciara
+/artist/Ciara/song/1,-2-Step-%28Main%29 1 http://www.songabout.fm/artist/Ciara
+/artist/Ciara/song/1,-2-Step-Main 1 http://www.songabout.fm/artist/Ciara
+/artist/Ciara/song/Get-In,-Fit-In-Main-Version 1 http://www.songabout.fm/artist/Ciara
+/artist/Beyonc%C3%A9/song/Me,-Myself-and-I 1 http://www.songabout.fm/artist/Beyonce
+/artist/Drake/song/Hold-On,-Were-Going-Home 1 http://www.songabout.fm/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 8
+98.154.127.54 31 172 1258802 20140331145815
+87.113.218.131 10 42 1048894 20140330163157
+172.248.79.83 9 58 1072939 20140331200351
+66.87.65.56 4 26 441519 20140331235014
+59.50.71.83 1 1 28825 20140331235333
+66.87.67.209 1 23 429481 20140331181632
+54.221.199.147 1 1 5931 20140331150152
+66.87.67.161 1 3 8089 20140331221445
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 2
+20140330 44 240 2734060 5
+20140331 14 86 1560420 7
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 5
+2mn-5mn 1
+15mn-30mn 1
+30s-2mn 1
+0s-30s 8
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 16
+/ 27 182063 10 8
+/lyrics.php 6 26902 0 1
+/albums.php 4 26334 0 0
+/artist/Shakira 4 26146 0 0
+/~songabou/lyrics.php 2 10432 0 0
+/artist/Eminem/song/Bad-Guy 2 21060 0 1
+/artist/The-Velvet-Underground/song/Ill-Be-Your-Mirror 2 8649 0 0
+/~songabou/artist/ADELE/song/Rolling-in-the-Deep 2 11534 0 1
+/search-results.php 2 8901 1 0
+/songabout-careers.php 1 2883 0 0
+/~songabou/artist/Eminem 1 5391 0 0
+/artist/Shakira/song/Why-Wait 1 5817 0 0
+/artist/Katy-Perry/album/Prism 1 4712 0 0
+/artist.php 1 10625 1 1
+/verified_artist.php 1 3112 0 0
+/artist/Lou-Reed 1 6337 0 0
+END_SIDER

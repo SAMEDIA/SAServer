@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SongAbout.FM | Discover what a song is about.</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" >
+    <meta name="robots" content="index, follow" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="Description" content="Where you go to find out about a song." /><meta name="Keywords" content="Music, Song Lyrics, Song About, Song Meaning" /><meta name="Author" content="SongAbout.fm" /><meta property="og:title" content="SongAbout.fm - Where you go to find out about a song." /><meta property="og:title" content="Song meanings about artist, songs and albums in the artist's own words." /><meta property="og:type" content="website" /><meta property="og:url" content="http://www.songabout.fm" /><meta property="og:image" content="http://www.songabout.fm/images/logos/songaboutNavLogo.png" /><link rel="shortcut icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/main.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/homepageImage.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/album.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/artist.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/song.css" /><link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'><link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+<div id="songAboutWrapper">
+    <div id="headerWrapper">    
+        <div id="headerMenuBar">
+        	<div id="headerMenuWrapper" class="center">  
+                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="/images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
+                <div id="headerNav" class="left">
+                	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
+                </div>
+                <div id="headerSearch" class="left">
+                    <div id="headerSocialMenu" class="right">
+                        <div id="socialTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialInstagram" class="socialNav"><a href="http://instagram.com/songaboutfm" target="_blank"></a></div><div id="socialTumbler" class="socialNav"><a href="http://songaboutfm.tumblr.com/" target="_blank"></a></div>        
+                    </div>                	
+                    <div id="searchBox"><input type="text" id="searchSongAboutTxt" name="searchSongAboutTxt" size="38" maxlength="255"><div id="searchSongButton"><a href="#"></a></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	    <div id="contentWrapper" class="left"> 
+        <div id="songAboutContent" class="center">   
+			<div id="" class="left col-1"> 
+                    <div id="artistDetailSuggestedSongs" class="left">
+        <div id="topArtistTitle" class="center">
+            SUGGESTED SONGS
+        </div>
+        <div id="suggestedSongList">    
+			<div id="suggestedArtist-SODCUSJ1312A8A7043" class="songItem left"><div class="songItemImg left"><a href="/artist/New-Kids-on-the-Block/song/Step-By-Step"><img src="http://cdn.7static.com/static/img/sleeveart/00/012/520/0001252053_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Step By Step<br><span class="songItemTitleFootnote">New Kids on the Block</span></div></div>        </div>               				
+    </div>	
+           
+                
+                	<div id="artistDetailSuggestedArtist" class="left">
+        <div id="topArtistTitle" class="center">SUGGESTED ARTISTS</div>
+        <div id="suggestedArtistList">
+            <div id="suggestedArtist-ARW3LUX1187FB5C4C0" class="songItem left"><div class="songItemImg left"><a href="/artist/The-Jacksons"><img src="http://upload.wikimedia.org/wikipedia/en/6/63/Jacksons-destiny.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">The Jacksons<br></div></div><div id="suggestedArtist-ARRZUPG11F43A69EF7" class="songItem left"><div class="songItemImg left"><a href="/artist/Jackson-5"><img src="http://upload.wikimedia.org/wikipedia/en/6/63/Jacksons-destiny.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Jackson 5<br></div></div><div id="suggestedArtist-ARWXN7M1187B98C47D" class="songItem left"><div class="songItemImg left"><a href="/artist/Babyface"><img src="http://userserve-ak.last.fm/serve/_/45459039/Babyface.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Babyface<br></div></div><div id="suggestedArtist-ART4QZC1187FB51612" class="songItem left"><div class="songItemImg left"><a href="/artist/Janet-Jackson"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/Jtstpaul.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Janet Jackson<br></div></div><div id="suggestedArtist-AREERZ61187FB3AAC1" class="songItem left"><div class="songItemImg left"><a href="/artist/Color-Me-Badd"><img src="http://a569.ac-images.myspacecdn.com/images01/10/m_2e5ccf2244cb4100b41a6a6f9cb5d6b0.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Color Me Badd<br></div></div>        </div> 
+    </div>	                
+ 		
+            </div>
+			<div id="col-2" class="left col-2"> 			
+                <div class="artistDetailBox"> 
+                    <div class="artistItemImg">
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/8/8a/Jackson_5_tv_special_1972.JPG" height="125" width="125" border="0">                     
+                    </div>
+                    <div id="artistItemSocialIcons" class="right">
+                    	<div id="artistItemSocialFB"><a href="#"></a></div>
+                        <div id="artistItemSocialTwitter"><a href="#"></a></div>
+                        <div id="artistItemSocialShare"><a href="#"></a></div>
+                    </div>
+    				<div class="artistItemDetailText">
+                    	Michael Jackson                       <br />
+                       <span style="font-size:12px; font-weight: 200;">
+						   current, sexy, pop                       </span>
+                    </div>
+                    <div class="artistItemDetailMenu left">
+                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/Michael+Jackson/bio"></a></div>
+                        <div class="right" id="buttonClaimPage"><a href="#"></a></div>
+                       	<input type="hidden" name="artistNameInput" value="Michael-Jackson" />
+                    </div>        
+                </div>
+                
+                <br />
+                
+                <div id="artistDetailSongs">
+					<div id="suggestedArtist-90e8a159-04cd-4a06-a230-9e1f3d99d259" class="left"><div class="albumDetails left"><div class="songItemImg left"><img src="http://userserve-ak.last.fm/serve/64s/97936843.png" height="60" width="60"></div><div class="songItemTitle left">XSCAPE<br></div></div><div id="artistAlbumSetList" class="left"><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">1) <a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good">Love Never Felt So Good</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Chicago"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">2) <a href="/~songabou/artist/Michael-Jackson/song/Chicago">Chicago</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Loving-You"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">3) <a href="/~songabou/artist/Michael-Jackson/song/Loving-You">Loving You</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/A-Place-with-No-Name"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">4) <a href="/~songabou/artist/Michael-Jackson/song/A-Place-with-No-Name">A Place with No Name</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Slave-to-the-Rhythm"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">5) <a href="/~songabou/artist/Michael-Jackson/song/Slave-to-the-Rhythm">Slave to the Rhythm</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Do-You-Know-Where-Your-Children-Are"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">6) <a href="/~songabou/artist/Michael-Jackson/song/Do-You-Know-Where-Your-Children-Are">Do You Know Where Your Children Are</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Blue-Gangsta"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">7) <a href="/~songabou/artist/Michael-Jackson/song/Blue-Gangsta">Blue Gangsta</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/XSCAPE"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">8) <a href="/~songabou/artist/Michael-Jackson/song/XSCAPE">XSCAPE</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">9) <a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good-%28Original-Version%29">Love Never Felt So Good (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Chicago-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">10) <a href="/~songabou/artist/Michael-Jackson/song/Chicago-%28Original-Version%29">Chicago (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Loving-You-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">11) <a href="/~songabou/artist/Michael-Jackson/song/Loving-You-%28Original-Version%29">Loving You (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/A-Place-with-No-Name-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">12) <a href="/~songabou/artist/Michael-Jackson/song/A-Place-with-No-Name-%28Original-Version%29">A Place with No Name (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Slave-to-the-Rhythm-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">13) <a href="/~songabou/artist/Michael-Jackson/song/Slave-to-the-Rhythm-%28Original-Version%29">Slave to the Rhythm (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Do-You-Know-Where-Your-Children-Are-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">14) <a href="/~songabou/artist/Michael-Jackson/song/Do-You-Know-Where-Your-Children-Are-%28Original-Version%29">Do You Know Where Your Children Are (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Blue-Gangsta-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">15) <a href="/~songabou/artist/Michael-Jackson/song/Blue-Gangsta-%28Original-Version%29">Blue Gangsta (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-%28Original-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">16) <a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-%28Original-Version%29">XSCAPE (Original Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">17) <a href="/~songabou/artist/Michael-Jackson/song/Love-Never-Felt-So-Good">Love Never Felt So Good</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-Documentary"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">18) <a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-Documentary">XSCAPE Documentary</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-Documentary-Outtakes"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">19) <a href="/~songabou/artist/Michael-Jackson/song/XSCAPE-Documentary-Outtakes">XSCAPE Documentary Outtakes</a></div></div><span class="clear"></span></div><span class="clear"></span></div>                    
+                </div>
+                 <span class="clear"></span>
+            </div>                		
+            <span class="clear"></span>
+		</div>
+    </div>
+	<span class="clear"></span>
+    <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
+    <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>
+    <div id="artistVideoPop"  >   
+    				 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
+            <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
+		        
+    </div>    
+        <div id="footerWrapper" class="left">
+		<div id="footerMenuWrapper" class="center">  
+            <div id="footerCol1" class="left"><div id="footerLogo"><img src="/images/logos/logoSongAboutFooter.png" width="244" height="42"/></div><div id="footerDescription"><p> What's this song about? Fans, share your meanings here on SongAbout!</p></div><div id="footerSocialMenu"><div id="socialFooterTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFooterFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterGooglePlus" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterTumble" class="socialNav"><a href="http://songaboutfm.tumblr.com/"></a></div></div></div>
+            <div id="footerCol2" class="left">
+				<div id="footerNav"><a href="/lyrics.php">LYRICS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/artist.php">ARTISTS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/albums.php">ALBUMS</a><br><a href="/verified_artist.php">VERIFIED ARTIST</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/songabout-careers.php">JOBS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/about-us.php">ABOUT US</a></div><div id="footerPolicy"><a href="/privacy-policy.php">PRIVACY POLICY</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/conditions.php">TERMS AND CONDITIONS</a></div><div id="songAboutStatBubble">MILLIONS OF SONGS & SONG LYRICS</div><div id="copyrightInfo">Copyright Songabout.fm 2014, All Rights Reserved</div></div>
+            <div id="footerCol3" class="left"><div id="footerContact"><div class="contactItem" id="contactEmail"><a href="mailto: info@songabout.fm">info@songabout.fm</a></div><div class="contactItem" id=""></div><div id="contactAddress"></div></div></div></div>
+	</div>
+</div>
+<div id="verifyPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">Please search for your artist page and select the claim page button.  If you already claimed your page just go to your page and begin entering the meanings of your songs.  </div>
+</div>
+<div id="loadVerifyConfirmationPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">A Request has been sent to the adminstration to verify your account.  Once your account has been verified you will receive an email confirming your ability to edit your page and songs.  </div>
+</div>
+</body>
+</html>
+<!--- All script files are the bottom of page to help with loading--->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="http://www.songabout.fm/scripts/simpSocialPop.js"></script>
+<script type="text/javascript" src="http://www.songabout.fm/scripts/facebook/facebookLogin.js"></script>
+<script src="http://www.songabout.fm/scripts/hooks/echonest-hook.js"></script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=487191714631608";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+$(document).ready(function() {
+	$("#socialTwitter a").click(function() {
+		twitterPopUp();
+		return false;
+	});
+	$("#socialFacebook a").click(function() {
+		postToFBFeed();
+		return false;
+	});		
+	$('#verifyPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});	
+	$('#loadVerifyConfirmationPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});				
+	$('#searchSongAboutTxt').keypress(function (e) {
+		  if (e.which == 13) {songAboutSearch($(this).val());}
+	});	
+		
+		
+		$('#artistVideoPop').dialog({ autoOpen: false });
+		$('#buttonPlayVideo').click(function(e) {
+			$('#artistVideoPop').dialog("open");
+			return false;
+		});
+	  	  $('#buttonClaimPage').click(function(e) {
+									fbLogin();
+						
+				return false;
+			});		
+	});
+</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47099521-1', 'songabout.fm');ga('send', 'pageview');</script>

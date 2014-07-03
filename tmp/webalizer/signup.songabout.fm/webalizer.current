@@ -1,0 +1,222 @@
+# Webalizer V2.23-05 Incremental Data - 06/21/2014 04:21:44
+2014 6 21 4 21 44
+63 0 27 0 1 11 19599 31 29 0
+1 1 8 1 21
+4 0 1182 2 0 0
+8 0 2444 5 4 4
+2 0 568 1 1 1
+6 0 1884 5 3 3
+0 0 0 0 0 0
+6 0 1836 2 1 1
+2 0 654 1 1 1
+2 0 654 1 1 1
+3 0 1103 1 3 1
+2 0 654 1 1 1
+2 0 568 1 1 1
+9 0 2790 7 7 7
+1 0 288 1 0 0
+2 0 654 1 1 1
+2 0 568 1 1 1
+2 0 654 1 1 1
+0 0 0 0 0 0
+2 0 654 1 1 1
+5 0 1510 4 2 2
+2 0 654 1 1 1
+1 0 280 1 1 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0
+3 0 1103 3
+2 0 568 1
+4 0 1168 0
+7 0 2158 5
+1 0 374 1
+1 0 288 0
+2 0 654 1
+2 0 568 1
+2 0 568 1
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 0 280 1
+1 0 280 1
+3 0 848 2
+2 0 654 1
+8 0 2616 4
+4 0 1308 2
+8 0 2404 2
+3 0 942 1
+3 0 942 1
+6 0 1876 3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+63
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+# End Of Table - urls
+# -sites- (monthly)
+msnbot-65-55-215-67.search.msn.com
+0 4 0 1182 0 0
+-
+ptr.cnsat.com.cn
+0 1 0 364 1 1402548459
+-
+msnbot-157-55-39-36.search.msn.com
+0 2 0 654 1 1402180114
+-
+msnbot-131-253-24-14.search.msn.com
+0 3 0 894 0 0
+-
+crawl-66-249-79-78.googlebot.com
+0 1 0 280 1 1403222137
+-
+37.58.100.74-static.reverse.softlayer.com
+0 1 0 288 0 0
+-
+google-proxy-66-249-84-36.google.com
+0 1 0 280 1 1402585474
+-
+crawl-66-249-65-104.googlebot.com
+0 1 0 280 1 1402546564
+-
+ba4130.ballee.wh.tu-darmstadt.de
+0 1 0 374 1 1401860481
+-
+37.58.100.147-static.reverse.softlayer.com
+0 1 0 280 1 1402581895
+-
+crawl-66-249-79-134.googlebot.com
+0 3 0 856 1 1402808139
+-
+37.58.100.227-static.reverse.softlayer.com
+0 1 0 288 0 0
+-
+spider-5-255-253-11.yandex.com
+0 10 0 3270 5 1402944440
+-
+162.243.110.136
+0 2 0 568 1 1401782892
+-
+msnbot-157-55-39-108.search.msn.com
+0 2 0 654 1 1403164513
+-
+crawl-66-249-79-102.googlebot.com
+0 1 0 280 1 1401850672
+-
+spider-100-43-91-5.yandex.com
+0 7 0 2242 4 1403324504
+-
+crawl-66-249-79-166.googlebot.com
+0 5 0 1424 2 1402564724
+-
+52.71.be.static.xlhost.com
+0 3 0 1103 1 1402276181
+-
+spider-100-43-83-134.yandex.com
+0 4 0 1308 2 1401912752
+-
+crawl-66-249-79-104.googlebot.com
+0 1 0 288 0 0
+-
+msnbot-157-55-33-111.search.msn.com
+0 2 0 654 1 1401751474
+-
+37.58.100.81-static.reverse.softlayer.com
+0 1 0 288 0 0
+-
+119.63.193.194
+0 1 0 364 1 1402548483
+-
+crawl-66-249-65-91.googlebot.com
+0 2 0 568 1 1402517988
+-
+google-proxy-66-249-84-24.google.com
+0 1 0 280 1 1401726592
+-
+msnbot-131-253-24-12.search.msn.com
+0 1 0 288 0 0
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+spider-100-43-91-5.yandex.com
+0 1 0 280 1 1403324504
+-
+# End Of Table - sites (daily)
+# -referrers- 
+- (Direct Request)
+0 63
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20110814 Firefox/6.0 Google favicon
+0 2
+Mozilla/5.0 (compatible; spbot/4.1.0; +http://OpenLinkProfiler.org/bot )
+0 2
+msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)
+0 8
+Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+0 12
+Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+0 6
+niki-bot
+0 3
+Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safa
+0 2
+Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://ahrefs.com/robot/)
+0 4
+PycURL/7.29.0
+0 1
+Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)
+0 21
+Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)
+0 2
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

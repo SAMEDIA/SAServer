@@ -1,0 +1,1 @@
+[24-Jan-2014 12:08:56 America/Denver] PHP Fatal error:  Class 'PopularArtistCache' not found in /home/songabou/public_html/crons/songAboutDailyUpdate.php on line 6

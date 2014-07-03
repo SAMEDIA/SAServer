@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SongAbout.FM | Discover what a song is about.</title>
+    <link rel="shortcut icon" href="" type="image/x-icon" >
+    <meta name="robots" content="index, follow" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="Description" content="Where you go to find out about a song." /><meta name="Keywords" content="Music, Song Lyrics, Song About, Song Meaning" /><meta name="Author" content="SongAbout.fm" /><meta property="og:title" content="SongAbout.fm - Where you go to find out about a song." /><meta property="og:title" content="Song meanings about artist, songs and albums in the arists own words." /><meta property="og:type" content="website" /><meta property="og:url" content="http://www.songabout.fm" /><meta property="og:image" content="http://www.songabout.fm/images/logos/songaboutNavLogo.png" /><link rel="shortcut icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/main.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/homepageImage.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/album.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/artist.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/song.css" /><link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'><link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+</head>
+<body>
+<div id="songAboutWrapper">
+    <div id="headerWrapper">    
+        <div id="headerMenuBar">
+        	<div id="headerMenuWrapper" class="center">  
+                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="/images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
+                <div id="headerNav" class="left">
+                	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
+                </div>
+                <div id="headerSearch" class="left">
+                    <div id="headerSocialMenu" class="right">
+                        <div id="socialTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialInstagram" class="socialNav"><a href="http://instagram.com/songaboutfm" target="_blank"></a></div><div id="socialTumbler" class="socialNav"><a href="http://songaboutfm.tumblr.com/" target="_blank"></a></div>        
+                    </div>                	
+                    <div id="searchBox"><input type="text" id="searchSongAboutTxt" name="searchSongAboutTxt" size="38" maxlength="255"><div id="searchSongButton"><a href="#"></a></div></div>
+                </div>
+            </div>
+        </div>
+    </div>    <div id="contentWrapper" class="left"> 
+        <div id="songAboutContent" class="center">   
+			<div id="" class="left col-1"> 
+                    <div id="artistDetailSuggestedSongs" class="left">
+        <div id="topArtistTitle" class="center">
+            SUGGESTED SONGS
+        </div>
+        <div id="suggestedSongList">    
+			<div id="suggestedArtist-SOFSYJA13EF393E899" class="songItem left"><div class="songItemImg left"><a href="/artist/2-Chainz/song/We-Own-It-%28Fast-%26-Furious%29"><img src="http://cdn.7static.com/static/img/sleeveart/00/027/224/0002722499_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">We Own It (Fast & Furious)<br><span class="songItemTitleFootnote">2 Chainz</span></div></div><div id="suggestedArtist-SOAMJTW1315CD4B191" class="songItem left"><div class="songItemImg left"><a href="/artist/Shawty-Lo/song/Dunn%2C-Dunn"><img src="http://cdn.7static.com/static/img/sleeveart/00/002/074/0000207450_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Dunn, Dunn<br><span class="songItemTitleFootnote">Shawty Lo</span></div></div><div id="suggestedArtist-SODERYB141F7AAE3C6" class="songItem left"><div class="songItemImg left"><a href="/artist/Waka-Flocka-Flame/song/Obituary-%28feat.-Wooh-Da-Kid%29"><img src="http://cdn.7static.com/static/img/sleeveart/00/030/268/0003026827_200.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Obituary (feat. Wooh Da Kid)<br><span class="songItemTitleFootnote">Waka Flocka Flame</span></div></div>        </div>               				
+    </div>	
+           
+                
+                	<div id="artistDetailSuggestedArtist" class="left">
+        <div id="topArtistTitle" class="center">SUGGESTED ARTISTS</div>
+        <div id="suggestedArtistList">
+            <div id="suggestedArtist-ARPVJVZ12FE085D726" class="songItem left"><div class="songItemImg left"><a href="/artist/2-Chainz"><img src="http://userserve-ak.last.fm/serve/_/66730310/2+Chainz++aka+Tity+Boi.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">2 Chainz<br></div></div><div id="suggestedArtist-ARNQVRW1271F574448" class="songItem left"><div class="songItemImg left"><a href="/artist/Roscoe-Dash"><img src="http://userserve-ak.last.fm/serve/_/59356711/Roscoe+Dash+20759_108051742543395_10000015.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Roscoe Dash<br></div></div><div id="suggestedArtist-ARSZFMP13A4B3FFDFC" class="songItem left"><div class="songItemImg left"><a href="/artist/Dorrough"><img src="http://i.ytimg.com/li/doV2b8pkxt4/hqdefault.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Dorrough<br></div></div><div id="suggestedArtist-ARGTOTJ1264D12DF54" class="songItem left"><div class="songItemImg left"><a href="/artist/Waka-Flocka-Flame"><img src="http://upload.wikimedia.org/wikipedia/commons/f/ff/Waka-Flocka-Flame_101219_photoby_Adam-Bielawski.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Waka Flocka Flame<br></div></div><div id="suggestedArtist-AR0GSFY1187B9A5A2E" class="songItem left"><div class="songItemImg left"><a href="/artist/Rocko"><img src="http://userserve-ak.last.fm/serve/_/4522903.jpg" height="60" width="60" border="0"></a></div><div class="songItemTitle left">Rocko<br></div></div>        </div> 
+    </div>	                
+ 		
+            </div>
+			<div id="col-2" class="left col-2"> 			
+                <div class="artistDetailBox"> 
+                    <div class="artistItemImg">
+                        <img src="http://userserve-ak.last.fm/serve/_/390755.jpg" height="125" width="125" border="0">                     
+                    </div>
+                    <div id="artistItemSocialIcons" class="right">
+                    	<div id="artistItemSocialFB"><a href="#"></a></div>
+                        <div id="artistItemSocialTwitter"><a href="#"></a></div>
+                        <div id="artistItemSocialShare"><a href="#"></a></div>
+                    </div>
+    				<div class="artistItemDetailText">
+                    	Future                       <br />
+                       <span style="font-size:12px; font-weight: 200;">
+						   deep trap, trap music, current                       </span>
+                    </div>
+                    <div class="artistItemDetailMenu left">
+                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/Future/bio"></a></div>
+                        <div class="right" id="buttonClaimPage"><a href="#"></a></div>
+                       	<input type="hidden" name="artistNameInput" value="Future" />
+                    </div>        
+                </div>
+                
+                <br />
+                
+                <div id="artistDetailSongs">
+					<div id="suggestedArtist-b8edb02d-3dde-409d-93b5-d7132811f195" class="left"><div class="albumDetails left"><div class="songItemImg left"><img src="http://userserve-ak.last.fm/serve/64s/98201651.gif" height="60" width="60"></div><div class="songItemTitle left">Honest<br></div></div><div id="artistAlbumSetList" class="left"><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Honest"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">1) <a href="/~songabou/artist/Future/song/Honest">Honest</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Look-Ahead"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">2) <a href="/~songabou/artist/Future/song/Look-Ahead">Look Ahead</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Look-Ahead-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">3) <a href="/~songabou/artist/Future/song/Look-Ahead-%28Clean-Version%29">Look Ahead (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Honest-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">4) <a href="/~songabou/artist/Future/song/Honest-%28Clean-Version%29">Honest (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/T-Shirt"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">5) <a href="/~songabou/artist/Future/song/T-Shirt">T-Shirt</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/T-Shirt-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">6) <a href="/~songabou/artist/Future/song/T-Shirt-%28Clean-Version%29">T-Shirt (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Move-That-Dope"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">7) <a href="/~songabou/artist/Future/song/Move-That-Dope">Move That Dope</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Move-That-Doh-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">8) <a href="/~songabou/artist/Future/song/Move-That-Doh-%28Clean-Version%29">Move That Doh (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/My-Momma-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">9) <a href="/~songabou/artist/Future/song/My-Momma-%28Clean-Version%29">My Momma (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/My-Momma"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">10) <a href="/~songabou/artist/Future/song/My-Momma">My Momma</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I-Won-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">11) <a href="/~songabou/artist/Future/song/I-Won-%28Clean-Version%29">I Won (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I-Won"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">12) <a href="/~songabou/artist/Future/song/I-Won">I Won</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Never-Satisfied-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">13) <a href="/~songabou/artist/Future/song/Never-Satisfied-%28Clean-Version%29">Never Satisfied (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Never-Satisfied"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">14) <a href="/~songabou/artist/Future/song/Never-Satisfied">Never Satisfied</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I-Be-U-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">15) <a href="/~songabou/artist/Future/song/I-Be-U-%28Clean-Version%29">I Be U (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I-Be-U"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">16) <a href="/~songabou/artist/Future/song/I-Be-U">I Be U</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Covered-N-Money-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">17) <a href="/~songabou/artist/Future/song/Covered-N-Money-%28Clean-Version%29">Covered N Money (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Covered-N-Money"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">18) <a href="/~songabou/artist/Future/song/Covered-N-Money">Covered N Money</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Special"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">19) <a href="/~songabou/artist/Future/song/Special">Special</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Special-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">20) <a href="/~songabou/artist/Future/song/Special-%28Clean-Version%29">Special (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Benz-Friendz-%28Whatchutola%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">21) <a href="/~songabou/artist/Future/song/Benz-Friendz-%28Whatchutola%29">Benz Friendz (Whatchutola)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Blood%2C-Sweat%2C-Tears-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">22) <a href="/~songabou/artist/Future/song/Blood%2C-Sweat%2C-Tears-%28Clean-Version%29">Blood, Sweat, Tears (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Blood%2C-Sweat%2C-Tears"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">23) <a href="/~songabou/artist/Future/song/Blood%2C-Sweat%2C-Tears">Blood, Sweat, Tears</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Big-Rube-Speaks"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">24) <a href="/~songabou/artist/Future/song/Big-Rube-Speaks">Big Rube Speaks</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Big-Rube-Speaks-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">25) <a href="/~songabou/artist/Future/song/Big-Rube-Speaks-%28Clean-Version%29">Big Rube Speaks (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Side-Effects-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">26) <a href="/~songabou/artist/Future/song/Side-Effects-%28Clean-Version%29">Side Effects (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Side-Effects"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">27) <a href="/~songabou/artist/Future/song/Side-Effects">Side Effects</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I%27ll-Be-Yours"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">28) <a href="/~songabou/artist/Future/song/I%27ll-Be-Yours">I'll Be Yours</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/I%27ll-Be-Yours-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">29) <a href="/~songabou/artist/Future/song/I%27ll-Be-Yours-%28Clean-Version%29">I'll Be Yours (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/How-Can-I-Not"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">30) <a href="/~songabou/artist/Future/song/How-Can-I-Not">How Can I Not</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/How-Can-I-Not-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">31) <a href="/~songabou/artist/Future/song/How-Can-I-Not-%28Clean-Version%29">How Can I Not (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Sh%21t"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">32) <a href="/~songabou/artist/Future/song/Sh%21t">Sh!t</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Shhh...-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">33) <a href="/~songabou/artist/Future/song/Shhh...-%28Clean-Version%29">Shhh... (Clean Version)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Karate-Chop-%28Remix%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">34) <a href="/~songabou/artist/Future/song/Karate-Chop-%28Remix%29">Karate Chop (Remix)</a></div></div><div class="artistAlbumTrack left"><div class="playButton left"><a href="/~songabou/artist/Future/song/Karate-Chop-%28Remix%29-%28Clean-Version%29"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a></div><div class="albumTrackItemTitle left">35) <a href="/~songabou/artist/Future/song/Karate-Chop-%28Remix%29-%28Clean-Version%29">Karate Chop (Remix) (Clean Version)</a></div></div><span class="clear"></span></div><span class="clear"></span></div>                    
+                </div>
+                 <span class="clear"></span>
+            </div>                		
+            <span class="clear"></span>
+		</div>
+    </div>
+	<span class="clear"></span>
+    <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
+    <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>
+    <div id="artistVideoPop"  >   
+    				 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
+            <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
+		        
+    </div>    
+        <div id="footerWrapper" class="left">
+		<div id="footerMenuWrapper" class="center">  
+            <div id="footerCol1" class="left"><div id="footerLogo"><img src="/images/logos/logoSongAboutFooter.png" width="244" height="42"/></div><div id="footerDescription"><p> What's this song about? Fans, share your meanings here on SongAbout!</p></div><div id="footerSocialMenu"><div id="socialFooterTwitter" class="socialNav"><a href="https://twitter.com/SongAboutFm" target="_blank"></a></div><div id="socialFooterFacebook" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterGooglePlus" class="socialNav"><a href="#" target="_blank"></a></div><div id="socialFooterTumble" class="socialNav"><a href="http://songaboutfm.tumblr.com/"></a></div></div></div>
+            <div id="footerCol2" class="left">
+				<div id="footerNav"><a href="/lyrics.php">LYRICS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/artist.php">ARTISTS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/albums.php">ALBUMS</a><br><a href="/verified_artist.php">VERIFIED ARTIST</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/songabout-careers.php">JOBS</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/about-us.php">ABOUT US</a></div><div id="footerPolicy"><a href="/privacy-policy.php">PRIVACY POLICY</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/conditions.php">TERMS AND CONDITIONS</a></div><div id="songAboutStatBubble">MILLIONS OF SONGS & SONG LYRICS</div><div id="copyrightInfo">Copyright Songabout.fm 2014, All Rights Reserved</div></div>
+            <div id="footerCol3" class="left"><div id="footerContact"><div class="contactItem" id="contactEmail"><a href="mailto: info@songabout.fm">info@songabout.fm</a></div><div class="contactItem" id="contactPhone"></div><div id="contactAddress"></div></div></div></div>
+	</div>
+</div>
+<div id="verifyPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">Please search for your artist page and select the claim page button.  If you already claimed your page just go to your page and begin entering the meanings of your songs.  </div>
+</div>
+<div id="loadVerifyConfirmationPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">A Request has been sent to the adminstration to verify your account.  Once your account has been verified you will receive an email confirming your ability to edit your page and songs.  </div>
+</div>
+</body>
+</html>
+<!--- All script files are the bottom of page to help with loading--->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="http://www.songabout.fm/scripts/simpSocialPop.js"></script>
+<script type="text/javascript" src="http://www.songabout.fm/scripts/facebook/facebookLogin.js"></script>
+<script src="http://www.songabout.fm/scripts/hooks/echonest-hook.js"></script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=487191714631608";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+$(document).ready(function() {
+	$("#socialTwitter a").click(function() {
+		twitterPopUp();
+		return false;
+	});
+	$("#socialFacebook a").click(function() {
+		postToFBFeed();
+		return false;
+	});		
+	$('#verifyPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});	
+	$('#loadVerifyConfirmationPopUp').dialog({
+		autoOpen: false,minWidth: '550'
+	});				
+	$('#searchSongAboutTxt').keypress(function (e) {
+		  if (e.which == 13) {songAboutSearch($(this).val());}
+	});	
+		
+		
+		$('#artistVideoPop').dialog({ autoOpen: false });
+		$('#buttonPlayVideo').click(function(e) {
+			$('#artistVideoPop').dialog("open");
+			return false;
+		});
+	  	  $('#buttonClaimPage').click(function(e) {
+									fbLogin();
+						
+				return false;
+			});		
+	});
+</script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47099521-1', 'songabout.fm');ga('send', 'pageview');</script>

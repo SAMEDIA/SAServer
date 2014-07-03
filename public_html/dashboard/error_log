@@ -1,0 +1,36 @@
+[12-Sep-2013 11:24:12 America/Denver] PHP Warning:  require_once(/home/songabou/songabout_lib/SongAboutVerifiedArtist.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/songabou/public_html/dashboard/index.php on line 2
+[12-Sep-2013 11:24:12 America/Denver] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/songabou/songabout_lib/SongAboutVerifiedArtist.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/songabou/public_html/dashboard/index.php on line 2
+[18-Sep-2013 17:49:46 America/Denver] PHP Fatal error:  Class 'FratDB' not found in /home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php on line 76
+[18-Sep-2013 17:51:55 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'Unknown column 'ac.artist_name' in 'where clause'' in /home/songabou/songabout_lib/DB.php:48
+Stack trace:
+#0 /home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php(97): SongAboutDB->query('SELECT svu.*, s...')
+#1 /home/songabou/public_html/dashboard/index.php(18): SongAboutVerifiedArtist->fetchAllVerfied(1, 30, '', '  artist_name D...')
+#2 {main}
+  thrown in /home/songabou/songabout_lib/DB.php on line 48
+[18-Sep-2013 17:56:22 America/Denver] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/songabou/public_html/dashboard/index.php:20) in /home/songabou/public_html/includes/header.php on line 2
+[18-Sep-2013 17:56:22 America/Denver] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/songabou/public_html/dashboard/index.php:20) in /home/songabou/public_html/includes/header.php on line 9
+[19-Sep-2013 12:47:46 America/Denver] PHP Fatal error:  Class 'SongAboutVerifiedArtist' not found in /home/songabou/public_html/dashboard/action.php on line 15
+[19-Sep-2013 13:01:05 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE verified_artist_id=1' at line 1' in /home/songabou/songabout_lib/DB.php:48
+Stack trace:
+#0 /home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php(58): SongAboutDB->query('Update songabou...')
+#1 /home/songabou/public_html/dashboard/action.php(25): SongAboutVerifiedArtist->save()
+#2 {main}
+  thrown in /home/songabou/songabout_lib/DB.php on line 48
+[19-Sep-2013 13:02:09 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'Unknown column 'Verified' in 'field list'' in /home/songabou/songabout_lib/DB.php:48
+Stack trace:
+#0 /home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php(58): SongAboutDB->query('Update songabou...')
+#1 /home/songabou/public_html/dashboard/action.php(25): SongAboutVerifiedArtist->save()
+#2 {main}
+  thrown in /home/songabou/songabout_lib/DB.php on line 48
+[24-Sep-2013 17:55:59 America/Denver] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/tmp/sess_5277012df99a44594ef43e775283e6b1, O_RDWR) failed: Permission denied (13) in /home/songabou/public_html/dashboard/action.php on line 6
+[24-Sep-2013 17:55:59 America/Denver] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/songabou/public_html/dashboard/action.php:6) in /home/songabou/public_html/dashboard/action.php on line 6
+[24-Sep-2013 17:55:59 America/Denver] PHP Warning:  Unknown: open(/tmp/sess_5277012df99a44594ef43e775283e6b1, O_RDWR) failed: Permission denied (13) in Unknown on line 0
+[24-Sep-2013 17:55:59 America/Denver] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+[12-Mar-2014 19:33:54 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:34:05 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:35:16 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:35:26 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:45:39 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:45:49 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:46:21 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
+[12-Mar-2014 19:46:31 UTC] PHP Warning:  session_start(): Function spl_autoload_call() hasn't defined the class it was called for in /home/songabou/public_html/includes/header.php on line 4
