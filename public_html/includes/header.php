@@ -4,9 +4,9 @@
 	session_start();
 	
 	// Include Models
-	require_once '/home/songabou/songabout_lib/facebook/facebook.php';
-	require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
-	require_once '/home/songabou/songabout_lib/models/UserFacebook.php';	
+	require_once '../songabout_lib/facebook/facebook.php';
+	require_once '../songabout_lib/models/SongAboutUser.php';
+	require_once '../songabout_lib/models/UserFacebook.php';	
 
 	//Facebook Login
 	$app_id = "155802254626494";
@@ -122,7 +122,7 @@
     <div id="headerWrapper">    
         <div id="headerMenuBar">
         	<div id="headerMenuWrapper" class="center">  
-                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="/images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
+                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="../images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
                 <div id="headerNav" class="left">
                 	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
                 </div>

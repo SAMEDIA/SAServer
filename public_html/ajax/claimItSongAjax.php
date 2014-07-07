@@ -1,9 +1,9 @@
 <?php
-require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
-require_once '/home/songabou/songabout_lib/models/UserFacebook.php';	
-require_once '/home/songabou/songabout_lib/models/SongAboutArtist.php';	
-require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';	
-require_once '/home/songabou/songabout_lib/models/SongAboutMeaningPiece.php';	
+require_once '../songabout_lib/models/SongAboutUser.php';
+require_once '../songabout_lib/models/UserFacebook.php';	
+require_once '../songabout_lib/models/SongAboutArtist.php';	
+require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';	
+require_once '../songabout_lib/models/SongAboutMeaningPiece.php';	
 
 
 session_start();

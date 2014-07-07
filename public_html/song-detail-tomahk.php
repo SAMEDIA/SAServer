@@ -18,12 +18,12 @@
 		ob_start();
 	}
 
-	require_once '/home/songabou/songabout_lib/models/SongAboutMeaningPiece.php';	
-	require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
-	require_once '/home/songabou/songabout_lib/models/UserFacebook.php';	
-	require_once '/home/songabou/songabout_lib/models/SongAboutArtist.php';	
-	require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';	
-	require_once '/home/songabou/songabout_lib/models/SongAboutArtistStore.php';	
+	require_once '../songabout_lib/models/SongAboutMeaningPiece.php';	
+	require_once '../songabout_lib/models/SongAboutUser.php';
+	require_once '../songabout_lib/models/UserFacebook.php';	
+	require_once '../songabout_lib/models/SongAboutArtist.php';	
+	require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';	
+	require_once '../songabout_lib/models/SongAboutArtistStore.php';	
 
 	session_start();
 	
@@ -121,13 +121,13 @@
 		// Add redirect code
 	}
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
-                <?php 	//include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
+                <?php 	//include 'includes/sidebar-suggested-songs.php'; ?>           
                 
-                <?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		 		
+                <?php 	include 'includes/sidebar-suggested-artist.php'; ?> 		 		
             </div>
 			<div id="col-2" class="left col-2"> 
 				<div class="artistDetailBox"> 
@@ -395,7 +395,7 @@
 		<?php } ?>
         
     </div>     
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>
 <?php
 	file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();

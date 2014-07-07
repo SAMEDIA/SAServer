@@ -16,9 +16,9 @@
 	$showSearch = true;	
 		
 	// Homepage Caching Objects
-	require_once '/home/songabou/songabout_lib/models/PopularArtistCache.php';
-	require_once '/home/songabou/songabout_lib/models/PopularSongCache.php';
-	require_once '/home/songabou/songabout_lib/models/PopularAlbumCache.php';
+	require_once '../songabout_lib/models/PopularArtistCache.php';
+	require_once '../songabout_lib/models/PopularSongCache.php';
+	require_once '../songabout_lib/models/PopularAlbumCache.php';
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
@@ -33,12 +33,12 @@
 	$LFMetadataAPI = 'fa00dc1d536580b258963f1dedef189b';
 	$LFChartsAPI = '9b90fb74bdc84213310b43e7642b133e';
 	
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
+	require_once 'includes/staffPicksVar.php';
 
 	$topSongObj = new PopularSongCache();
 	$topSongs = $topSongObj->fetchAllSongs(1, 27, 'All', '', '', '  day_rating DESC');
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
 	<!-- Non animated slider but added code so that a slider can be added later -->
     <div id="contentHeaderWrapper" class="grayBG left"> 
     	<div id="contentHeader" class="center">  			
@@ -111,7 +111,7 @@
 	  return $data;
 	}  	
 	
-	include '/home/songabou/www/includes/footer.php'; 
+	include 'includes/footer.php'; 
 ?>
 <?php
 	file_put_contents($cache_filename, ob_get_contents());  

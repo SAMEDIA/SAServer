@@ -55,7 +55,7 @@
 		// Add redirect code
 	}
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
@@ -139,4 +139,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>

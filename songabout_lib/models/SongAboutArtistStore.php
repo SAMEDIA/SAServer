@@ -1,5 +1,5 @@
 <?php
-require_once '/home/songabou/songabout_lib/DB.php';
+require_once '../songabout_lib/DB.php';
 
 // Caches Data from echonest for the homepage of a site.  To cache only last a day and updates each day.
 // Copyrighted 2012 By Aaron Ho (sosimpull@gmail.com) licensed for use on Songabout.

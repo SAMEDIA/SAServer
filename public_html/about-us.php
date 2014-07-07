@@ -5,21 +5,21 @@
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
-	require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+	require_once '../lib/EchoNest/Autoloader.php';
 	EchoNest_Autoloader::register();
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
 	
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
-	require_once '/home/songabou/songabout_lib/models/PopularArtistCache.php';
-	require_once '/home/songabou/songabout_lib/models/PopularSongCache.php';
-	require_once '/home/songabou/songabout_lib/models/PopularAlbumCache.php';
+	require_once 'includes/staffPicksVar.php';
+	require_once '../songabout_lib/models/PopularArtistCache.php';
+	require_once '../songabout_lib/models/PopularSongCache.php';
+	require_once '../songabout_lib/models/PopularAlbumCache.php';
 	
 	$topSongObj = new PopularSongCache();
 	//$topSongObj->updateDailyData();
 	$topSongs = $topSongObj->fetchAllSongs(1, 12, 'All', '', '', '  day_rating DESC');		
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
 	<div id="aboutUsContentHeaderWrapper" class="left sg-borderless"> 
         <div id="contentHeader" class="center">  
             <div id="aboutUsBox">
@@ -143,7 +143,7 @@
     </div>
 	<span class="clear"></span>
 <?php 	
-	include '/home/songabou/www/includes/footer.php'; 
+	include 'includes/footer.php'; 
 	function getCurlData($url) {
 	  $ch = curl_init();
 	  $timeout = 5;

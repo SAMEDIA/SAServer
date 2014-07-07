@@ -1,5 +1,5 @@
 <?php
-	require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';	
+	require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';	
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "verified-artist";
 	$showSearch = true;	
@@ -11,10 +11,10 @@
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
 	
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
+	require_once 'includes/staffPicksVar.php';
 			
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
 	<div id="contentHeaderWrapper" class="grayBG left"> 
         <div id="contentHeader" class="center">  
             <div id="artistClaimBox">
@@ -55,4 +55,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>

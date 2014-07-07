@@ -12,7 +12,7 @@
 
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
 
-	require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+	require_once '../lib/EchoNest/Autoloader.php';
 
 	EchoNest_Autoloader::register();
 
@@ -34,13 +34,13 @@
 
 	
 
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
+	require_once 'includes/staffPicksVar.php';
 
 			
 
 ?>
 
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
 
     <div id="contentWrapper" class="left"> 
 
@@ -66,5 +66,5 @@
 
 	<span class="clear"></span>
 
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>
 

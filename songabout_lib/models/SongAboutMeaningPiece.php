@@ -1,5 +1,5 @@
 <?php
-require_once '/home/songabou/songabout_lib/DB.php';
+require_once '../songabout_lib/DB.php';
 session_start();
 	
 class SongAboutMeaningPiece {

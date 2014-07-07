@@ -1,5 +1,5 @@
 <?php
-	require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';
+	require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';
 
 	session_start();
 
@@ -22,12 +22,12 @@
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
 	
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
+	require_once 'includes/staffPicksVar.php';
 	
 	$allVerifiedArtistObj = new SongAboutVerifiedArtist();
 	$allVerifiedArtist = $allVerifiedArtistObj->fetchAllVerfied(1, 30, '', $orderBySQL = "  artist_name DESC");			
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
             <div id="songAboutBase" class="center">
@@ -71,7 +71,7 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>
 	<script src="http://utah.stormfrontproductions.net/~songabou/scripts/DataTables-1.9.4/js/jquery.dataTables.min.js"></script>
 	<script language="javascript">
 		$(document).ready(function() {

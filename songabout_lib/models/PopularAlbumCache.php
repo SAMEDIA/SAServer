@@ -1,5 +1,5 @@
 <?php
-require_once '/home/songabou/songabout_lib/DB.php';
+require_once '../songabout_lib/DB.php';
 
 // Caches Data from echonest for the homepage of a site.  To cache only last a day and updates each day.
 // Copyrighted 2012 By Aaron Ho (sosimpull@gmail.com) licensed for use on Songabout.
@@ -107,7 +107,7 @@ class PopularAlbumCache {
 		
 		// This is the main infromation API
 		$echoNestAPIKey = 'YTEIFSAM5TAJZ4JBR';
-		require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+		require_once '../lib/EchoNest/Autoloader.php';
 		EchoNest_Autoloader::register();
 		$songAboutEchonest = new EchoNest_Client();
 		$songAboutEchonest->authenticate($echoNestAPIKey);		

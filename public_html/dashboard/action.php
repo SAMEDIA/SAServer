@@ -1,7 +1,7 @@
 <?php
 // Include Models
-	require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
-	require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';	
+	require_once '../songabout_lib/models/SongAboutUser.php';
+	require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';	
 	
 	session_start();
 

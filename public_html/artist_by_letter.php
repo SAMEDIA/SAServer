@@ -5,15 +5,15 @@
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
-	require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+	require_once '../lib/EchoNest/Autoloader.php';
 	EchoNest_Autoloader::register();
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
 	
-	require_once '/home/songabou/www/includes/staffPicksVar.php';
+	require_once 'includes/staffPicksVar.php';
 			
 ?>
-<?php 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include 'includes/header.php'; ?>
 	<div id="contentHeaderWrapper" class="grayBG left"> 
         <div id="contentHeader" class="center">  
             <div id="artistClaimBox">
@@ -120,4 +120,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include 'includes/footer.php'; ?>
