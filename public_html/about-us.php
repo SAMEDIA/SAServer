@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -19,7 +19,7 @@
 	//$topSongObj->updateDailyData();
 	$topSongs = $topSongObj->fetchAllSongs(1, 12, 'All', '', '', '  day_rating DESC');		
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 	<div id="aboutUsContentHeaderWrapper" class="left sg-borderless"> 
         <div id="contentHeader" class="center">  
             <div id="aboutUsBox">
@@ -34,7 +34,7 @@
                 <div class="sectionTitles left">
                 	Top Lyrics
                 </div>
-                <?
+                <?php
                     $count = 0;
                     foreach ($topSongs as &$song) {
 						$artistSearchString = preg_replace("~[\\\\/:*?'()<>|]~","",str_replace(" ","-",$song->artist_name));
@@ -76,7 +76,7 @@
                 ?>        
 
 
-<?	       
+<?php	       
 				
 				$topAlbumArtists = $songAboutEchonest->getArtistApi()->search(array('sort' => 'hotttnesss-desc', 'results' => '25', 'bucket' => array("id:7digital-US", "reviews")));
 				
@@ -142,7 +142,7 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	
+<?php 	
 	include '/home/songabou/www/includes/footer.php'; 
 	function getCurlData($url) {
 	  $ch = curl_init();

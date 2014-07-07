@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -13,7 +13,7 @@
 	require_once '/home/songabou/www/includes/staffPicksVar.php';
 			
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 	<div id="contentHeaderWrapper" class="left sg-borderless"> 
         <div id="contentHeader" class="center">  
             <div id="aboutUsBox">
@@ -131,4 +131,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>

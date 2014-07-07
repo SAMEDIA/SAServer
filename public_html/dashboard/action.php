@@ -1,4 +1,4 @@
-<?
+<?php
 // Include Models
 	require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
 	require_once '/home/songabou/songabout_lib/models/SongAboutVerifiedArtist.php';	

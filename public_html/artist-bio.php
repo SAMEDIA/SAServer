@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about - Artist Bio";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -60,18 +60,18 @@
 		// Add redirect code
 	}
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
                 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		           		
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		           		
             </div>
 			<div id="col-2" class="left col-2"> 
 				<div class="artistDetailBox"> 
                     <div class="artistItemImg">
-                        <? 
+                        <?php 
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
 								if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
@@ -94,7 +94,7 @@
                     	<?php echo $artistProfile["name"]; ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
-						   <?
+						   <?php
                                $genreCount = 0;
                                foreach ($artistProfileGenre["genres"] as &$artisGenre) {
                                    echo $artisGenre["name"];
@@ -127,7 +127,7 @@
                 <div id="artistDetailBio" class="left grayBG">
 					<div id="artistBioTitle" class="left">
                         <div id="artistBiotitleText">BIO</div><br /><br />    
-                        <?
+                        <?php
 							if(isset($artistBioInfo) && $artistBioInfo != "") {
 								$artistAudioJSON = json_decode($artistBioInfo);
 								//var_dump($artistAudioJSON->artist->bio->content);		
@@ -152,4 +152,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>

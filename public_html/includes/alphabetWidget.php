@@ -1,4 +1,4 @@
-<?
+<?php
 	$alphabetStringHtml = "<div id=\"alphbetWrapper\">";
 		$alphabetStringHtml .= '<a href="#">#</a>';
 		foreach(range('a','z') as $i) {

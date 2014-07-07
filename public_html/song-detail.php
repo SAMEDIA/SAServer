@@ -1,4 +1,4 @@
-<?	
+<?php	
 	$cache_time = 864000; // Time in seconds to keep a page cached  10 day cache
 	$cache_folder = '/home/songabou/public_html/cache/song/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5(str_replace("?cache=true", "", $_SERVER['REQUEST_URI'])); // Location to lookup or store cached file  
@@ -142,14 +142,14 @@
 		// Add redirect code
 	}
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
-			<div id="" class="left col-1"><? 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?></div>
+			<div id="" class="left col-1"><?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?></div>
 			<div id="col-2" class="left col-2"> 
 				<div class="artistDetailBox"> 
                     <div class="artistItemImg">
-                        <? 
+                        <?php 
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
 								if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
@@ -166,7 +166,7 @@
                     <div id="artistItemSocialIcons" class="right"><div id="artistItemSocialFB"><a href="#"></a></div><div id="artistItemSocialTwitter"><a href="#"></a></div><div id="artistItemSocialShare"><a href="#"></a></div></div>
     				<div class="artistItemDetailText">
                     	<?php echo strtoupper($artistProfile["name"]); ?>
-                       <br /><?
+                       <br /><?php
 						   $genreCount = 0;
 						   /*
 						   <span style="font-size:12px; font-weight: 200;">
@@ -186,10 +186,10 @@
                         <input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>       
                 </div><br />
-                <? //if(0 == 0) { ?>
+                <?php //if(0 == 0) { ?>
                     <div id="songPlayerWrapper" class="left">
                     	<div id="songPlayerSongDetails"> 
-                            <? //<div id="songPlayerCoverImg" class="songPlayerCoverImg left">
+                            <?php //<div id="songPlayerCoverImg" class="songPlayerCoverImg left">
 								
 								 // Removed per new song preview addition kept just in case that new preview fails
 								 /* if(isset($songDetailInfoJSON->results->trackmatches->track->image[1]) && $songDetailInfoJSON->results->trackmatches->track->image[1]->{'#text'} != "") {
@@ -200,7 +200,7 @@
                             </div>*/?> 
                             <a id="songPlayerCoverImgPlayer" data-width="600" data-bop-link href="http://www.bop.fm/embed/<?php echo $artistName ?>/<?php echo $songName ?>"><?php echo $artistName ?> - <?php echo $songName ?></a> 
 <script async src="http://assets.bop.fm/embed.js"></script> 
-                            <?
+                            <?php
 								if(isset($_SESSION['user_id'])) {
 									if(isset($SongAboutArtistObj->artist_id)) {
 										$songAboutVerifiedArtistObj = new SongAboutVerifiedArtist();
@@ -228,13 +228,13 @@
                                     <?php echo  strtoupper(str_replace("-"," ",$songName)); ?> 
                                 </div>
                                 <div class="songPlayerSongActionArea left">
-									<? /* Taking out but saving just in case other song preview dies out.
+									<?php /* Taking out but saving just in case other song preview dies out.
                                     <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?php echo $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
                                     <div id="playerPauseButton" class="playerPause left"><a href="#" onclick="pausePreviewSong(); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPausePlayer.png" height="11" width="7" border="0"></a></div>
 									*/ ?>
                                 </div>                               
                                 </code></pre>                                
-                                <? /*<div id="controls" style="display:none;">
+                                <?php /*<div id="controls" style="display:none;">
                                     <!---<button onclick="track.play()">track.play()</button>
                                     <button onclick="track.play('SoundCloud')">track.play('SoundCloud')</button> --->                         
                                 </div>
@@ -243,20 +243,20 @@
                             </div>
                         </div>
                         <div class="songPlayerFooterMenu left">
-                            <? 
+                            <?php 
 								if($isVerifiedForPage) {
 									echo'<div class="left" id="buttonEditPlayVideo"><a href="#"></a></div>';
 								} else {
 									echo'<div class="left" id="buttonPlayVideo"><a href="#"></a></div>';
 								}
 							?>                           
-                           <? /*<div class="right" id="buttonBuySong"><a href="#"></a></div> */ ?>
-                            <? if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
+                           <?php /*<div class="right" id="buttonBuySong"><a href="#"></a></div> */ ?>
+                            <?php if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
 								<div class="right" id="buttonBuyShirt"><a href="<?php echo $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
 								
-							<? } ?>
+							<?php } ?>
                         </div>
-                        <?
+                        <?php
 							$songPieces = explode('<br />', nl2br($songLyricsJSON->track->lyrics));
 							$count = 0;
 							$songPiecesHtml ="";								
@@ -268,18 +268,18 @@
 						?>                       
                         <div id="songDetailLyrics" class="left">
                             <div id="songDetailLyricsTextArea">
-								<? if($isVerifiedForPage) { ?>
-                                    <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><? if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meanting_text;}?></textarea>
+								<?php if($isVerifiedForPage) { ?>
+                                    <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><?php if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meanting_text;}?></textarea>
                                     <div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit('songPiece-0', 0, '<?php echo $songLyricsJSON->track->amg ?>'); return false;"></a></div>
-                                <? } else if($songMeaningsArray[0] != "") { ?>
-                                		<div id="songLyric-0" class="songLyricItem left songLyricItemBox"><? echo $songMeaningsArray[0]->meanting_text; ?></div>
-                                <? } else { ?>
+                                <?php } else if($songMeaningsArray[0] != "") { ?>
+                                		<div id="songLyric-0" class="songLyricItem left songLyricItemBox"><?php echo $songMeaningsArray[0]->meanting_text; ?></div>
+                                <?php } else { ?>
                                 	<div id="songLyric-0" class="songLyricItem left songLyricItemBox">No song meaning at this time.</div>
-                                <? } ?>
+                                <?php } ?>
                                 <span class="clear"></span>
                             </div>
                             <div id="songDetailLyricsTitle" class="left">  
-								<? 
+								<?php 
 									// Makes sure there are actual lyrics not a null songs should have more then 2 lyrics
 									//$songPiecesHtml .= '<div style="font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif; font-weight: 200; font-size: 15px; float: left;"><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></div><br>';
 									if(count($songPieces) >= 2) {																														
@@ -324,26 +324,26 @@
 									}
 									echo $songPiecesHtml;
 								?> 
-                                <? if(isset($songLyricsJSON->track->writer)): ?>
+                                <?php if(isset($songLyricsJSON->track->writer)): ?>
                                     <br>
                                     <strong>Song Writer</strong>: <br> <?php echo $songLyricsJSON->track->writer; ?>                                   
-                                <? endif; ?>
-                                <? if(isset($songLyricsJSON->track->copyright)): ?>
+                                <?php endif; ?>
+                                <?php if(isset($songLyricsJSON->track->copyright)): ?>
                                     <br>
                                     <strong>Copyright</strong>:  <br> <?php echo $songLyricsJSON->track->copyright; ?>
-                                <? endif; ?>   
+                                <?php endif; ?>   
                                 <br>
                                 Lyrics licensed by <a href="http://www.lyricfind.com/licensing/" target="_blank">lyricfind</a>           
                             </div>                            
                         </div>                        
                         <span class="clear"></span>
                     </div>
-                    <? /* <center><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></center><br>
+                    <?php /* <center><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></center><br>
                 } else { ?>
 					<div id="songPlayerWrapper" class="left" style="height: 40px; padding-left: 20px; padding-bottom:19px;">
                     	<h3>No song details at this time.</h3>
 					</div>
-				<? } */?>              
+				<?php } */?>              
                 <div id="songDetailComments" class="left">
 					<div id="songDetailCommentsTitle" class="left">Leave Comments</div>
                     <div id="songDetailCommentFB">
@@ -357,16 +357,16 @@
 	<span class="clear"></span>
     <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
     <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>   
-    <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
-    	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
+    <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
+    	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
 			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
-		<? } else { ?>
+		<?php } else { ?>
 			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
-		<? } ?>      
+		<?php } ?>      
     </div>     
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
-<?
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php
 	file_put_contents($cache_filename, sanitize_output(ob_get_contents()));  
 	ob_end_flush();
 ?>

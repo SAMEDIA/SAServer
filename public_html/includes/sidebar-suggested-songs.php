@@ -1,10 +1,10 @@
-<? if(isset($artistSimilarSongs)) { ?>
+<?php if(isset($artistSimilarSongs)) { ?>
     <div id="artistDetailSuggestedSongs" class="left">
         <div id="topArtistTitle" class="center">
             SUGGESTED SONGS
         </div>
         <div id="suggestedSongList">    
-			<?
+			<?php
                 $count = 0;
                 foreach ($artistSimilarSongs as &$artistSimilarSong) {
                     if($artistSimilarSong["tracks"][0]["release_image"] != "") {
@@ -27,4 +27,4 @@
             ?>
         </div>               				
     </div>	
-<? } ?>
+<?php } ?>

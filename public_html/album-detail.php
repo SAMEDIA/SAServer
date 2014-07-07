@@ -1,4 +1,4 @@
-<?
+<?php
 	$cache_time = 3600; // Time in seconds to keep a page cached  
 	$cache_folder = '/home/songabou/public_html/cache/albums/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
@@ -77,18 +77,18 @@
 	}
 
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
                 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		
             </div>
 			<div id="col-2" class="left col-2"> 			
                 <div class="artistDetailBox"> 
                     <div class="artistItemImg">
-                        <? 
+                        <?php 
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
 								if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
@@ -111,7 +111,7 @@
                     	<?php echo $artistProfile["name"]; ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
-						   <?
+						   <?php
                                $genreCount = 0;
                                foreach ($artistProfileGenre["genres"] as &$artisGenre) {
                                    echo $artisGenre["name"];
@@ -135,7 +135,7 @@
                 <br />
                 
                 <div id="artistDetailSongs">
-					<?
+					<?php
 						//require_once '/home/songabou/public_html/SevenDigital.php';
 						//$sd = new SevenDigital();
 						//$response = $sd->request('artist', 'search', array('q' => 'daft punk', 'sort' => 'score desc'));
@@ -205,17 +205,17 @@
 	<span class="clear"></span>
     <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
     <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>
-    <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
-    	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
+    <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
+    	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
 			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
-		<? } else { ?>
+		<?php } else { ?>
 			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
-		<? } ?>
+		<?php } ?>
         
     </div>    
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
-<?
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php
 	file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();
 ?>

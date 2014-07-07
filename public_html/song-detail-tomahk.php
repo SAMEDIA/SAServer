@@ -1,4 +1,4 @@
-<?
+<?php
 	$cache_time = 3600 * 12; // Time in seconds to keep a page cached  
 	$cache_folder = '/home/songabou/public_html/cache/songs/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
@@ -121,18 +121,18 @@
 		// Add redirect code
 	}
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
-                <? 	//include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
+                <?php 	//include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
                 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		 		
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		 		
             </div>
 			<div id="col-2" class="left col-2"> 
 				<div class="artistDetailBox"> 
                     <div class="artistItemImg">
-                        <? 
+                        <?php 
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
 								if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
@@ -155,7 +155,7 @@
                     	<?php echo strtoupper($artistProfile["name"]); ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
-                       <?
+                       <?php
 						   $genreCount = 0;
 						   foreach ($artistProfileGenre["genres"] as &$artisGenre) {
 							   echo $artisGenre["name"];
@@ -177,11 +177,11 @@
                     </div>       
                 </div>
                 <br />
-                <? //if(0 == 0) { ?>
+                <?php //if(0 == 0) { ?>
                     <div id="songPlayerWrapper" class="left">
                     	<div id="songPlayerSongDetails"> 
                             <div id="songPlayerCoverImg" class="songPlayerCoverImg left">
-								<?
+								<?php
 								 // Removed per new song preview addition kept just in case that new preview fails
 								 /* if(isset($songDetailInfoJSON->results->trackmatches->track->image[1]) && $songDetailInfoJSON->results->trackmatches->track->image[1]->{'#text'} != "") {
                                     echo '<img src=" ' . $songDetailInfoJSON->results->trackmatches->track->image[1]->{'#text'} .'" height="125" width="125" border="0">';
@@ -190,7 +190,7 @@
                                 } */?> 
                                 <img src="http://utah.stormfrontproductions.net/~songabou/images/noSGcover.png" height="125" width="125" border="0">                      
                             </div>
-                            <?
+                            <?php
 								if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 									if(isset($SongAboutArtistObj->artist_id)) {
 										$songAboutVerifiedArtistObj = new SongAboutVerifiedArtist();
@@ -215,7 +215,7 @@
                                     <?php echo  strtoupper(str_replace("-"," ",$songName)); ?> 
                                 </div>
                                 <div class="songPlayerSongActionArea left">
-									<? /* Taking out but saving just in case other song preview dies out.
+									<?php /* Taking out but saving just in case other song preview dies out.
                                     <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?php echo $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://utah.stormfrontproductions.net/~songabou/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
                                     <div id="playerPauseButton" class="playerPause left"><a href="#" onclick="pausePreviewSong(); return false;"><img src="http://utah.stormfrontproductions.net/~songabou/images/buttons/buttonPausePlayer.png" height="11" width="7" border="0"></a></div>
 									*/ ?>
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                         <div class="songPlayerFooterMenu left">
-                            <? 
+                            <?php 
 								if($isVerifiedForPage) {
 									echo'<div class="left" id="buttonEditPlayVideo"><a href="#"></a></div>';
 								} else {
@@ -246,16 +246,16 @@
 							?>
                             
                             <div class="right" id="buttonBuySong"><a href="#"></a></div>
-                            <? if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
+                            <?php if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
 								<div class="right" id="buttonBuyRingtone"><a href="<?php echo $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
 								
-							<? } ?>
+							<?php } ?>
                         </div>
                         
                         <div id="songDetailLyrics" class="left">
                             <div id="songDetailLyricsTitle" class="left">  
                             	
-								<? 
+								<?php 
 									
 									$songPieces = explode('<br />', nl2br($songLyricsJSON->track->lyrics));
 									//echo nl2br($songLyricsJSON->track->lyrics);
@@ -323,12 +323,12 @@
                         </div>                        
                         <span class="clear"></span>
                     </div>
-                    <? /* <center><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></center><br>
+                    <?php /* <center><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></center><br>
                 } else { ?>
 					<div id="songPlayerWrapper" class="left" style="height: 40px; padding-left: 20px; padding-bottom:19px;">
                     	<h3>No song details at this time.</h3>
 					</div>
-				<? } */?>
+				<?php } */?>
                 
                 <div id="songDetailComments" class="left">
 					<div id="songDetailCommentsTitle" class="left">  
@@ -386,17 +386,17 @@
 		playerEl.appendChild(track.render());
 	}
     </script>    
-    <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
-    	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
+    <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
+    	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
 			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
-		<? } else { ?>
+		<?php } else { ?>
 			 <img src="http://utah.stormfrontproductions.net/~songabou/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
-		<? } ?>
+		<?php } ?>
         
     </div>     
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
-<?
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php
 	file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();
 ?>

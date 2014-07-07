@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -55,14 +55,14 @@
 		// Add redirect code
 	}
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
                 <div id="artistDetailSuggestedSongs" class="left">
 					<div id="topArtistTitle" class="center">
                         SUGGESTED SONGS
-                        <?
+                        <?php
 							$count = 0;
 							/*foreach ($artistSimilarSongs as &$artistSugSong) {
 								if($artistSugSong["images"]["0"]["url"] != "") {
@@ -90,7 +90,7 @@
                         SUGGESTED ARTISTS                       
                     </div>
                     <div id="suggestedArtistList">
-                        <?
+                        <?php
 							$count = 0;
 							foreach ($artistSimilar as &$artistSimilar) {
 								if($artistSimilar["images"]["0"]["url"] != "") {
@@ -115,7 +115,7 @@
             </div>
 			<div id="col-2" class="left col-2"> 
 				<div class="artistItemImg">
-                	<? if(isset($artistImages[0]["url"]) && $artistImages[0]["url"] != "") {
+                	<?php if(isset($artistImages[0]["url"]) && $artistImages[0]["url"] != "") {
 						echo '<img src=" ' . $artistProfile["images"][0]["url"].'" height="125" width="125" border="0">';
 					} else {
 						echo '<img src=" ' . $artistProfile["images"][0]["url"].'" height="125" width="125" border="0">';
@@ -131,7 +131,7 @@
  					<div id="topArtistTitle" class="center">
                         TOP ARTISTS SONGS                 
                     </div>
-                	<?  //var_dump($artistAudio) ?>
+                	<?php  //var_dump($artistAudio) ?>
                 </div>
                  <span class="clear"></span>
             </div>                		
@@ -139,4 +139,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>

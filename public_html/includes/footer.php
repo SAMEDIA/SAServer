@@ -1,4 +1,4 @@
-    <?
+    <?php
 		session_start();
 	?>
     <div id="footerWrapper" class="left">
@@ -29,7 +29,7 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=487191714631608";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<?
+<?php
 	if($pageTitle = 'Homepage') {
 		/*echo '<script src="http://www.songabout.fm/scripts/staffPicks.js"></script>;*/
 	} 	   
@@ -53,11 +53,11 @@ $(document).ready(function() {
 	$('#searchSongAboutTxt').keypress(function (e) {
 		  if (e.which == 13) {songAboutSearch($(this).val());}
 	});	
-	<? if($page == 'Homepage') { ?>
+	<?php if($page == 'Homepage') { ?>
 		$('#searchSongAboutTxtHome').keypress(function (e) {
 			if (e.which == 13) {songAboutSearch($(this).val());}
 		});
-	<? } else if($page == 'song-detail') { ?>	
+	<?php } else if($page == 'song-detail') { ?>	
 		$(".songPiece").each(function(e) {
 		  	$(this).click(function(e) {
 			  if($(this).attr('id') != "") {
@@ -69,19 +69,19 @@ $(document).ready(function() {
 			$(this).dialog({autoOpen: false});
 		});
 		
-	<? } else if($page == 'verified-artist') { ?>	
-		  	$('#verifyMeButton').click(function(e) {<? if(isset($_SESSION['activeUser'])) { ?>loadVerifyPopUp();<? } else {?>fbLogin();<? } ?>
+	<?php } else if($page == 'verified-artist') { ?>	
+		  	$('#verifyMeButton').click(function(e) {<?php if(isset($_SESSION['activeUser'])) { ?>loadVerifyPopUp();<?php } else {?>fbLogin();<?php } ?>
 				return false;
 			});		
-	<? } ?>	
-	<? if($page == 'album-detail' || $page == 'song-detail' || $page == 'artist_detail') { ?>	
+	<?php } ?>	
+	<?php if($page == 'album-detail' || $page == 'song-detail' || $page == 'artist_detail') { ?>	
 		$('#artistVideoPop').dialog({ autoOpen: false });
 		$('#buttonPlayVideo').click(function(e) {
 			$('#artistVideoPop').dialog("open");
 			return false;
 		});
 	  	  $('#buttonClaimPage').click(function(e) {
-				<? if(isset($_SESSION['activeUser']) && isset($artistName)) { ?>
+				<?php if(isset($_SESSION['activeUser']) && isset($artistName)) { ?>
 					$.ajax({
 						url: "http://www.songabout.fm/ajax/claimItAjax.php",
 						dataType: "html",
@@ -94,12 +94,12 @@ $(document).ready(function() {
 							}
 						}
 					});				 
-				<? } else {?>
+				<?php } else {?>
 					fbLogin();
-				<? } ?>		
+				<?php } ?>		
 				return false;
 			});		
-	<? } ?>
+	<?php } ?>
 });
 </script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47099521-1', 'songabout.fm');ga('send', 'pageview');</script>

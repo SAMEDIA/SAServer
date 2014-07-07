@@ -1,4 +1,4 @@
-<?
+<?php
 	$cache_time = 1800; // Time in seconds to keep a page cached  
 	$cache_folder = '/home/songabou/public_html/cache/pages/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
@@ -36,7 +36,7 @@
 	require_once '/home/songabou/www/includes/staffPicksVar.php';
 			
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 	<!-- Non animated slider but added code so that a slider can be added later -->
     <div id="songaboutSlideWrapper" class="left">
         <div id="songaboutSlideItem" class="center">
@@ -45,7 +45,7 @@
         <div id="songaboutSlideSearch" class="center">
             <div id="songaboutSlideSearchMenu" class="right">
                 <div id="alphaSearch">
-                    <? include '/home/songabou/www/includes/alphabetWidget.php'; ?>
+                    <?php include '/home/songabou/www/includes/alphabetWidget.php'; ?>
                 </div>
                 <div id="searchBox">
                     <input type="text" id="searchSongAboutTxtHome" name="searchSongAboutTxtHome" size="38" maxlength="255">
@@ -59,7 +59,7 @@
     </div>	
     <div id="contentHeaderWrapper" class="grayBG left"> 
     	<div id="contentHeader" class="center">  			
-			<?
+			<?php
                 $topAlbumArtists = $songAboutEchonest->getArtistApi()->search(array('sort' => 'hotttnesss-desc', 'results' => '25', 'bucket' => array("id:7digital-US", "reviews")));
                 //echo var_dump($topAlbumArtists);
                 
@@ -112,7 +112,7 @@
     </div>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
-			<?	       
+			<?php	       
 				//$topArtists = $songAboutEchonest->getArtistApi()->search(array('results' => '6', 'sort' => 'hotttnesss-desc', 'bucket' => array("images", "hotttnesss")));	
 				
 				$topArtistsObj = new PopularArtistCache();
@@ -205,14 +205,14 @@
     </div>
 	<span class="clear"></span>
 	
-    <? /*
+    <?php /*
     <div class="contentFooterWrapperWidget grayBG left"> 
     	<div id="staffPicksContentFooterWidget" class="contentFooterWidget center">  
         	<div id="sgStaffPicks" class="left">
             	<div class="sectionTitles left">
                 	Staff Picks          
                 </div>
-				<?
+				<?php
 					$staffHtml = "";
 					$homepageStaffPicksJSON = json_decode($homepageStaffPicks);
 					foreach($homepageStaffPicksJSON->staffPicks as $pickItem) {
@@ -240,7 +240,7 @@
         	<div class="sectionTitles left">
             	Top Lyrics
              </div>
-                <?
+                <?php
 					$count = 0;
 					foreach ($topSongs as &$song) {
 						$artistSearchString = preg_replace("~[\\\\/:*?'()<>|]~","",str_replace(" ","-",$song->artist_name));
@@ -286,7 +286,7 @@
     </div>      
     <span class="clear"></span>
     
-<? 	
+<?php 	
 	function getCurlData($url) {
 	  $ch = curl_init();
 	  $timeout = 5;
@@ -300,7 +300,7 @@
 	
 	include '/home/songabou/www/includes/footer.php'; 
 ?>
-<?
+<?php
 	file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();
 ?>

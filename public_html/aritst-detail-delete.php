@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 
@@ -40,7 +40,7 @@
 
 ?>
 
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 
     <div id="contentWrapper" class="left"> 
 
@@ -66,5 +66,5 @@
 
 	<span class="clear"></span>
 
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>
 

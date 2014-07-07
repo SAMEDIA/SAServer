@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -13,7 +13,7 @@
 	require_once '/home/songabou/www/includes/staffPicksVar.php';
 			
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 	<div id="contentHeaderWrapper" class="grayBG left"> 
         <div id="contentHeader" class="center">  
             <div id="artistClaimBox">
@@ -28,7 +28,7 @@
     </div>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
-	<?
+	<?php
 			$topAlbumArtists = $songAboutEchonest->getArtistApi()->search(array('sort' => 'hotttnesss-desc', 'results' => '25', 'bucket' => array("id:7digital-US", "reviews")));
 			//echo var_dump($topAlbumArtists);
 			
@@ -75,4 +75,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>

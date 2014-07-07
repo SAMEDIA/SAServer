@@ -1,4 +1,4 @@
-<?
+<?php
 
 	$homepageStaffPicks = '{
 		"staffPicks": [

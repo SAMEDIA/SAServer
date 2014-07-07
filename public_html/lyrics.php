@@ -1,4 +1,4 @@
-<?
+<?php
 	$cache_time = 1800; // Time in seconds to keep a page cached  
 	$cache_folder = '/home/songabou/public_html/cache/pages/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
@@ -38,7 +38,7 @@
 	$topSongObj = new PopularSongCache();
 	$topSongs = $topSongObj->fetchAllSongs(1, 27, 'All', '', '', '  day_rating DESC');
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
 	<!-- Non animated slider but added code so that a slider can be added later -->
     <div id="contentHeaderWrapper" class="grayBG left"> 
     	<div id="contentHeader" class="center">  			
@@ -52,7 +52,7 @@
         	<div class="sectionTitles left">
             	Top Lyrics
              </div>
-                <?
+                <?php
 					$count = 0;
 					// The APIs return duplicates at time this is a double check to make sure they are not displaed.
 					$lastSongTitle = "";
@@ -99,7 +99,7 @@
     </div>      
     <span class="clear"></span>
     
-<? 	
+<?php 	
 	function getCurlData($url) {
 	  $ch = curl_init();
 	  $timeout = 5;
@@ -113,7 +113,7 @@
 	
 	include '/home/songabou/www/includes/footer.php'; 
 ?>
-<?
+<?php
 	file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();
 ?>

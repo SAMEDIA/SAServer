@@ -1,4 +1,4 @@
-<?
+<?php
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
 	$showSearch = true;	
@@ -77,13 +77,13 @@
 		// Add redirect code
 	}
 ?>
-<? 	include '/home/songabou/www/includes/header.php'; ?>
+<?php 	include '/home/songabou/www/includes/header.php'; ?>
     <div id="contentWrapper" class="left"> 
         <div id="songAboutContent" class="center">   
 			<div id="" class="left col-1"> 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-songs.php'; ?>           
                 
-                <? 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		       		
+                <?php 	include '/home/songabou/www/includes/sidebar-suggested-artist.php'; ?> 		       		
             </div>
 			<div id="col-2" class="left col-2"> 
  				<div id="artistSearchResults" class="left">
@@ -94,7 +94,7 @@
 						                                          
                     </div>
                     <div id="artistSearchResultsList" class="clear">
-						<?
+						<?php
 							$count = 0;
 							if(isset($artistResultCount) && $artistResultCount > 0) {
 								foreach ($artistSearchResultsJSON->results->artistmatches->artist as &$artistSearchResultItem) {
@@ -150,7 +150,7 @@
                         SONGS                     
                     </div>
                     <div class="searchResultsCount right">
-						<?
+						<?php
 							if(isset($songSearchResultsJSON->results->{'opensearch:totalResults'}) && is_numeric($songSearchResultsJSON->results->{'opensearch:totalResults'})) {
 								$songResultCount = $songSearchResultsJSON->results->{'opensearch:totalResults'};
 								//echo $songResultCount;
@@ -160,7 +160,7 @@
 						?>  
                     </div> 
                     <div id="artistSearchResultsList" class="clear">
-						<?
+						<?php
 							$count = 0;
 							if(isset($songResultCount) && $songResultCount > 0) {
 								foreach ($songSearchResultsJSON->results->trackmatches->track as &$songSearchResultItem) {
@@ -196,7 +196,7 @@
                        ALBUMS                 
                     </div>
                     <div class="searchResultsCount right">
-						<?
+						<?php
 							if(isset($albumSearchResultsJSON->results->{'opensearch:totalResults'}) && is_numeric($albumSearchResultsJSON->results->{'opensearch:totalResults'})) {
 								$albumResultCount = $albumSearchResultsJSON->results->{'opensearch:totalResults'};
 								//echo $albumResultCount;
@@ -206,7 +206,7 @@
 						?>
                     </div> 
                     <div id="artistSearchResultsList" class="clear">
-						<?
+						<?php
 							$count = 0;
 							if(isset($albumResultCount) && $albumResultCount > 0) {
 								foreach ($albumSearchResultsJSON->results->albummatches->album as &$artistSearchAlbumResultItem) {
@@ -241,4 +241,4 @@
 		</div>
     </div>
 	<span class="clear"></span>
-<? 	include '/home/songabou/www/includes/footer.php'; ?>
+<?php 	include '/home/songabou/www/includes/footer.php'; ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once '/home/songabou/songabout_lib/models/SongAboutUser.php';
 require_once '/home/songabou/songabout_lib/models/UserFacebook.php';	
 require_once '/home/songabou/songabout_lib/models/SongAboutArtist.php';	

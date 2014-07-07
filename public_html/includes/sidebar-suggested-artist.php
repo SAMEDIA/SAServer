@@ -1,8 +1,8 @@
-<? if(isset($artistSimilar)) { ?>
+<?php if(isset($artistSimilar)) { ?>
 	<div id="artistDetailSuggestedArtist" class="left">
         <div id="topArtistTitle" class="center">SUGGESTED ARTISTS</div>
         <div id="suggestedArtistList">
-            <?
+            <?php
                 $count = 0;
                 foreach ($artistSimilar as &$artistSimilar) {
                     if($artistSimilar["images"]["0"]["url"] != "") {
@@ -17,4 +17,4 @@
             ?>
         </div> 
     </div>	                
-<? } ?>
+<?php } ?>
