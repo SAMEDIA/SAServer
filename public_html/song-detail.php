@@ -165,7 +165,7 @@
                     </div>
                     <div id="artistItemSocialIcons" class="right"><div id="artistItemSocialFB"><a href="#"></a></div><div id="artistItemSocialTwitter"><a href="#"></a></div><div id="artistItemSocialShare"><a href="#"></a></div></div>
     				<div class="artistItemDetailText">
-                    	<?= strtoupper($artistProfile["name"]); ?>
+                    	<?php echo strtoupper($artistProfile["name"]); ?>
                        <br /><?
 						   $genreCount = 0;
 						   /*
@@ -182,8 +182,8 @@
                        </span>
  						   */?></div>
                     <div class="artistItemDetailMenu left">
-                    	<div class="left" id="buttonToMusic"><a href="/artist/<?= $artistName ?>"></a></div><div class="left" id="buttonClaimPage"><a href="#"></a></div><div class="left" id="buttonArtistBio"><a href="/artist/<?= $artistName ?>/bio"></a></div>
-                        <input type="hidden" name="artistNameInput" value="<?= $artistName ?>" />
+                    	<div class="left" id="buttonToMusic"><a href="/artist/<?php echo $artistName ?>"></a></div><div class="left" id="buttonClaimPage"><a href="#"></a></div><div class="left" id="buttonArtistBio"><a href="/artist/<?php echo $artistName ?>/bio"></a></div>
+                        <input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>       
                 </div><br />
                 <? //if(0 == 0) { ?>
@@ -198,7 +198,7 @@
                                     echo '<img src="http://www.songabout.fm/images/noSGcover.png" height="125" width="125" border="0">';
                                 }                     
                             </div>*/?> 
-                            <a id="songPlayerCoverImgPlayer" data-width="600" data-bop-link href="http://www.bop.fm/embed/<?= $artistName ?>/<?= $songName ?>"><?= $artistName ?> - <?= $songName ?></a> 
+                            <a id="songPlayerCoverImgPlayer" data-width="600" data-bop-link href="http://www.bop.fm/embed/<?php echo $artistName ?>/<?php echo $songName ?>"><?php echo $artistName ?> - <?php echo $songName ?></a> 
 <script async src="http://assets.bop.fm/embed.js"></script> 
                             <?
 								if(isset($_SESSION['user_id'])) {
@@ -225,11 +225,11 @@
                             ?>                   	
                             <div class="songPlayerAction left">
                                 <div class="songPlayerSongTitle left">
-                                    <?=  strtoupper(str_replace("-"," ",$songName)); ?> 
+                                    <?php echo  strtoupper(str_replace("-"," ",$songName)); ?> 
                                 </div>
                                 <div class="songPlayerSongActionArea left">
 									<? /* Taking out but saving just in case other song preview dies out.
-                                    <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?= $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
+                                    <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?php echo $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
                                     <div id="playerPauseButton" class="playerPause left"><a href="#" onclick="pausePreviewSong(); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPausePlayer.png" height="11" width="7" border="0"></a></div>
 									*/ ?>
                                 </div>                               
@@ -252,7 +252,7 @@
 							?>                           
                            <? /*<div class="right" id="buttonBuySong"><a href="#"></a></div> */ ?>
                             <? if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
-								<div class="right" id="buttonBuyShirt"><a href="<?= $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
+								<div class="right" id="buttonBuyShirt"><a href="<?php echo $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
 								
 							<? } ?>
                         </div>
@@ -270,7 +270,7 @@
                             <div id="songDetailLyricsTextArea">
 								<? if($isVerifiedForPage) { ?>
                                     <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><? if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meanting_text;}?></textarea>
-                                    <div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit('songPiece-0', 0, '<?= $songLyricsJSON->track->amg ?>'); return false;"></a></div>
+                                    <div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit('songPiece-0', 0, '<?php echo $songLyricsJSON->track->amg ?>'); return false;"></a></div>
                                 <? } else if($songMeaningsArray[0] != "") { ?>
                                 		<div id="songLyric-0" class="songLyricItem left songLyricItemBox"><? echo $songMeaningsArray[0]->meanting_text; ?></div>
                                 <? } else { ?>
@@ -326,11 +326,11 @@
 								?> 
                                 <? if(isset($songLyricsJSON->track->writer)): ?>
                                     <br>
-                                    <strong>Song Writer</strong>: <br> <?= $songLyricsJSON->track->writer; ?>                                   
+                                    <strong>Song Writer</strong>: <br> <?php echo $songLyricsJSON->track->writer; ?>                                   
                                 <? endif; ?>
                                 <? if(isset($songLyricsJSON->track->copyright)): ?>
                                     <br>
-                                    <strong>Copyright</strong>:  <br> <?= $songLyricsJSON->track->copyright; ?>
+                                    <strong>Copyright</strong>:  <br> <?php echo $songLyricsJSON->track->copyright; ?>
                                 <? endif; ?>   
                                 <br>
                                 Lyrics licensed by <a href="http://www.lyricfind.com/licensing/" target="_blank">lyricfind</a>           
@@ -347,7 +347,7 @@
                 <div id="songDetailComments" class="left">
 					<div id="songDetailCommentsTitle" class="left">Leave Comments</div>
                     <div id="songDetailCommentFB">
-                    	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?= $artistName ?>/song/<?= $songName ?>" data-width="600"></div>
+                    	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
                     </div>
                 </div>
                 <span class="clear"></span>                
@@ -359,7 +359,7 @@
     <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>   
     <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
     	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
-			<div><?= $SongAboutArtistObj->youtube_video_emb ?></div>
+			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
 		<? } else { ?>
 			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			

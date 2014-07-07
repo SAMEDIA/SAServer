@@ -85,7 +85,7 @@ $(document).ready(function() {
 					$.ajax({
 						url: "http://www.songabout.fm/ajax/claimItAjax.php",
 						dataType: "html",
-						data: { artistName: '<?= $artistName ?>'},
+						data: { artistName: '<?php echo $artistName ?>'},
 						success: function( data ) {
 							if(data == 'true') {
 								loadVerifyConfirmationPopUp();

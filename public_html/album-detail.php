@@ -108,7 +108,7 @@
                         <div id="artistItemSocialShare"><a href="#"></a></div>
                     </div>
     				<div class="artistItemDetailText">
-                    	<?= $artistProfile["name"]; ?>
+                    	<?php echo $artistProfile["name"]; ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
 						   <?
@@ -126,9 +126,9 @@
                        </span>
                     </div>
                     <div class="artistItemDetailMenu left">
-                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/<?= $artistSearchString ?>/bio"></a></div>
+                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/<?php echo $artistSearchString ?>/bio"></a></div>
                         <div class="right" id="buttonClaimPage"><a href="#"></a></div>
-                       	<input type="hidden" name="artistNameInput" value="<?= $artistName ?>" />
+                       	<input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>        
                 </div>
                 
@@ -207,7 +207,7 @@
     <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>
     <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
     	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
-			<div><?= $SongAboutArtistObj->youtube_video_emb ?></div>
+			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
 		<? } else { ?>
 			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			

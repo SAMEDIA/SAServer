@@ -146,7 +146,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
                         <div id="artistItemSocialShare"><a href="#"></a></div>
                     </div>
     				<div class="artistItemDetailText">
-                    	<?= $artistProfile["name"]; ?>
+                    	<?php echo $artistProfile["name"]; ?>
                        <br />
                        <?
 						   $genreCount = 0;
@@ -170,8 +170,8 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
                             }
                         ?>
                         <div class="left" id="buttonClaimPage"><a href="#"></a></div>
-                        <div class="left" id="buttonArtistBio"><a href="/artist/<?= $artistName ?>/bio"></a></div>
-                        <input type="hidden" name="artistNameInput" value="<?= $artistName ?>" />
+                        <div class="left" id="buttonArtistBio"><a href="/artist/<?php echo $artistName ?>/bio"></a></div>
+                        <input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>                           
                 </div>
                 
@@ -312,7 +312,7 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
     <script src="/scripts/soundmanager/songabout-hook.js"></script>
     <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
     	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
-			<div><?= $SongAboutArtistObj->youtube_video_emb ?></div>
+			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
 		<? } else { ?>
 			 <img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			

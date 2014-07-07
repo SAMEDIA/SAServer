@@ -91,7 +91,7 @@
                         <div id="artistItemSocialShare"><a href="#"></a></div>
                     </div>
     				<div class="artistItemDetailText">
-                    	<?= $artistProfile["name"]; ?>
+                    	<?php echo $artistProfile["name"]; ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
 						   <?
@@ -109,9 +109,9 @@
                        </span>
                     </div>
                     <div class="artistItemDetailMenu left">
-                      	<div class="left" id="buttonToMusic"><a href="/~songabou/artist/<?= $artistName ?>"></a></div>
+                      	<div class="left" id="buttonToMusic"><a href="/~songabou/artist/<?php echo $artistName ?>"></a></div>
                         <div class="left" id="buttonClaimPage"><a href="#"></a></div>
-                       	<input type="hidden" name="artistNameInput" value="<?= $artistName ?>" />
+                       	<input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>        
                 </div>
                 <br />

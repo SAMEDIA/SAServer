@@ -152,7 +152,7 @@
                         <div id="artistItemSocialShare"><a href="#"></a></div>
                     </div>
     				<div class="artistItemDetailText">
-                    	<?= strtoupper($artistProfile["name"]); ?>
+                    	<?php echo strtoupper($artistProfile["name"]); ?>
                        <br />
                        <span style="font-size:12px; font-weight: 200;">
                        <?
@@ -170,10 +170,10 @@
                        </span>
                     </div>
                     <div class="artistItemDetailMenu left">
-                    	<div class="left" id="buttonToMusic"><a href="/~songabou/artist/<?= $artistName ?>"></a></div>
+                    	<div class="left" id="buttonToMusic"><a href="/~songabou/artist/<?php echo $artistName ?>"></a></div>
                         <div class="left" id="buttonClaimPage"><a href="#"></a></div>
-                        <div class="left" id="buttonArtistBio"><a href="/~songabou/artist/<?= $artistName ?>/bio"></a></div>
-                        <input type="hidden" name="artistNameInput" value="<?= $artistName ?>" />
+                        <div class="left" id="buttonArtistBio"><a href="/~songabou/artist/<?php echo $artistName ?>/bio"></a></div>
+                        <input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>       
                 </div>
                 <br />
@@ -212,11 +212,11 @@
                     	
                             <div class="songPlayerAction left">
                                 <div class="songPlayerSongTitle left">
-                                    <?=  strtoupper(str_replace("-"," ",$songName)); ?> 
+                                    <?php echo  strtoupper(str_replace("-"," ",$songName)); ?> 
                                 </div>
                                 <div class="songPlayerSongActionArea left">
 									<? /* Taking out but saving just in case other song preview dies out.
-                                    <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?= $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://utah.stormfrontproductions.net/~songabou/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
+                                    <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?php echo $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://utah.stormfrontproductions.net/~songabou/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
                                     <div id="playerPauseButton" class="playerPause left"><a href="#" onclick="pausePreviewSong(); return false;"><img src="http://utah.stormfrontproductions.net/~songabou/images/buttons/buttonPausePlayer.png" height="11" width="7" border="0"></a></div>
 									*/ ?>
                                 </div>
@@ -247,7 +247,7 @@
                             
                             <div class="right" id="buttonBuySong"><a href="#"></a></div>
                             <? if(isset($SongAboutArtistStoreObj) and $SongAboutArtistStoreObj->artist_store_url != "") { ?>
-								<div class="right" id="buttonBuyRingtone"><a href="<?= $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
+								<div class="right" id="buttonBuyRingtone"><a href="<?php echo $SongAboutArtistStoreObj->artist_store_url; ?>" target="_blank"></a></div>
 								
 							<? } ?>
                         </div>
@@ -335,7 +335,7 @@
                         Leave Comments                 
                     </div>
                     <div id="songDetailCommentFB">
-                    	<div class="fb-comments" data-href="http://utah.stormfrontproductions.net/~songabou/artist/<?= $artistName ?>/song/<?= $songName ?>" data-width="600"></div>
+                    	<div class="fb-comments" data-href="http://utah.stormfrontproductions.net/~songabou/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
                     </div>
                 </div>
                 <span class="clear"></span>                
@@ -351,7 +351,7 @@
 	var playerEl = document.getElementById("songPlayerCoverImg");
 	var track;	
 	renderTrack = function() {
-		track = window.tomahkAPI.Track("<?= str_replace("-"," ",$songName) ?>","<?= $artistProfile["name"] ?>", {
+		track = window.tomahkAPI.Track("<?php echo str_replace("-"," ",$songName) ?>","<?php echo $artistProfile["name"] ?>", {
 			width: 125,
 			height: 125,
 			disabledResolvers: [
@@ -388,7 +388,7 @@
     </script>    
     <div id="artistVideoPop" <? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
     	<? if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
-			<div><?= $SongAboutArtistObj->youtube_video_emb ?></div>
+			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
 		<? } else { ?>
 			 <img src="http://utah.stormfrontproductions.net/~songabou/images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			

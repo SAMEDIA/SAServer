@@ -123,7 +123,7 @@
                     
                 </div>
 
-				<?= $artistProfile["name"]; ?>
+				<?php echo $artistProfile["name"]; ?>
                 
                 <br />
                 
