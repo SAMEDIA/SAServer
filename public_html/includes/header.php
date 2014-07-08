@@ -143,7 +143,7 @@
         	<div id="headerMenuWrapper" class="center">  
                 <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
                 <div id="headerNav" class="left">
-                	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
+                	<div id="navLyrics" class="headerNav"><a  href="lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="verified_artist.php"></a></div>
                 </div>
                 <div id="headerSearch" class="left">
                     <div id="headerSocialMenu" class="right">

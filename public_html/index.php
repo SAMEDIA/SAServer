@@ -251,7 +251,7 @@
 						$songLyricsJSON = json_decode($songLyrics);
 						$songPieces = explode('<br />', nl2br($songLyricsJSON->track->lyrics));
 						if(isset($songLyrics) && $songLyrics != "" && count($songPieces) > 1) {					
-							$topLyricHtml .= '<div id="songLyric-' . $song->song_id  . '" class="songLyricItem left" onclick="javascript:document.location.href=\'http://www.songabout.fm/artist/' . $artistSearchString . '/song/' . $songSearchString . '\'">';
+							$topLyricHtml .= '<div id="songLyric-' . $song->song_id  . '" class="songLyricItem left"><a style="color:black; text-decoration:none;" href="/artist/' . $artistSearchString . '/song/' . $songSearchString . '">';
 							$countBoxes = 0;
 								$topLyricHtml .= '<p>';
 								foreach ($songPieces as &$songPiece) {
@@ -262,17 +262,17 @@
 										break;
 									}			
 								}	
-								$topLyricHtml .= '</p>';
+								$topLyricHtml .= '</p></a>';
 								$count++;	
-								$topLyricHtml .= '<div class="songLyricsClass" onclick="javascript:document.location.href=\'http://www.songabout.fm/artist/' . $artistSearchString . '/song/' . $songSearchString . '\'">';
+								$topLyricHtml .= '<div class="songLyricsClass"><a style="color:black; text-decoration:none;" href="/artist/' . $artistSearchString . '/song/' . $songSearchString . '">';
 									$topLyricHtml .= '<div class="songItemTitle left">';
-										$topLyricHtml .= $song->song_title . count($songPieces) . '<br>';
+										$topLyricHtml .= $song->song_title . '<br>';
 										$topLyricHtml .= '<span class="songItemLyricTitleFootnote">' . $song->artist_name . "</span>";
 									$topLyricHtml .= '</div>';	
 									$topLyricHtml .= '<div class="songItemImg left">';
 										$topLyricHtml .= '<img src="' . $song->cover_image_url . '" height="60" width="60" border="0">';
 									$topLyricHtml .= '</div>';	
-								$topLyricHtml .= '</div>';											
+								$topLyricHtml .= '</a></div>';											
 							$topLyricHtml .= '</div>';	
 						}
 						if($count >= 6) {
