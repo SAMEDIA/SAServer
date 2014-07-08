@@ -1,6 +1,6 @@
 <?php
 	$cache_time = 1800; // Time in seconds to keep a page cached  
-	$cache_folder = '/home/songabou/public_html/cache/pages/'; // Folder to store cached files (no trailing slash)  
+	$cache_folder = 'cache/pages/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
 	//Check to see if this file has already been cached  
 	// If it has get and store the file creation time  

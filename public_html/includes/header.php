@@ -115,14 +115,33 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php echo $pageTitle ?></title>
     <link rel="shortcut icon" href="" type="image/x-icon" >
-    <meta name="robots" content="index, follow" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><meta name="Description" content="Where you go to find out about a song." /><meta name="Keywords" content="Music, Song Lyrics, Song About, Song Meaning" /><meta name="Author" content="SongAbout.fm" /><meta property="og:title" content="SongAbout.fm - Where you go to find out about a song." /><meta property="og:title" content="Song meanings about artist, songs and albums in the artist's own words." /><meta property="og:type" content="website" /><meta property="og:url" content="http://www.songabout.fm" /><meta property="og:image" content="http://www.songabout.fm/images/logos/songaboutNavLogo.png" /><link rel="shortcut icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/main.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/homepageImage.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/album.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/artist.css" /><link rel="stylesheet" type="text/css" media="all" href="http://www.songabout.fm/styles/song.css" /><link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'><link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="Description" content="Where you go to find out about a song." />
+    <meta name="Keywords" content="Music, Song Lyrics, Song About, Song Meaning" />
+    <meta name="Author" content="SongAbout.fm" />
+    <meta property="og:title" content="SongAbout.fm - Where you go to find out about a song." />
+    <meta property="og:title" content="Song meanings about artist, songs and albums in the artist's own words." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.songabout.fm" />
+    <meta property="og:image" content="images/logos/songaboutNavLogo.png" />
+
+    <link rel="shortcut icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://www.songabout.fm/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="all" href="styles/main.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="styles/homepageImage.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="styles/album.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="styles/artist.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="styles/song.css" />
+    <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
 <div id="songAboutWrapper">
     <div id="headerWrapper">    
         <div id="headerMenuBar">
         	<div id="headerMenuWrapper" class="center">  
-                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="../images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
+                <div id="headerLogo" class="left"><a href="http://www.songabout.fm"><img src="images/logos/songaboutNavLogo.png" width="215" height="47" border="0"/></a></div>
                 <div id="headerNav" class="left">
                 	<div id="navLyrics" class="headerNav"><a  href="/lyrics.php"></a></div><div id="navArtists" class="headerNav"><a href="/artist.php"></a></div><div id="navAlbums" class="headerNav"><a href="/albums.php"></a></div><div id="navVerifiedArtist" class="headerNav"><a href="/verified_artist.php"></a></div>
                 </div>

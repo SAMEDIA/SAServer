@@ -23,7 +23,7 @@
 	<div id="aboutUsContentHeaderWrapper" class="left sg-borderless"> 
         <div id="contentHeader" class="center">  
             <div id="aboutUsBox">
-                <img src="/~songabou/images/aboutHeaderImageNew.png" width="975" height="187">
+                <img src="images/aboutHeaderImageNew.png" width="975" height="187">
             	<p><strong>Songabout.fm</strong> is the world’s platform for creative music artists explaining what there songs are about on a unified verified platform. We aim at connecting artists to there dedicated fan bases establishing that deep connection to their songs and lyrics on a higher level.  Artists can reach fans by using our platform to collaborate, grow their audience and by connecting to there fans. Fans choose Songabout.fm to engage in a dialogue with other fans in an entertaining, relevant and credible context. <br><br>For all general inquiries and partnerships you can reach us as follows: <a href="mailto:info@songabout.fm" style="color:#ffffff;">info@songabout.fm</a></p>
             </div>
         </div>
