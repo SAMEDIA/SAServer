@@ -9,9 +9,9 @@
             <div id="footerCol3" class="left"><div id="footerContact"><div class="contactItem" id="contactEmail"><a href="mailto: info@songabout.fm">info@songabout.fm</a></div><div class="contactItem" id=""></div><div id="contactAddress"></div></div></div></div>
 	</div>
 </div>
-<div id="verifyPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">Please search for your artist page and select the claim page button.  If you already claimed your page just go to your page and begin entering the meanings of your songs.  </div>
+<div id="verifyPopUp"><img src="images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">Please search for your artist page and select the claim page button.  If you already claimed your page just go to your page and begin entering the meanings of your songs.  </div>
 </div>
-<div id="loadVerifyConfirmationPopUp"><img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">A Request has been sent to the adminstration to verify your account.  Once your account has been verified you will receive an email confirming your ability to edit your page and songs.  </div>
+<div id="loadVerifyConfirmationPopUp"><img src="images/noSGcover.png" width="125" height="125" style="float:left;"/><div style="float:left; height:125px; width: 229px; font-size: 14px; margin-left: 15px;">A Request has been sent to the adminstration to verify your account.  Once your account has been verified you will receive an email confirming your ability to edit your page and songs.  </div>
 </div>
 </body>
 </html>

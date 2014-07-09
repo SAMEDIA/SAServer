@@ -43,9 +43,9 @@
 										//if (file_exists($artistAlbum["reviews"][0]["image_url"])) {
 											$topAlbumHtml .= '<div id="topAlbum-' . $artistAlbum["id"] . '" class="albumItem left">';
 												$topAlbumHtml .= '<div class="albumItemImg">';
-													$topAlbumHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '"><img src="' . $artistAlbum["reviews"][0]["image_url"]  . '" height="125" width="125"></a>';
+													$topAlbumHtml .= '<a href="/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '"><img src="' . $artistAlbum["reviews"][0]["image_url"]  . '" height="125" width="125"></a>';
 												$topAlbumHtml .= '</div>';
-												$topAlbumHtml .= '<span class="albumItemTitleFootnote"><strong><a href="/~songabou/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '">' . $artistAlbum["name"] . '</a></strong><br>' . $artistAlbum["reviews"][0]["release"] . "</span>";
+												$topAlbumHtml .= '<span class="albumItemTitleFootnote"><strong><a href="/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '">' . $artistAlbum["name"] . '</a></strong><br>' . $artistAlbum["reviews"][0]["release"] . "</span>";
 											$topAlbumHtml .= '</div>';
 											$songCount++;
 										//}

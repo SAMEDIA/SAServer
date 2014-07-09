@@ -5,7 +5,7 @@
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
-	require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+	require_once '../lib/EchoNest/Autoloader.php';
 	EchoNest_Autoloader::register();
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
@@ -118,16 +118,16 @@
 																				
 										$artistResultHtml .= '<div id="suggestedArtist-' . $artistSearchResultItem->id  . '" class="left suggestedArtistItem">';
 											$artistResultHtml .= '<div class="songItemImg left">';
-												$artistResultHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$currentArtistName))) . '">';
+												$artistResultHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$currentArtistName))) . '">';
 													if($artistSearchResultItem->image[1]->{'#text'} != "") {
 														$artistResultHtml .= '<img src="' . $artistSearchResultItem->image[1]->{'#text'} . '" height="60" width="60" border="0">';
 													} else {
-														$artistResultHtml .= '<img src="/~songabou/images/noSGcover.png" height="60" width="60" border="0">';
+														$artistResultHtml .= '<img src="images/noSGcover.png" height="60" width="60" border="0">';
 													}
 												$artistResultHtml .= '</a>';	
 											$artistResultHtml .= '</div>'; 
 											$artistResultHtml .= '<div class="songItemTitle left">';
-												$artistResultHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$currentArtistName))) . '">';
+												$artistResultHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$currentArtistName))) . '">';
 												$artistResultHtml .=  $currentArtistName . '</a><br>';
 											$artistResultHtml .= '</div>';
 											$artistResultHtml .= '<span class="clear"></span>'; 								 
@@ -167,12 +167,12 @@
 									if($songSearchResultItem->image[1]->{'#text'} != "") {
 										$artistSongsHtml .= '<div id="suggestedArtist-' . $songSearchResultItem->id  . '" class="left suggestedArtistItem">';
 											$artistSongsHtml .= '<div class="songItemImg left">';
-												$artistSongsHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->artist))) . '/song/' .str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->name))) . '">';
+												$artistSongsHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->artist))) . '/song/' .str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->name))) . '">';
 													$artistSongsHtml .= '<img src="' . $songSearchResultItem->image[1]->{'#text'} . '" height="60" width="60">';
 												$artistSongsHtml .= '</a>';
 											$artistSongsHtml .= '</div>'; 
 											$artistSongsHtml .= '<div class="songItemTitle left">';
-												$artistSongsHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->artist))) . '/song/' .str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->name))) . '">';
+												$artistSongsHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->artist))) . '/song/' .str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$songSearchResultItem->name))) . '">';
 												$artistSongsHtml .= $songSearchResultItem->name . '</a><br>';
 												$artistSongsHtml .= '<span class="songItemTitleFootnote">'. $songSearchResultItem->artist .'</span>';
 											$artistSongsHtml .= '</div>';
@@ -213,7 +213,7 @@
 									if($artistSearchAlbumResultItem->image[1]->{'#text'} != "") {
 										$artistAlbumsHtml .= '<div id="suggestedArtist-' . $artistSearchAlbumResultItem->id  . '" class="left suggestedArtistItem">';				
 											$artistAlbumsHtml .= '<div class="songItemImg left">';
-												$artistAlbumsHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$artistSearchAlbumResultItem->artist))) .  '/album/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$artistSearchAlbumResultItem->name))) . '">';
+												$artistAlbumsHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$artistSearchAlbumResultItem->artist))) .  '/album/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>|]~","",$artistSearchAlbumResultItem->name))) . '">';
 													$artistAlbumsHtml .= '<img src="' . $artistSearchAlbumResultItem->image[1]->{'#text'} . '" height="60" width="60">';
 												$artistAlbumsHtml .= '</a>';
 											$artistAlbumsHtml .= '</div>'; 

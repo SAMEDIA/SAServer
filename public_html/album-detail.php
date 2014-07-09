@@ -1,6 +1,6 @@
 <?php
 	$cache_time = 3600; // Time in seconds to keep a page cached  
-	$cache_folder = '/home/songabou/public_html/cache/albums/'; // Folder to store cached files (no trailing slash)  
+	$cache_folder = 'cache/albums/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5($_SERVER['REQUEST_URI']); // Location to lookup or store cached file  
 	//Check to see if this file has already been cached  
 	// If it has get and store the file creation time  
@@ -98,7 +98,7 @@
 								} 
 							}														
 							if(!$foundImage){
-								echo '<img src="/~songabou/images/noSGcover.png" height="125" width="125" border="0">';
+								echo '<img src="images/noSGcover.png" height="125" width="125" border="0">';
 							}
 						?>                     
                     </div>
@@ -126,7 +126,7 @@
                        </span>
                     </div>
                     <div class="artistItemDetailMenu left">
-                        <div class="right" id="buttonArtistBio"><a href="/~songabou/artist/<?php echo $artistSearchString ?>/bio"></a></div>
+                        <div class="right" id="buttonArtistBio"><a href="/artist/<?php echo $artistSearchString ?>/bio"></a></div>
                         <div class="right" id="buttonClaimPage"><a href="#"></a></div>
                        	<input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>        
@@ -155,7 +155,7 @@
 											if(url_exists($artistAlbumJSON->album->image[1]->{'#text'})) {
 												$artistAlbumsHtml .= '<img src="' . $artistAlbumJSON->album->image[1]->{'#text'} . '" height="60" width="60">';
 											} else {
-												$artistAlbumsHtml .= '<img src="/~songabou/images/noSGcover.png" height="60" width="60" border="0">';
+												$artistAlbumsHtml .= '<img src="images/noSGcover.png" height="60" width="60" border="0">';
 											} 
 										$artistAlbumsHtml .= '</div>'; 
 										$artistAlbumsHtml .= '<div class="songItemTitle left">';
@@ -170,10 +170,10 @@
 												$trackCount++;
 												$artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 													$artistAlbumsHtml .= '<div class="playButton left">';
-														$artistAlbumsHtml .='<a href="/~songabou/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a>';;
+														$artistAlbumsHtml .='<a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '"><img src="http://www.songabout.fm/images/buttons/playButton.png" height="27" width="27" border="0"></a>';;
 													$artistAlbumsHtml .= '</div>';
 													$artistAlbumsHtml .= '<div class="albumTrackItemTitle left">';
-														$artistAlbumsHtml .= $trackCount . ') <a href="/~songabou/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '">' . $albumTrack->name . '</a>';
+														$artistAlbumsHtml .= $trackCount . ') <a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '">' . $albumTrack->name . '</a>';
 													$artistAlbumsHtml .= '</div>';									
 												$artistAlbumsHtml .= '</div>'; 
 											}

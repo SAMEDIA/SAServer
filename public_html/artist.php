@@ -74,7 +74,7 @@
 							if($currentLetterTag == 'All' || strtoupper($currentLetterTag) == strtoupper($currentLetter)) {
 								$topAlbumHtml .= '<div id="artist-' . $artist["id"] . '" class="artistItem left">';
 									$topAlbumHtml .= '<div class="artistItemImg">';
-										$topAlbumHtml .= '<a href="/~songabou/artist/' . urlencode($artist["name"]) . '"><img src="' . $artist["images"][0]["url"] . '" height="125" width="125" border="0"></a>';
+										$topAlbumHtml .= '<a href="/artist/' . urlencode($artist["name"]) . '"><img src="' . $artist["images"][0]["url"] . '" height="125" width="125" border="0"></a>';
 									$topAlbumHtml .= '</div>';
 									$topAlbumHtml .= '<div class="artistItemTitle">';
 										$topAlbumHtml .= $artist["name"];

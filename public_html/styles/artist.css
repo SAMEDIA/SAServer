@@ -75,17 +75,17 @@
 }
 
 #verifyMeButton a {
-	background:url('/~songabou/images/buttons/verify_me.png') 0 0;
+	background:url('images/buttons/verify_me.png') 0 0;
 	height: 35px;
 	display:block;
 }
 
 #verifyMeButton a:hover {
-	background:url('/~songabou/images/buttons/verify_me.png') 0 70px; 
+	background:url('images/buttons/verify_me.png') 0 70px; 
 }
 
 #verifyMeButton a:active, #navAlbums.active a {
-	background:url('/~songabou/images/buttons/verify_me.png') 0 35px !important; 
+	background:url('images/buttons/verify_me.png') 0 35px !important; 
 }
 
 #artistDetailOwnWords {

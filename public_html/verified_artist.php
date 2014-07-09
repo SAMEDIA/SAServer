@@ -43,7 +43,7 @@
 					foreach ($allVerifiedArtist as &$artistVerified) {					
 						$topAlbumHtml .= '<div id="topAlbum-' . $artistAlbum["id"] . '" class="albumItem left">';
 							$topAlbumHtml .= '<div class="albumItemImg">';
-								$topAlbumHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artistVerified->artist_name)))  . '"><img src="' . $artistVerified->profile_image_url  . '" height="125" width="125"></a>';
+								$topAlbumHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artistVerified->artist_name)))  . '"><img src="' . $artistVerified->profile_image_url  . '" height="125" width="125"></a>';
 							$topAlbumHtml .= '</div>';
 							$topAlbumHtml .= '<span class="albumItemTitleFootnote"><strong>' . $artistVerified->artist_name . '</strong></span>';
 						$topAlbumHtml .= '</div>';

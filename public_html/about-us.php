@@ -90,10 +90,10 @@
 								if($artistAlbum["reviews"][0]["image_url"] != "" && $artistAlbum["reviews"][0]["release"] !="") {
 								$artistHtml .= '<div id="artist-' . $artistAlbum["id"] . '" class="artistItem left">';
 									$artistHtml .= '<div class="artistItemImg">';      									
-										$artistHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '"><img src="' . $artistAlbum["reviews"][0]["image_url"] . '" height="125" width="125" border="0"></a>';
+										$artistHtml .= '<a href="/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '"><img src="' . $artistAlbum["reviews"][0]["image_url"] . '" height="125" width="125" border="0"></a>';
 									$artistHtml .= '</div>';
 									$artistHtml .= '<div class="artistItemTitle">';
-										$artistHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '">' . $artistAlbum["name"] . '</a>';
+										$artistHtml .= '<a href="/artist/' . str_replace("+","-",urlencode($artistAlbum["name"])) . '/album/' . str_replace("+","-",urlencode($artistAlbum["reviews"][0]["release"])) . '">' . $artistAlbum["name"] . '</a>';
 									$artistHtml .= '</div>';
 								$artistHtml .= '</div>';
 							}
@@ -119,10 +119,10 @@
                             $topArtistHtml .= '<div id="song-' . $song->song_id  . '" class="songItem left">';
                                 $topArtistHtml .= '<div class="songItemImg left">';
                                     //clean the string as much as possible removing of characters such as ? and encoding the rest.
-									$topArtistHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artist->artist_name)))  . '"><img src="' . $artist->profile_image_url . '" height="60" width="60" border="0"></a>';
+									$topArtistHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artist->artist_name)))  . '"><img src="' . $artist->profile_image_url . '" height="60" width="60" border="0"></a>';
                                 $topArtistHtml .= '</div>';
                                 $topArtistHtml .= '<div class="songItemTitle left">';
-                                    $topArtistHtml .= '<a href="/~songabou/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artist->artist_name)))  . '">' . stripslashes($artist->artist_name) . '</a><br>';
+                                    $topArtistHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>|]~","",$artist->artist_name)))  . '">' . stripslashes($artist->artist_name) . '</a><br>';
                                 $topArtistHtml .= '</div>';
                             //echo  var_dump($artist["images"][0]["url"]) . $artist["name"] . ' id:' . $artist["id"] . '<br><br>';
                             $topArtistHtml .= '</div>';

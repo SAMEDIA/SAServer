@@ -81,7 +81,7 @@
 								} 
 							}														
 							if(!$foundImage){
-								echo '<img src="/~songabou/images/noSGcover.png" height="125" width="125" border="0">';
+								echo '<img src="images/noSGcover.png" height="125" width="125" border="0">';
 							}
 						?>                     
                     </div>
@@ -109,7 +109,7 @@
                        </span>
                     </div>
                     <div class="artistItemDetailMenu left">
-                      	<div class="left" id="buttonToMusic"><a href="/~songabou/artist/<?php echo $artistName ?>"></a></div>
+                      	<div class="left" id="buttonToMusic"><a href="/artist/<?php echo $artistName ?>"></a></div>
                         <div class="left" id="buttonClaimPage"><a href="#"></a></div>
                        	<input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
                     </div>        

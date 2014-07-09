@@ -1,6 +1,6 @@
 <?php	
 	$cache_time = 864000; // Time in seconds to keep a page cached  10 day cache
-	$cache_folder = '/home/songabou/public_html/cache/song/'; // Folder to store cached files (no trailing slash)  
+	$cache_folder = 'cache/song/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5(str_replace("?cache=true", "", $_SERVER['REQUEST_URI'])); // Location to lookup or store cached file  
 	//Check to see if this file has already been cached  
 	// If it has get and store the file creation time  
@@ -63,7 +63,7 @@
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
-	require_once '/home/songabou/lib/EchoNest/Autoloader.php';
+	require_once '../lib/EchoNest/Autoloader.php';
 	EchoNest_Autoloader::register();
 	$songAboutEchonest = new EchoNest_Client();
 	$songAboutEchonest->authenticate($echoNestAPIKey);	
@@ -159,7 +159,7 @@
 								} 
 							}														
 							if(!$foundImage){
-								echo '<img src="/images/noSGcover.png" height="125" width="125" border="0">';
+								echo '<img src="images/noSGcover.png" height="125" width="125" border="0">';
 							}
 						?>     
                     </div>

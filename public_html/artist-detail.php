@@ -136,7 +136,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 								} 
 							}														
 							if(!$foundImage){
-								echo '<img src="/images/noSGcover.png" height="125" width="125" border="0">';
+								echo '<img src="images/noSGcover.png" height="125" width="125" border="0">';
 							}
 						?>  
                     </div>
@@ -204,7 +204,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 												if($artistTopAlbum->image[1]->{'#text'} != "") {
 													$artistAlbumsHtml .= '<img src="' . $artistTopAlbum->image[1]->{'#text'} . '" height="60" width="60">';
 												} else {
-													$artistAlbumsHtml .= '<img src="/images/noSGcover.png" height="60" width="60">';
+													$artistAlbumsHtml .= '<img src="images/noSGcover.png" height="60" width="60">';
 												}
 											$artistAlbumsHtml .= '</div>'; 
 											$artistAlbumsHtml .= '<div class="songItemTitle left">';
@@ -239,7 +239,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 												// Single	
 $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 												$artistAlbumsHtml .= '<div class="playButton left" onclick="">';
-													 $artistAlbumsHtml .='<a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumSetListJSON->album->tracks->track->name)) . '"><img src="/images/buttons/playButton.png" height="27" width="27" border="0"></a>';
+													 $artistAlbumsHtml .='<a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumSetListJSON->album->tracks->track->name)) . '"><img src="images/buttons/playButton.png" height="27" width="27" border="0"></a>';
 												$artistAlbumsHtml .= '</div>';
 												$artistAlbumsHtml .= '<div class="albumTrackItemTitle left">';
 													$artistAlbumsHtml .= '1) <a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumSetListJSON->album->tracks->track->name)) . '">' . $albumSetListJSON->album->tracks->track->name . '</a>';
@@ -263,7 +263,7 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 										if($artistAudioJOSN->topalbums->album->image[1]->{'#text'} != "") {
 											$artistAlbumsHtml .= '<img src="' . $artistAudioJOSN->topalbums->album->image[1]->{'#text'} . '" height="60" width="60">';
 										} else {
-											$artistAlbumsHtml .= '<img src="/images/noSGcover.png" height="60" width="60">';
+											$artistAlbumsHtml .= '<img src="images/noSGcover.png" height="60" width="60">';
 										}
 									$artistAlbumsHtml .= '</div>'; 
 									$artistAlbumsHtml .= '<div class="songItemTitle left">';
@@ -281,7 +281,7 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 											$trackCount++;
 											$artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 												$artistAlbumsHtml .= '<div class="playButton left" onclick="">';
-													 $artistAlbumsHtml .='<a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '"><img src="/images/buttons/playButton.png" height="27" width="27" border="0"></a>';
+													 $artistAlbumsHtml .='<a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '"><img src="images/buttons/playButton.png" height="27" width="27" border="0"></a>';
 												$artistAlbumsHtml .= '</div>';
 												$artistAlbumsHtml .= '<div class="albumTrackItemTitle left">';
 													$artistAlbumsHtml .= $trackCount . ') <a href="/artist/' .  str_replace("+","-",urlencode($artistProfile["name"])) . '/song/' .  str_replace("+","-",urlencode($albumTrack->name)) . '">' . $albumTrack->name . '</a>';
@@ -314,7 +314,7 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
     	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
 			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
 		<?php } else { ?>
-			 <img src="/images/noSGcover.png" width="125" height="125" style="float:left;"/>
+			 <img src="images/noSGcover.png" width="125" height="125" style="float:left;"/>
             <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
 		<?php } ?>
         
