@@ -1,2 +1,13 @@
 *error_log*
 *cache/*
+
+# ds store is because andrew is on a mac
+.DS_Store
+*.DS_Store
+*/.DS_Store
+
+.htaccess
+*.htaccess
+*/.htaccess
+
+*/songabout_lib/DB.php
