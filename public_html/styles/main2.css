@@ -3,6 +3,8 @@
  */
 body {
 	background: url(../images/backgrounds/sos.png) repeat;
+	margin:0;
+	padding:0;
 }
 
 .main-content {
@@ -34,10 +36,6 @@ body {
 }
 
 #topLyrics {
-	clear:both;
-}
-
-#popSongs {
 	clear:both;
 }
 
@@ -84,11 +82,35 @@ body {
   border-bottom: 1px solid #eee;
 }
 
+.footer-content {
+	max-width:1200px;
+	positon: relative;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 10px;
+}
+
+#footerbrand {
+	padding: 10px;
+}
+
+.footernav li a{
+	padding-bottom: 0;
+	padding-top:0;
+}
+
 .navbar {
 	border-bottom:3px solid #65c178;
 	background:#000;
 	padding-top:20px;
 	padding-bottom:10px;
+}
+
+.navbar-bottom {
+	border-bottom:10px solid #65c178;
+	background:#000;
+	margin:0;
+	padding: 10px;
 }
 
 #mainNav {

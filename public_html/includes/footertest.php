@@ -1,3 +1,41 @@
+<div class="navbar-bottom navbar navbar-inverse"> 
+<div class="footer-content">
+<ul class="nav navbar-nav navbar-left footernav">
+	<li><a href="#">LYRICS</a></li>
+    <li><a href="#">ARTISTS</a></li>
+    <li><a href="#">ALBUMS</a></li>
+    <li><a href="#">REVIEWS</a></li>
+    <li><a href="#">CONCERTS</a></li>
+    <!---FOR FUTURE USE
+            <li><a href="#">CONCERTS</a></li>--->
+</ul>
+<ul class="nav navbar-nav navbar-right footernav">
+    <li><a href="about-us.php">ABOUT US</a></li>
+    <li><a href="songabout-careers.php">CAREERS</a></li>
+    <li><a href="mailto: info@songabout.fm">CONTACT US</a></li>
+	<li><a href="privacy-policy.php">PRIVACY POLICY</a></li>
+    <li><a href="conditions.php">TERMS AND CONDITIONS</a></li>
+  </ul>
+  <div id="footerbrand" class="nav navbar-nav navbar-left"><img src="images/logos/logoSongAboutFooter.png" width="50%"/>
+<br />What's this song about? Fans, share your meanings here on SongAbout!</div>
+	<div class="nav navbar-nav navbar-right" style="text-align:right; padding:10px;">
+    <p>
+    MILLIONS OF SONGS &amp; SONG LYRICS <br />
+  		Copyright Songabout.fm 2014, All Rights Reserved
+        </p>
+        </div>
+<div class="nav navbar-nav navbar-left" style="clear:both">
+<?php
+        $time = microtime();
+        $time = explode(' ', $time);
+        $time = $time[1] + $time[0];
+        $finish = $time;
+        $total_time = round(($finish - $start), 4);
+        echo 'Page generated in '.$total_time.' seconds.';
+        ?>
+</div>
+</div>
+</div>
 </body>
 </html>
 
@@ -67,9 +105,9 @@
 			var currRight = parseInt($("#hidden").css("right"), 10);
 			$("#searchForm #button").css("right", currRight );
 			var string = "dimensions: ";
-	//		cropImg(".artistImg img");
+			cropImg(".artistImg img");
 		}
-	/*	function cropImg(attribute) {
+		function cropImg(attribute) {
 			if(attribute = ".artistImg img") {
 				$(".artistImg").height($(".artistImg").width());
 				$(".albumImg").height($(".albumImg").width());
@@ -85,14 +123,5 @@
 				});
 				}
 			});
-		}*/
+		}
 	</script>
-
-<?php
-$time = microtime();
-$time = explode(' ', $time);
-$time = $time[1] + $time[0];
-$finish = $time;
-$total_time = round(($finish - $start), 4);
-echo 'Page generated in '.$total_time.' seconds.';
-?>

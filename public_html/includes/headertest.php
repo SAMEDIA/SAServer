@@ -6,6 +6,7 @@ $start = $time;
 ?>
 
 <?php
+	//session_start();
 	
 	// This is the main infromation API
 	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
