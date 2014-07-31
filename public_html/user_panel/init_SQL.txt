@@ -1,0 +1,20 @@
+# for user sign in/sing up
+
+CREATE TABLE `users` (
+`UserID` INT(25) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`Email` VARCHAR(255) NOT NULL ,
+`Password` VARCHAR(32) NOT NULL ,
+`Nickname` VARCHAR(32) NOT NULL
+);
+
+# for adding new lyrics
+
+CREATE TABLE `songs` (
+`SongID` INT(25) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`Name` VARCHAR(255) NOT NULL,
+`Artist` VARCHAR(64) NOT NULL,
+`Album` VARCHAR(128) NOT NULL,
+`Genre` VARCHAR(64) NOT NULL,
+`Lyrics` VARCHAR(2048) NOT NULL, 
+`Year` INT(4) NOT NULL
+);

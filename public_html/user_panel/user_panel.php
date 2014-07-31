@@ -18,13 +18,15 @@ if (!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Email']))
     echo '</code></p>';
     ?>
 
-    
+    <a href="add_lyrics.php">Add Lyric</a>
+    .
     <a href="" id="signOutLink">Sign Out</a>
 
     <script>
+    // Ajax Sign Out
     $(document).ready(function(){
         $("#signOutLink").click(function(){
-            $.post('sign_out.php', function(data,status){
+            $.post('sign_out_sql.php', function(data,status){
                 if (data="success") {
                     $("head").append('<meta http-equiv="refresh" content="2;index_test.php">');    
                 }
@@ -39,6 +41,7 @@ else
 {
 	
 	?>
+
     <a href="" data-toggle="modal" data-target="#signInModal">Sign In</a>
     .
     <a href="" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
@@ -49,7 +52,7 @@ else
         $("#signInButton").click(function(){
             var email = $("#emailSignIn").val();
             var password = $("#passwordSignIn").val();
-            $.post('sign_in.php', {'email':email, 'password':password}, function(data){
+            $.post('sign_in_sql.php', {'email':email, 'password':password}, function(data){
                 if (data == "success") {
                     $("#signInResult").text("yes! redirecting...").css("color","green");
                     $("head").append('<meta http-equiv="refresh" content="2">');
@@ -65,7 +68,7 @@ else
             var email = $("#emailSignUp").val();
             var password = $("#passwordSignUp").val();
             var nickname = $("#nicknameSignUp").val();
-            $.post('sign_up.php', {'email':email, 'password':password, 'nickname':nickname}, function(data){
+            $.post('sign_up_sql.php', {'email':email, 'password':password, 'nickname':nickname}, function(data){
                 $("#signUpResult").text(data);
                 if (data == "success") {
                     $("#signUpResult").text("signed up! redirecting...").css("color","green");
