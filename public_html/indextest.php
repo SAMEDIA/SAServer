@@ -70,7 +70,7 @@
       <tbody>
       <?php
       	$topSongObj = new PopularSongCache();
-		//$topSongObj->updateDailyData();
+		$topSongObj->updateDailyData();
 		$topSongs = $topSongObj->fetchAllSongs(1, 10, 'All', '', '', '  day_rating DESC');
                     $songCount = 0;
                     foreach ($topSongs as &$song) {	
@@ -82,7 +82,7 @@
 $songHtml .= '<td><a href="/artist/' . str_replace("+","-",urlencode(preg_replace('~[\\\\/:*?"<>,|]~',"",$song->artist_name))) . '/song/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>,|]~","",$song->song_title))) . '">' . stripslashes($song->song_title) . '</a>';
                                     $songHtml .= '<p class="songItemTitleFootnote">' . stripslashes($song->artist_name) . "</p></td></tr>";
 									$songCount++;
-				        if($songCount >= 12) {
+				        if($songCount >= 10) {
                             break;
                     	}
 					}
