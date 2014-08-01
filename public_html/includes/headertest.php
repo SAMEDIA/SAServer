@@ -56,7 +56,7 @@ $start = $time;
     <li><a href="#">ALBUMS</a></li>
     <li><a href="#">REVIEWS</a></li>
     <!---FOR FUTURE USE
-            <li><a href="#">CONCERTS</a></li>--->
+            <li><a href="#">CONCERTS</a></li>-->
   </ul>
   <ul id="memberNav" class="nav navbar-nav navbar-right navbar-collapse collapse">
     <li><a href="#">SIGN IN</a></li>
@@ -64,8 +64,9 @@ $start = $time;
   </ul>
 	<div id="searchForm" class="navbar-right">
   <span style="display:none"><?php include 'includes/alphabetWidget.php'; ?></span>
-  <form class="navbar-form" action="search-results.php?=">
+  <form class="navbar-form" action="search.php">
     <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text">
+    <input type="hidden" name="category" value="all">
     <button id="hidden"></button>
     <button id="button" class="btn glyphicon glyphicon-search"></button>
   </form>
