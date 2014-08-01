@@ -1,11 +1,8 @@
-<?php include '../www/includes/header.php'; ?>
-<?php require_once './search-function.php'; ?>
-<head>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 
 <script>
 $(function() {
@@ -15,15 +12,16 @@ $(function() {
     {
     	query = query.replace(/\+/g," ");
     	query = query.trim();
-        document.getElementById('searchbox').value = query;
+        document.getElementById('search').value = query;
     }
 
-	$( "#searchbox" ).autocomplete({
-       source: "autocomplete.php",
+	/*$("#search").autocomplete({
+       	source: "autocomplete.php",
         minLength: 2,
-    });
+    });*/
 
     $('#loadmore').click(function() {
+    	alert("loadmore");
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
 	    $.ajax({
@@ -55,25 +53,17 @@ function getUrlParam(name)
   return null; 
 }
 
-$("img").lazyload();
 
 </script>
 
 <meta charset="UTF-8">
-
-</head>
-
-
+<?php include '../www/includes/headertest.php'; ?>
+<?php require_once './search-function.php'; ?>
 
 
-<form methed = 'get' action='./search.php'>
-	<input type='text' name='search' id='searchbox'>
-	<input type='submit' >
-	<input type='hidden' name='category' value='all'>
-</form>
 </br>
-    <div id="contentWrapper" class="left"> 
-        <div id="songAboutContent" class="center">   
+    <div class="main-content"> 
+    <div class="container-fluid">   
 <?
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
@@ -118,8 +108,9 @@ $("img").lazyload();
 
 </div>
 </div>
+</body>
 
-<? 	include '../www/includes/footer.php'; ?>
+<? 	include '../www/includes/footertest.php'; ?>
 
 
 

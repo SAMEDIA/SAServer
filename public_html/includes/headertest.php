@@ -25,6 +25,8 @@ $start = $time;
 
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,11 +40,13 @@ $start = $time;
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script><!--<script async src="http://assets.bop.fm/embed.js"></script>-->
 
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
 </head>
 
@@ -56,7 +60,7 @@ $start = $time;
     <li><a href="#">ALBUMS</a></li>
     <li><a href="#">REVIEWS</a></li>
     <!---FOR FUTURE USE
-            <li><a href="#">CONCERTS</a></li>--->
+            <li><a href="#">CONCERTS</a></li>-->
   </ul>
   <ul id="memberNav" class="nav navbar-nav navbar-right navbar-collapse collapse">
     <li><a href="#">SIGN IN</a></li>
@@ -64,8 +68,9 @@ $start = $time;
   </ul>
 	<div id="searchForm" class="navbar-right">
   <span style="display:none"><?php include 'includes/alphabetWidget.php'; ?></span>
-  <form class="navbar-form" action="search-results.php?=">
+  <form class="navbar-form" action="search.php">
     <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text">
+    <input type='hidden' name='category' value='all'>
     <button id="hidden"></button>
     <button id="button" class="btn glyphicon glyphicon-search"></button>
   </form>

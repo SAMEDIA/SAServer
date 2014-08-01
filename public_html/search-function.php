@@ -246,15 +246,13 @@ class searchControler
 					
 				$artistname =  json_decode($artistname);
 
-				$artistSongsHtml .= '<div class="left suggestedArtistItem">';
-
-				$artistSongsHtml .= '<div class="songItemTitle left">';
-				$artistSongsHtml .= '<a href="./song-detail.php?songName=' .$songSearchResultItem->name. '&artistName='. $artistname . '">';
-				$artistSongsHtml .= $songSearchResultItem->name . '</a><br>';
-				$artistSongsHtml .= '<span class="songItemTitleFootnote">'. $artistname .'</span></br>';	
-				$artistSongsHtml .= "</div>";
-				$artistSongsHtml .= "</div>";
-
+				$artistSongsHtml .= "<tr>";
+				$artistSongsHtml .= "<td>" . ($count+1) . "</td>";
+				$artistSongsHtml .= "<td>";
+				$artistSongsHtml .= "<a href='./song-detail.php?songName=" .$songSearchResultItem->name. "&artistName=". $artistname . "'>";
+				$artistSongsHtml .= $songSearchResultItem->name . '</a>';
+				$artistSongsHtml .= "<p class='songItemTitleFootnote'>". $artistname ."</p>";
+				$artistSongsHtml .= "</td></tr>";
 				$count++;
 				
 			} 
@@ -268,7 +266,34 @@ class searchControler
 
 	private function printSongSearchResults($count, $currentSearchString, $artistSongsHtml)
 	{
-		echo "<div id='songSearchResults' class='left'>";
+
+		echo "<div id='popSongs'>";
+ 		echo "<h2 class='sub-header'>Songs</h2>";
+  		echo "<div class='table-responsive'>";
+  		echo "<table class='table table-striped'>
+      			<thead>
+        			<tr>
+        			</tr>
+      			</thead>
+      			<tbody>";
+      	if ($count != 0) {
+      		echo $artistSongsHtml;
+      	}
+      	else
+      	{
+      		echo "No Results Found";
+      	}
+      	echo " 	</tbody>
+    		 </table>";
+  		echo "</div>";
+  		echo "</div>";
+  		if($count > 10)
+		{	
+			echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
+		}
+
+
+		/*echo "<div id='songSearchResults' class='left'>";
 		echo"<div class='searchResultsTitle left'>";
         echo "SONGS";
        	echo"</div>";
@@ -288,7 +313,7 @@ class searchControler
 		if($count > 10)
 		{	
 			echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
-		}
+		}*/
 
 
 	}
