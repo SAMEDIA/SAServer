@@ -284,7 +284,7 @@
 													if($isVerifiedForPage) {
 															$songPiecesHtml .= '<textarea cols="10" rows="4" class="songPieceInput" id="songPieceInput-' . $count . '">';
 																if(isset($songMeaningsArray[$count]) && $songMeaningsArray[$count] != "") {
-																	$songPiecesHtml .= $songMeaningsArray[$count]->meanting_text;
+																	$songPiecesHtml .= $songMeaningsArray[$count]->meaning_text;
 																} else {
 																	$songPiecesHtml .= 'Meaning yet to be entered';
 																}
@@ -293,7 +293,7 @@
 															$songPiecesHtml .= '<div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit(\'songPiece-' . $count . '\', ' . $count . ', ' . $songLyricsJSON->track->amg . '); return false;"></a></div>';
 													} else {
 														if(isset($songMeaningsArray[$count]) && $songMeaningsArray[$count] != "") {
-															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">' . $songMeaningsArray[$count]->meanting_text . '</span>';
+															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">' . $songMeaningsArray[$count]->meaning_text . '</span>';
 														} else {
 															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">Meaning yet to be entered</span>';
 														}
