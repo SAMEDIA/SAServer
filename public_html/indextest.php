@@ -39,6 +39,7 @@
 							if(!preg_match('/[^A-Za-z0-9]/',str_replace(" ","",$artistAlbum["reviews"][0]["release"])) && !preg_match('/[^A-Za-z0-9]/',str_replace(" ","",$artistAlbum["name"]))) {
 								if($artistAlbum["reviews"][0]["image_url"] != "" && $artistAlbum["reviews"][0]["release"] !="") {
 									
+									//if (strpos($artistAlbum["reviews"][0]["image_url"], 'www.popmatters.com')!=0) continue;
 									//Malware Check 								
 									if(!strpos($artistAlbum["reviews"][0]["image_url"], 'www.theaureview.com')) {
 										$topAlbumHtml .= '<div id="topAlbum-' . $artistAlbum["id"] . '" class="albumItem col-md-2 col-sm-4 col-xs-6">';								
@@ -49,7 +50,6 @@
 									}
 								}
 							}
-                            
                             if($songCount >= 6) {
                                     break;
                             }

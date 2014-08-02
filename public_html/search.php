@@ -21,7 +21,7 @@ $(function() {
     });*/
 
     $('#loadmore').click(function() {
-    	alert("loadmore");
+    	alert("load more")
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
 	    $.ajax({
@@ -31,8 +31,9 @@ $(function() {
 	        success: function (res) {
 	            var result = $.parseJSON(res);
 	            //alert(page);
-	            //alert(result);
-	            $('#artistSearchResultsList').append(result);
+	            alert("success");
+	            
+	            $('#ArtistSearchResults').find('tbody').append(result);
 	            $('#loadmore').attr('page',++page);
 	        },
 	        error: function(){
@@ -79,10 +80,10 @@ function getUrlParam(name)
 
 	if ($category == "all")
 	{	
-		$searchControler -> searchArtist(5,$currentSearchString);
+		$searchControler -> searchArtist(6,$currentSearchString);
 		
 		
-		$searchControler->searchAlbum(5,$currentSearchString);
+		$searchControler->searchAlbum(6,$currentSearchString);
 
 		
 		$searchControler->searchSongs(10,$currentSearchString);
