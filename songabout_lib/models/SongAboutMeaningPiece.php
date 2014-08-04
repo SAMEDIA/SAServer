@@ -6,7 +6,7 @@ class SongAboutMeaningPiece {
 	public $song_piece_id;	
 	public $song_id;
 	public $piece_number;
-	public $meanting_text;
+	public $meaning_text;
 	public $user_who_entered;	
 	public $create_date;
 
@@ -27,7 +27,7 @@ class SongAboutMeaningPiece {
 				$this->song_piece_id = (int)$row['song_piece_id'];
 				$this->song_id = $db->cleanFormat($row['song_id']);
 				$this->piece_number = $db->cleanFormat($row['piece_number']);
-				$this->meanting_text = $row['meanting_text'];
+				$this->meaning_text = $row['meaning_text'];
 				$this->user_who_entered = $db->cleanFormat($row['user_who_entered']);
 			} else {
 				//$this->logged = $this->exists = false;
@@ -44,8 +44,8 @@ class SongAboutMeaningPiece {
 			$rs = @$db->query($sqlDelete);
 		}
 		
-		$sql = 'Insert into songabout_song_meaning_piece (song_id, meanting_text,piece_number,user_who_entered) ';
-		$sql .= 'values (' . $db->cleanFormat($this->song_id) . ', "' . $db->cleanFormat($this->meanting_text) . '",' . $db->cleanFormat($this->piece_number) . ',' . $_SESSION['activeUser']->user_id . ')';
+		$sql = 'Insert into songabout_song_meaning_piece (song_id, meaning_text,piece_number,user_who_entered) ';
+		$sql .= 'values (' . $db->cleanFormat($this->song_id) . ', "' . $db->cleanFormat($this->meaning_text) . '",' . $db->cleanFormat($this->piece_number) . ',' . $_SESSION['activeUser']->user_id . ')';
 		$rs = @$db->query($sql);
 		return mysql_insert_id();	
 	}
@@ -68,7 +68,7 @@ class SongAboutMeaningPiece {
 				$entry->song_piece_id = (int)$row['song_piece_id'];
 				$entry->song_id = $db->cleanFormat($row['song_id']);
 				$entry->piece_number = $db->cleanFormat($row['piece_number']);
-				$entry->meanting_text = $row['meanting_text'];
+				$entry->meaning_text = $row['meaning_text'];
 				$entry->user_who_entered = $db->cleanFormat($row['user_who_entered']);
 				
 				return $entry;
@@ -99,7 +99,7 @@ class SongAboutMeaningPiece {
 					$entry->song_piece_id = $row['song_piece_id'];
 					$entry->song_id = $db->cleanFormat($row['song_id']);
 					$entry->piece_number = $db->cleanFormat($row['piece_number']);				
-					$entry->meanting_text = $row['meanting_text'];
+					$entry->meaning_text = $row['meaning_text'];
 					$entry->user_who_entered = $db->cleanFormat($row['user_who_entered']);
 					$entry->create_date = $db->cleanFormat($row['create_date']);
 					 
@@ -110,6 +110,47 @@ class SongAboutMeaningPiece {
 			} 
 		}	
 		return $entries;    
+	}
+
+	public function fetchRecentSongs($page = 1, $howMany = 30, $filterSQL = '', $userID = 0, $orderBySQL = " song_piece_id DESC") {
+		$db = SongAboutDB::getInstance("songabou_sa_production_db");
+		$entries = array();	
+		// This is updated to true once the database return information on if the artist information has been updated for the day. 
+		$isCurrent = false;					 
+		$startAt = ($page - 1) * $howMany;
+		$endAt = $howMany;
+		
+		// This is updated to true once the database return information on if the artist information has been updated for the day. 
+		$isCurrent = false;
+
+		if($orderBySQL === NULL) {
+			$orderBySQL =  " song_piece_id DESC"; 
+		}
+
+		if($userID === NULL || $userID == "") {
+			$userID = 0; 
+		}
+
+		$sql = "SELECT * FROM songabout_song_meaning_piece " . $filterSQL . " order by " . $orderBySQL . " LIMIT " . $startAt . ", " . $endAt . " ";
+
+		if (isset($sql)) {	
+			$resultSet = @$db->query($sql);
+			if ($resultSet->num_rows > 0) {
+				while($row = $resultSet->fetch_assoc()){	
+					$entry = new SongAboutMeaningPiece();
+
+					$entry->song_piece_id = $row['song_piece_id'];
+					$entry->song_id = $db->cleanFormat($row['song_id']);
+					$entry->piece_number = $db->cleanFormat($row['piece_number']);				
+					$entry->meaning_text = $row['meaning_text'];
+					$entry->user_who_entered = $db->cleanFormat($row['user_who_entered']);
+					$entry->create_date = $db->cleanFormat($row['create_date']);
+												
+					$entries[] = $entry;
+				}	
+			} 
+		}	
+		return $entries;
 	}	
 }
 ?>

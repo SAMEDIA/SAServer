@@ -5,7 +5,8 @@
 	// Homepage Caching Objects
 	require_once '../songabout_lib/models/PopularArtistCache.php';
 	require_once '../songabout_lib/models/PopularSongCache.php';
-	require_once '../songabout_lib/models/PopularAlbumCache.php';	
+	require_once '../songabout_lib/models/PopularAlbumCache.php';
+	require_once '../songabout_lib/models/SongAboutMeaningPiece.php';	
 ?>
 <?php include 'includes/headertest.php'; ?>
 <div id="features"> <!--<img class="lazy" data-original="images/aboutHeaderImage.png" width="100%">--> 
@@ -16,16 +17,22 @@
 <div id="left-main" class="col-md-8">
 <div id="trendingLyrics">
   <h2 class="sub-header">Trending on SongAbout</h2>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
-  8- 10 constantly updated songs<br/>
+  	<?php
+  				$trendingSongsObj = new SongAboutMeaningPiece();
+  				$trendingSongs = $trendingSongsObj->fetchRecentSongs(1, 10, '', '', " song_piece_id DESC");
+  				//$echonestSongsTrending = $songAboutEchonest->getSongApi()->
+  				$trendSongsCount = 0;
+  				$trendSongHtml;
+  				
+  				foreach ($trendingSongs as $song) {
+  					$trendSongHtml .= "Trending Song <br/>";
+  					$trendSongHtml .= $song->song_id . '<br/>';
+  					$trendSongsCount++;
+  					if(trendSongsCount >= 10)
+  						break;
+  				}
+  				echo $trendSongHtml;
+  	?>
 </div>
 <div id="topAlbums">
   <h2 class="sub-header">Featured Albums</h2>
@@ -70,7 +77,7 @@
       <tbody>
       <?php
       	$topSongObj = new PopularSongCache();
-		//$topSongObj->updateDailyData();
+		$topSongObj->updateDailyData();
 		$topSongs = $topSongObj->fetchAllSongs(1, 10, 'All', '', '', '  day_rating DESC');
                     $songCount = 0;
                     foreach ($topSongs as &$song) {	
@@ -82,7 +89,7 @@
 $songHtml .= '<td><a href="/artist/' . str_replace("+","-",urlencode(preg_replace('~[\\\\/:*?"<>,|]~',"",$song->artist_name))) . '/song/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()<>,|]~","",$song->song_title))) . '">' . stripslashes($song->song_title) . '</a>';
                                     $songHtml .= '<p class="songItemTitleFootnote">' . stripslashes($song->artist_name) . "</p></td></tr>";
 									$songCount++;
-				        if($songCount >= 12) {
+				        if($songCount >= 10) {
                             break;
                     	}
 					}

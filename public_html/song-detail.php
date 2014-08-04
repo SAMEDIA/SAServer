@@ -1,10 +1,18 @@
-<?php	
+<?php 
+	$pageTitle = "SongAbout.FM | Discover what a song is about - Artist Bio";
+	$page = "song-detail";
+	$showSearch = true;
+	
+	// Song Detail page Caching Objects
 	$cache_time = 864000; // Time in seconds to keep a page cached  10 day cache
 	$cache_folder = 'cache/song/'; // Folder to store cached files (no trailing slash)  
 	$cache_filename = $cache_folder.md5(str_replace("?cache=true", "", $_SERVER['REQUEST_URI'])); // Location to lookup or store cached file  
 	//Check to see if this file has already been cached  
 	// If it has get and store the file creation time  
-	
+?>
+<?php include 'includes/headertest.php'; ?>
+
+<?php	
 	//bust cache
 	if(isset($_GET["cache"]) and $_GET["cache"] == "true"){
 		if(file_exists($cache_filename) === true) {
@@ -48,26 +56,15 @@
 		ob_start("sanitize_output");
 	}
 
+	//ob_start("sanitize_output");
+
 	require_once '../songabout_lib/models/SongAboutMeaningPiece.php';	
 	require_once '../songabout_lib/models/SongAboutUser.php';
 	require_once '../songabout_lib/models/UserFacebook.php';	
 	require_once '../songabout_lib/models/SongAboutArtist.php';	
 	require_once '../songabout_lib/models/SongAboutVerifiedArtist.php';	
-	require_once '../songabout_lib/models/SongAboutArtistStore.php';	
-	
-	session_start();
-	
-	$pageTitle = "SongAbout.FM | Discover what a song is about - Artist Bio";
-	$page = "song-detail";
-	$showSearch = true;	
-	
-	// This is the main infromation API
-	$echoNestAPIKey = 'NQDRAK60G9OZIAAFL';
-	require_once '../lib/EchoNest/Autoloader.php';
-	EchoNest_Autoloader::register();
-	$songAboutEchonest = new EchoNest_Client();
-	$songAboutEchonest->authenticate($echoNestAPIKey);	
-	
+	require_once '../songabout_lib/models/SongAboutArtistStore.php';
+
 	function getCurlData($url) {
 	  $ch = curl_init();
 	  $timeout = 5;
@@ -77,8 +74,7 @@
 	  $data = curl_exec($ch);
 	  curl_close($ch);
 	  return $data;
-	}  	
-
+	}  
 
 	if(isset($_GET["artistID"])) {
 		$artistID = $_GET["artistID"];
@@ -133,22 +129,20 @@
 			$artistSimilarSongs = $songAboutEchonest->getPlaylistApi()->getStatic(array('song_id' => 'SORMQAA135C3593DCB', 'results' => '5', 'type' => 'song-radio', 'bucket' => array("id:7digital-US", "tracks")));
 		}*/
 		
-		$songLyrics = getCurlData('http://test.lyricfind.com/api_service/lyric.do?apikey=d8a05b1cf5bd9e2a5761abf57543b013&reqtype=default&trackid=artistname:' . $artistSearchString .',trackname:'. $songSearchString .'&output=json&useragent=' . $_SERVER['HTTP_USER_AGENT']);
+		$songLyrics = getCurlData('http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:' . $artistSearchString .',trackname:'. $songSearchString .'&output=json&useragent=' . $_SERVER['HTTP_USER_AGENT']);
 						
 		$songLyricsJSON = json_decode($songLyrics);	
 		$SongAboutArtistObj = new SongAboutArtist($artistProfile["name"]);		
 		$SongAboutArtistStoreObj = new SongAboutArtistStore(strtolower($artistProfile["name"]));
 	} else {
 		// Add redirect code
-	}
+	}	
 ?>
-<?php 	include 'includes/header.php'; ?>
-    <div id="contentWrapper" class="left"> 
-        <div id="songAboutContent" class="center">   
-			<div id="" class="left col-1"><?php 	include 'includes/sidebar-suggested-artist.php'; ?></div>
+<div class="main-content">
+  <div class="container-fluid">
+               	<div id="" class="left col-1"><?php 	//include 'includes/sidebar-suggested-artist.php'; ?></div>
 			<div id="col-2" class="left col-2"> 
-				<div class="artistDetailBox"> 
-                    <div class="artistItemImg">
+				<div class="artistDetailBox">
                         <?php 
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
@@ -161,11 +155,11 @@
 							if(!$foundImage){
 								echo '<img src="images/noSGcover.png" height="125" width="125" border="0">';
 							}
-						?>     
-                    </div>
-                    <div id="artistItemSocialIcons" class="right"><div id="artistItemSocialFB"><a href="#"></a></div><div id="artistItemSocialTwitter"><a href="#"></a></div><div id="artistItemSocialShare"><a href="#"></a></div></div>
+						?>
+                    <div id="artistItemSocialIcons" class="right"><a href="#">FB</a><a href="#">TWITTER</a><a href="#">SHARE</a></div>
+                </div>
     				<div class="artistItemDetailText">
-                    	<?php echo strtoupper($artistProfile["name"]); ?>
+                    	<h2><?php echo strtoupper($artistProfile["name"]); ?></h2>
                        <br /><?php
 						   $genreCount = 0;
 						   /*
@@ -180,7 +174,8 @@
 							   }
 						   }
                        </span>
- 						   */?></div>
+ 						   */?>
+ 					</div>
                     <div class="artistItemDetailMenu left">
                     	<div class="left" id="buttonToMusic"><a href="/artist/<?php echo $artistName ?>"></a></div><div class="left" id="buttonClaimPage"><a href="#"></a></div><div class="left" id="buttonArtistBio"><a href="/artist/<?php echo $artistName ?>/bio"></a></div>
                         <input type="hidden" name="artistNameInput" value="<?php echo $artistName ?>" />
@@ -269,10 +264,10 @@
                         <div id="songDetailLyrics" class="left">
                             <div id="songDetailLyricsTextArea">
 								<?php if($isVerifiedForPage) { ?>
-                                    <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><?php if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meanting_text;}?></textarea>
+                                    <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><?php if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meaning_text;}?></textarea>
                                     <div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit('songPiece-0', 0, '<?php echo $songLyricsJSON->track->amg ?>'); return false;"></a></div>
                                 <?php } else if($songMeaningsArray[0] != "") { ?>
-                                		<div id="songLyric-0" class="songLyricItem left songLyricItemBox"><?php echo $songMeaningsArray[0]->meanting_text; ?></div>
+                                		<div id="songLyric-0" class="songLyricItem left songLyricItemBox"><?php echo $songMeaningsArray[0]->meaning_text; ?></div>
                                 <?php } else { ?>
                                 	<div id="songLyric-0" class="songLyricItem left songLyricItemBox">No song meaning at this time.</div>
                                 <?php } ?>
@@ -296,7 +291,7 @@
 													if($isVerifiedForPage) {
 															$songPiecesHtml .= '<textarea cols="10" rows="4" class="songPieceInput" id="songPieceInput-' . $count . '">';
 																if(isset($songMeaningsArray[$count]) && $songMeaningsArray[$count] != "") {
-																	$songPiecesHtml .= $songMeaningsArray[$count]->meanting_text;
+																	$songPiecesHtml .= $songMeaningsArray[$count]->meaning_text;
 																} else {
 																	$songPiecesHtml .= 'Meaning yet to be entered';
 																}										
@@ -304,7 +299,7 @@
 															$songPiecesHtml .= '<div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit(\'songPiece-' . $count . '\', ' . $count . ', ' . $songLyricsJSON->track->amg . '); return false;"></a></div>';
 													} else {
 														if(isset($songMeaningsArray[$count]) && $songMeaningsArray[$count] != "") {
-															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">' . $songMeaningsArray[$count]->meanting_text . '</span>';
+															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">' . $songMeaningsArray[$count]->meaning_text . '</span>';
 														} else {
 															$songPiecesHtml .= '<span class="songPieceLyricMeaningPop" class="left">Meaning yet to be entered</span>';
 														}
@@ -335,8 +330,7 @@
                                 <br>
                                 Lyrics licensed by <a href="http://www.lyricfind.com/licensing/" target="_blank">lyricfind</a>           
                             </div>                            
-                        </div>                        
-                        <span class="clear"></span>
+                        </div>
                     </div>
                     <?php /* <center><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></center><br>
                 } else { ?>
@@ -344,29 +338,15 @@
                     	<h3>No song details at this time.</h3>
 					</div>
 				<?php } */?>              
-                <div id="songDetailComments" class="left">
-					<div id="songDetailCommentsTitle" class="left">Leave Comments</div>
-                    <div id="songDetailCommentFB">
+                <div id="songComments">
+					<h2>Leave Comments</h2>
                     	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
-                    </div>
-                </div>
-                <span class="clear"></span>                
-            </div><span class="clear"></span>
-		</div>
-    </div>
-	<span class="clear"></span>
-    <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
-    <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>   
-    <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
-    	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
-			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
-		<?php } else { ?>
-			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
-            <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
-		<?php } ?>      
-    </div>     
-<?php 	include 'includes/footer.php'; ?>
-<?php
-	file_put_contents($cache_filename, sanitize_output(ob_get_contents()));  
+                </div>                
+            </div>
+
+  </div>
+</div>
+<?php include 'includes/footertest.php'; ?>
+<?php 
 	ob_end_flush();
 ?>
