@@ -4,13 +4,14 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
+
 <script>
 $(function() {
 
 	var query = getUrlParam('search');
     if (query != null)
     {
-    	query = query.replace(/\+/g," ");
+    	query = query.replace(/\s+/g,"+");
     	query = query.trim();
         document.getElementById('search').value = query;
     }
@@ -21,9 +22,14 @@ $(function() {
     });*/
 
     $('#loadmore').click(function() {
-    	alert("load more")
+    	alert("load more");
+    	alert(query);
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
+
+	   	var $btn = $(this);
+    	$btn.button('loading');
+
 	    $.ajax({
 	        url:'load-data.php',
 	        type:'get',
@@ -32,9 +38,9 @@ $(function() {
 	            var result = $.parseJSON(res);
 	            //alert(page);
 	            alert("success");
-	            
 	            $('#ArtistSearchResults').find('tbody').append(result);
 	            $('#loadmore').attr('page',++page);
+	            $btn.button('reset');
 	        },
 	        error: function(){
 	        	alert("failed");
@@ -42,6 +48,13 @@ $(function() {
 	    });
 	});
 
+	/*$("button").click(function() {
+    var $btn = $(this);
+    $btn.button('loading');
+    // simulating a timeout
+    setTimeout(function () {
+        $btn.button('reset');
+    }, 1000);*/
 
 });
 
@@ -73,10 +86,10 @@ function getUrlParam(name)
 
 	$currentSearchString = $searchControler->getCurrentSearchString();
 
-	$searchControler->printCategory($currentSearchString);
-	
-
 	$category = $_GET['category'];
+
+
+	$searchControler->printCategory($currentSearchString, $category);
 
 	if ($category == "all")
 	{	
@@ -106,6 +119,7 @@ function getUrlParam(name)
 	}
 
 ?>
+
 
 </div>
 </div>

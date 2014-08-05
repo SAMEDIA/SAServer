@@ -30,7 +30,7 @@ if($category == "songs")
 
 	$totalNum = $songSearchResultsJSON->results->{'opensearch:totalResults'};
 
-	if($page > $totalNum / 30);
+	//if($page > $totalNum / 30);
 		//break;
 
 	$count = ($page - 1 ) * 30;
