@@ -96,15 +96,13 @@ class searchControler
 					if($artistResultCount == 1 and isset($artistSearchResultsJSON->results->artistmatches->artist->name)) {
 						$currentArtistName = $artistSearchResultsJSON->results->artistmatches->artist->name;
 					}
-					if($currentArtistName != "" && !preg_match($pattern, $currentArtistName) && $artistSearchResultItem->image[2]->{'#text'} != "") 
+					if($currentArtistName != "" && !preg_match($pattern, $currentArtistName) && $artistSearchResultItem->image[3]->{'#text'} != "") 
 					{
 						
 						$currentArtistName = json_decode('"' . $currentArtistName .'"');
 			
-						$artistResultHtml .= '<div class="albumItem left">';
-						$artistResultHtml .= '<div class="artistItemImg">';
-						$artistResultHtml .= '<img src="' . $artistSearchResultItem->image[2]->{'#text'} . '" height="125" width="125" border="0">';
-						$artistResultHtml .= '</div>'; 
+						$artistResultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";
+						$artistResultHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchResultItem->image[3]->{'#text'}  . "' border='0' width='125' height='125'></div>";
 						$artistResultHtml .= '<div class="artistItemTitle">';	
 						$artistResultHtml .= '<a href="./artist-detail.php?artistName='. $currentArtistName .'">';
 						$artistResultHtml .=  $currentArtistName . '</a><br>';
@@ -131,7 +129,7 @@ class searchControler
 
 	private function printSearchArtistResults($count, $currentSearchString, $artistResultHtml)
 	{
-		echo "<div id='artistSearchResults' class='left'>";
+		/*echo "<div id='artistSearchResults' class='left'>";
         echo "<div class='searchResultsTitle left'>";
         echo "ARTISTS";
        	echo  "</div>";
@@ -147,7 +145,18 @@ class searchControler
         else
         	echo "No results found";
         echo "</div>";
-        echo "</div>";
+        echo "</div>";*/
+        echo "<div id='ArtistSearchResults' class='col-md-12'>";
+ 		echo "<h2 class='sub-header'>Artists</h2>";
+ 		if ($count == 0) 
+ 		{
+ 			echo "No Results Found";
+ 		}
+ 		else
+ 		{
+ 			echo $artistResultHtml;
+ 		}
+ 		echo "</div>";
 	}  	
 
 
@@ -168,18 +177,16 @@ class searchControler
 
 		if(isset($albumResultCount) && $albumResultCount > 0) {
 			foreach ($albumSearchResultsJSON->results->albummatches->album as &$artistSearchAlbumResultItem) {
-				if($artistSearchAlbumResultItem->image[2]->{'#text'} != "") {
+				if($artistSearchAlbumResultItem->image[3]->{'#text'} != "") {
 
 
 					$artistname = $artistSearchAlbumResultItem->artist;
 					$artistname = json_decode('"' . $artistname . '"');
 			
-					$artistAlbumsHtml .= '<div class="albumItem left">';	
-					$artistAlbumsHtml .= '<div class="albumItemImg">';
-					$artistAlbumsHtml .= '<img src="' . $artistSearchAlbumResultItem->image[2]->{'#text'} . '" height="125" width="125">';
-					$artistAlbumsHtml .= '</div>'; 
+					$artistAlbumsHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";	
+					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[3]->{'#text'}  . "' border='0' ></div>";
 					$artistAlbumsHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
-					$artistAlbumsHtml .= '</div>';
+					$artistAlbumsHtml .= "</div>";
 					$count++;
 					if($count >= $num) {
 						break;	
@@ -196,7 +203,10 @@ class searchControler
 
 	private function printAblumSearchResult($count, $currentSearchString, $artistAlbumsHtml)
 	{
-		echo "<div id='albumSearchResults' class='left'>";
+		
+
+
+		/*echo "<div id='albumSearchResults' class='left'>";
 		echo "<div class='searchResultsTitle left'>";
         echo "ALBUMS";
         echo "</div>";
@@ -218,8 +228,23 @@ class searchControler
 		if($count == 30)
 		{	
 			echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
-		}	
-		
+		}*/
+
+		echo "<div id='AlbumSearchResults' class='col-md-12'>";
+ 		echo "<h2 class='sub-header'>Albums</h2>";
+ 		if ($count == 0) 
+ 		{
+ 			echo "No Results Found";
+ 		}
+ 		else
+ 		{
+ 			echo $artistAlbumsHtml;
+ 		}
+ 		echo "</div>";
+		if($count == 30)
+		{	
+			echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
+		}
        	
 	}
 
@@ -246,15 +271,15 @@ class searchControler
 					
 				$artistname =  json_decode($artistname);
 
-				$artistSongsHtml .= '<div class="left suggestedArtistItem">';
-
-				$artistSongsHtml .= '<div class="songItemTitle left">';
-				$artistSongsHtml .= '<a href="./song-detail.php?songName=' .$songSearchResultItem->name. '&artistName='. $artistname . '">';
-				$artistSongsHtml .= $songSearchResultItem->name . '</a><br>';
-				$artistSongsHtml .= '<span class="songItemTitleFootnote">'. $artistname .'</span></br>';	
-				$artistSongsHtml .= "</div>";
-				$artistSongsHtml .= "</div>";
-
+				$artistSongsHtml .= "<tr>";
+				$artistSongsHtml .= "<td>" . ($count+1) . "</td>";
+				//$artistSongsHtml .= "<td><img class='lazy' data-original='" . $songSearchResultItem->image[1]->{'#text'}  . "' border='0' height='60' width='60'></td>";
+				$artistSongsHtml .= "<td>";
+				$artistSongsHtml .= "<a href='./song-detail.php?songName=" .$songSearchResultItem->name. "&artistName=". $artistname . "'>";
+				$artistSongsHtml .= $songSearchResultItem->name . '</a>';
+				$artistSongsHtml .= "</td>";
+				$artistSongsHtml .= "<td><p class='songItemTitleFootnote'>". $artistname ."</p></td>";
+				$artistSongsHtml .= "</tr>";
 				$count++;
 				
 			} 
@@ -268,7 +293,34 @@ class searchControler
 
 	private function printSongSearchResults($count, $currentSearchString, $artistSongsHtml)
 	{
-		echo "<div id='songSearchResults' class='left'>";
+
+		echo "<div id='ArtistSearchResults' class='col-md-12'>";
+ 		echo "<h2 class='sub-header'>Songs</h2>";
+  		echo "<div class='table-responsive'>";
+  		echo "<table class='table table-striped'>
+      			<thead>
+        			<tr>
+        			</tr>
+      			</thead>
+      			<tbody>";
+      	if ($count != 0) {
+      		echo $artistSongsHtml;
+      	}
+      	else
+      	{
+      		echo "No Results Found";
+      	}
+      	echo " 	</tbody>
+    		 </table>";
+  		echo "</div>";
+  		echo "</div>";
+  		if($count > 10)
+		{	
+			echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
+		}
+
+
+		/*echo "<div id='songSearchResults' class='left'>";
 		echo"<div class='searchResultsTitle left'>";
         echo "SONGS";
        	echo"</div>";
@@ -288,7 +340,7 @@ class searchControler
 		if($count > 10)
 		{	
 			echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
-		}
+		}*/
 
 
 	}

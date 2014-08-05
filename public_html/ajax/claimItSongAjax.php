@@ -28,7 +28,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 			
 			$SongAboutMeaningPiece->song_id = $songId;
 			$SongAboutMeaningPiece->piece_number = str_replace("songPiece-","",$songPieceNum);
-			$SongAboutMeaningPiece->meanting_text = $songMeaning;
+			$SongAboutMeaningPiece->meaning_text = $songMeaning;
 			$SongAboutMeaningPiece->user_who_entered = $_SESSION['activeUser']->user_id;	
 
 			$SongAboutMeaningPiece->save();	
