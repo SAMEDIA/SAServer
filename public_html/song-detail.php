@@ -350,7 +350,7 @@
                     	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
                     </div>
                 </div>
-                <span class="clear"></span>                
+                <span class="clear"></span>
             </div><span class="clear"></span>
 		</div>
     </div>
