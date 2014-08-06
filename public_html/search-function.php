@@ -49,6 +49,8 @@ class searchControler
 		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a></li>";
 		echo "</ul>";
 
+		echo "<div class='container-fluid'>";   
+
 	}
 
 	private function getCurlData($url) {

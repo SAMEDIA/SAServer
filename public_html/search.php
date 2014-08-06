@@ -77,7 +77,7 @@ function getUrlParam(name)
 
 </br>
     <div class="main-content"> 
-    <div class="container-fluid">   
+    
 <?
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
