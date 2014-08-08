@@ -163,7 +163,7 @@ $start = $time;
 </head>
 
 <body>
-<div id="mainNav" class="navbar navbar-inverse" role="navigation">
+<div id="mainNav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
   <a id="logoPic" href="http://www.songabout.fm"><img class="navbar-brand" src="images/logos/SALogo.png"/></a> <a id="logoText" class="navbar-brand" style="color:#FFF; padding-left: 0;" href="http://www.songabout.fm">SONGABOUT</a>
   <ul id="quickNav" class="nav navbar-nav navbar-left navbar-collapse collapse">
@@ -171,8 +171,8 @@ $start = $time;
     <li><a href="#">ARTISTS</a></li>
     <li><a href="#">ALBUMS</a></li>
     <li><a href="#">REVIEWS</a></li>
-    <!---FOR FUTURE USE
-            <li><a href="#">CONCERTS</a></li>--->
+    <!--FOR FUTURE USE
+            <li><a href="#">CONCERTS</a></li>-->
   </ul>
   <ul id="memberNav" class="nav navbar-nav navbar-right navbar-collapse collapse">
     <li><a href="#">SIGN IN</a></li>
@@ -181,7 +181,7 @@ $start = $time;
 	<div id="searchForm" class="navbar-right">
   <span style="display:none"><?php include 'includes/alphabetWidget.php'; ?></span>
   <form class="navbar-form" action="search-results.php?=">
-    <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text">
+    <input id="search" name="search" class="form-control" placeholder="         Search for artists, albums, lyrics..." type="text">
     <button id="hidden"></button>
     <button id="button" class="btn glyphicon glyphicon-search"></button>
   </form>
