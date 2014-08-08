@@ -28,11 +28,11 @@ class SongAboutDB extends MySQLi {
 	$db->schema = $db_name;
 <<<<<<< HEAD
 	$db->port = '3306';*/
-
+/*
 =======
 	$db->port = '3306';
 	*/
->>>>>>> FETCH_HEAD
+//>>>>>>> FETCH_HEAD
 	// connect to the database
 	@parent::__construct($host, $db->user, $db->pass, $db->schema, $port, false);
 

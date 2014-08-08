@@ -341,7 +341,7 @@
                 <div id="songComments">
 					<h2>Leave Comments</h2>
                     	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
-<<<<<<< HEAD
+
                     </div>
                 </div>
                 <span class="clear"></span>
@@ -361,8 +361,8 @@
     </div>     
 <?php 	include 'includes/footer.php'; ?>
 <?php
-	file_put_contents($cache_filename, sanitize_output(ob_get_contents()));  
-=======
+	file_put_contents($cache_filename, sanitize_output(ob_get_contents()));  ?>
+
                 </div>                
             </div>
 
@@ -370,6 +370,6 @@
 </div>
 <?php include 'includes/footertest.php'; ?>
 <?php 
->>>>>>> FETCH_HEAD
+//>>>>>>> FETCH_HEAD
 	ob_end_flush();
 ?>
