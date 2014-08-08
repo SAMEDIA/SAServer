@@ -1,6 +1,6 @@
 <?php
 
-include "connect_database.php";
+include "../user_panel/connect_database.php";
 session_start();
 
 if (!empty($_POST['email']) && !empty($_POST['password']))
@@ -22,11 +22,13 @@ if (!empty($_POST['email']) && !empty($_POST['password']))
         $row = mysql_fetch_array($signInQueryResult);
         $email = $row['Email'];
         $nickname = $row['Nickname'];
+        $userID = $row['UserID'];
 
-        $_SESSION['Email'] = $email;
-        $_SESSION['Nickname'] = $nickname;
+        $_SESSION['userID'] = $userID;
+        $_SESSION['email'] = $email;
+        $_SESSION['nickname'] = $nickname;
 
-        $_SESSION['LoggedIn'] = 1;
+        $_SESSION['loggedIn'] = 1;
         
         echo "success";
     }

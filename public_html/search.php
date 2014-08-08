@@ -1,11 +1,9 @@
-<?php include '../www/includes/header.php'; ?>
-<?php require_once './search-function.php'; ?>
-<head>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
+<script language="javascript" type="text/javascript" src="jquery.equalheights.js"></script>
 
 <script>
 $(function() {
@@ -13,19 +11,26 @@ $(function() {
 	var query = getUrlParam('search');
     if (query != null)
     {
-    	query = query.replace(/\+/g," ");
+    	document.getElementById('search').value = query;
+    	query = query.replace(/\s+/g,"+");
     	query = query.trim();
-        document.getElementById('searchbox').value = query;
+   
     }
 
-	$( "#searchbox" ).autocomplete({
-       source: "autocomplete.php",
+	/*$("#search").autocomplete({
+       	source: "autocomplete.php",
         minLength: 2,
-    });
+    });*/
 
     $('#loadmore').click(function() {
+    	alert("load more");
+    
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
+		alert(query +" " +category);
+	   	var $btn = $(this);
+    	$btn.button('loading');
+
 	    $.ajax({
 	        url:'load-data.php',
 	        type:'get',
@@ -33,9 +38,16 @@ $(function() {
 	        success: function (res) {
 	            var result = $.parseJSON(res);
 	            //alert(page);
-	            //alert(result);
-	            $('#artistSearchResultsList').append(result);
+	            alert("success");
+	            alert(result);
+
+	            if (category == "songs")
+	            	$('#ArtistSearchResults').find('tbody').append(result);
+	            else
+	            	$('#AlbumSearchResults').append(result);
+
 	            $('#loadmore').attr('page',++page);
+	            $btn.button('reset');
 	        },
 	        error: function(){
 	        	alert("failed");
@@ -43,8 +55,32 @@ $(function() {
 	    });
 	});
 
+	
+    //equalHeight($(".thumbnail")); 
+    equalHeight($(".albumItem")); 
+    
+
+	/*$("button").click(function() {
+    var $btn = $(this);
+    $btn.button('loading');
+    // simulating a timeout
+    setTimeout(function () {
+        $btn.button('reset');
+    }, 1000);*/
 
 });
+
+function equalHeight(group) {    
+	    /*tallest = 0;    
+	    group.each(function() {       
+	        thisHeight = $(this).height();       
+	        if(thisHeight > tallest) {          
+	            tallest = thisHeight;       
+	        }    
+	    }); 
+	    alert(tallest);  */ 
+	    group.each(function() { $(this).height(240); });
+	} 
 
 function getUrlParam(name)
 {
@@ -55,25 +91,17 @@ function getUrlParam(name)
   return null; 
 }
 
-$("img").lazyload();
 
 </script>
 
 <meta charset="UTF-8">
-
-</head>
-
-
+<?php include '../www/includes/headertest.php'; ?>
+<?php require_once './search-function.php'; ?>
 
 
-<form methed = 'get' action='./search.php'>
-	<input type='text' name='search' id='searchbox'>
-	<input type='submit' >
-	<input type='hidden' name='category' value='all'>
-</form>
 </br>
-    <div id="contentWrapper" class="left"> 
-        <div id="songAboutContent" class="center">   
+    <div class="main-content"> 
+    
 <?
 	$pageTitle = "SongAbout.FM | Discover what a song is about.";
 	$page = "Homepage";
@@ -82,17 +110,17 @@ $("img").lazyload();
 
 	$currentSearchString = $searchControler->getCurrentSearchString();
 
-	$searchControler->printCategory($currentSearchString);
-	
-
 	$category = $_GET['category'];
+
+
+	$searchControler->printCategory($currentSearchString, $category);
 
 	if ($category == "all")
 	{	
-		$searchControler -> searchArtist(5,$currentSearchString);
+		$searchControler -> searchArtist(6,$currentSearchString);
 		
 		
-		$searchControler->searchAlbum(5,$currentSearchString);
+		$searchControler->searchAlbum(6,$currentSearchString);
 
 		
 		$searchControler->searchSongs(10,$currentSearchString);
@@ -116,10 +144,12 @@ $("img").lazyload();
 
 ?>
 
-</div>
-</div>
 
-<? 	include '../www/includes/footer.php'; ?>
+</div>
+</div>
+</body>
+
+<? 	include '../www/includes/footertest.php'; ?>
 
 
 

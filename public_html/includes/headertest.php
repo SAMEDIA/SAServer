@@ -180,8 +180,9 @@ $start = $time;
   </ul>
 	<div id="searchForm" class="navbar-right">
   <span style="display:none"><?php include 'includes/alphabetWidget.php'; ?></span>
-  <form class="navbar-form" action="search-results.php?=">
-    <input id="search" name="search" class="form-control" placeholder="         Search for artists, albums, lyrics..." type="text">
+  <form class="navbar-form" action="search.php">
+    <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text">
+    <input type="hidden" name="category" value="all">
     <button id="hidden"></button>
     <button id="button" class="btn glyphicon glyphicon-search"></button>
   </form>

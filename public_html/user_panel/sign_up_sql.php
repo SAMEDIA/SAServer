@@ -1,6 +1,6 @@
 <?php
 
-include "connect_database.php";
+include "../user_panel/connect_database.php";
 session_start();
 
 if (!empty($_POST['email']) && !empty($_POST['password']))
@@ -17,19 +17,24 @@ if (!empty($_POST['email']) && !empty($_POST['password']))
     // if not exist, insert into table
     if (mysql_num_rows($userCheckQueryResult) == 0) {
         $signUpQueryResult = mysql_query("INSERT INTO users (Email, Password, Nickname) VALUES('".$email."', '".$password."', '".$nickname."')");
-     
-        //var_dump($signUpQueryResult);
-
-        // succesfully signed up
-        if($signUpQueryResult == true)
+        
+        $signInQueryResult = mysql_query("SELECT * FROM users WHERE Email = '".$email."' AND Password = '".$password."'");
+        if(mysql_num_rows($signInQueryResult) == 1)
         {
-            $_SESSION['Email'] = $email;
-            $_SESSION['Nickname'] = $nickname;
+            $row = mysql_fetch_array($signInQueryResult);
+            $email = $row['Email'];
+            $nickname = $row['Nickname'];
+            $userID = $row['UserID'];
 
-            $_SESSION['LoggedIn'] = 1;
+            $_SESSION['userID'] = $userID;
+            $_SESSION['email'] = $email;
+            $_SESSION['nickname'] = $nickname;
+
+            $_SESSION['loggedIn'] = 1;
             
             echo "success";
         }
+
     }
     else
     {

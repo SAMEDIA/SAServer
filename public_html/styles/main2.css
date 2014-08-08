@@ -272,3 +272,17 @@ default width = 800/5 = 160px;
 	  left:auto;
   }
 }
+
+.imageContainer {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+.imageCenterer {
+  width: 160px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -80px;
+}

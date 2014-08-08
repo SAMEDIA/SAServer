@@ -20,16 +20,37 @@ class searchControler
 
 	}
 
-	public function printCategory($currentSearchString)
+	public function printCategory($currentSearchString, $category)
 	{
-		echo "<a href=\"./search.php?category=all&search=". $currentSearchString ."\">All</a>";
-		echo "&nbsp;&nbsp;";
-		echo "<a href=\"./search.php?category=artists&search=". $currentSearchString ."\">Artists</a>";
-		echo "&nbsp;&nbsp;";
-		echo "<a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">Albums</a>";
-		echo "&nbsp;&nbsp;";
-		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a>";
-		echo "<br>";
+		echo "<ul class='nav nav-tabs nav-justified' role='tablist'>";
+		if ($category == "all") 
+			echo "<li class='active'>";
+		else
+			echo "<li>";
+ 		echo "<a href=\"./search.php?category=all&search=". $currentSearchString ."\">All</a>";
+ 		echo "</li>";
+
+ 		if ($category == "artists") 
+			echo "<li class='active'>";
+		else
+			echo "<li>";
+ 		echo "<a href=\"./search.php?category=artists&search=". $currentSearchString ."\">Artists</a></li>";
+
+ 		if ($category == "albums") 
+			echo "<li class='active'>";
+		else
+			echo "<li>";
+		echo "<a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">Albums</a></li>";
+
+		if ($category == "songs") 
+			echo "<li class='active'>";
+		else
+			echo "<li>";
+		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a></li>";
+		echo "</ul>";
+
+		echo "<div class='container-fluid' >";   
+
 	}
 
 	private function getCurlData($url) {
@@ -96,19 +117,21 @@ class searchControler
 					if($artistResultCount == 1 and isset($artistSearchResultsJSON->results->artistmatches->artist->name)) {
 						$currentArtistName = $artistSearchResultsJSON->results->artistmatches->artist->name;
 					}
-					if($currentArtistName != "" && !preg_match($pattern, $currentArtistName) && $artistSearchResultItem->image[2]->{'#text'} != "") 
+					if($currentArtistName != "" && !preg_match($pattern, $currentArtistName) && $artistSearchResultItem->image[3]->{'#text'} != "") 
 					{
 						
 						$currentArtistName = json_decode('"' . $currentArtistName .'"');
 			
-						$artistResultHtml .= '<div class="albumItem left">';
-						$artistResultHtml .= '<div class="artistItemImg">';
-						$artistResultHtml .= '<img src="' . $artistSearchResultItem->image[2]->{'#text'} . '" height="125" width="125" border="0">';
-						$artistResultHtml .= '</div>'; 
-						$artistResultHtml .= '<div class="artistItemTitle">';	
+						$artistResultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6 col-md-height'>";
+						$artistResultHtml .= "<div class='imageContainer'>";
+						$artistResultHtml .= "<div class='imageCenterer'>";
+						$artistResultHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchResultItem->image[2]->{'#text'}  . "' border='0' width='125' height='125'></div>";
+						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '<span class="artistItemTitle">';	
 						$artistResultHtml .= '<a href="./artist-detail.php?artistName='. $currentArtistName .'">';
 						$artistResultHtml .=  $currentArtistName . '</a><br>';
-						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '</span>';
 						$artistResultHtml .= '</div>';
 						$count++;
 						
@@ -131,23 +154,25 @@ class searchControler
 
 	private function printSearchArtistResults($count, $currentSearchString, $artistResultHtml)
 	{
-		echo "<div id='artistSearchResults' class='left'>";
-        echo "<div class='searchResultsTitle left'>";
-        echo "ARTISTS";
-       	echo  "</div>";
-        echo "<div class='searchResultsCount right' style='width:350px;text-align:right'>";
-        if ($count == 5) {
-        	echo "<a href=\"./search.php?category=artists&page=1&search=". $currentSearchString ."\">more</a></br>";	
-        }  
-                                               
+        echo "<div id='ArtistSearchResults' class='col-md-12'>";
+ 		echo "<div class='row'>";
+		echo "<div id='header' class='col-md-10'>";
+ 		echo "<h2 class='sub-header'>Artists</h2></div>";
+ 		echo "<div id='more-results' class='col-md-2'>";
+ 		if ($count == 6) {
+        	echo "<h3 class='text-right'><a href=\"./search.php?category=artists&page=1&search=". $currentSearchString ."\">more</a></h3>";	
+        }
+        echo "</div>";  
         echo "</div>";
-        echo "<div id='artistSearchResultsList' class='clear'>";
-        if($count != 0)
-        	echo $artistResultHtml;
-        else
-        	echo "No results found";
-        echo "</div>";
-        echo "</div>";
+ 		if ($count == 0) 
+ 		{
+ 			echo "No Results Found";
+ 		}
+ 		else
+ 		{
+ 			echo $artistResultHtml;
+ 		}
+ 		echo "</div>";
 	}  	
 
 
@@ -168,18 +193,19 @@ class searchControler
 
 		if(isset($albumResultCount) && $albumResultCount > 0) {
 			foreach ($albumSearchResultsJSON->results->albummatches->album as &$artistSearchAlbumResultItem) {
-				if($artistSearchAlbumResultItem->image[2]->{'#text'} != "") {
+				if($artistSearchAlbumResultItem->image[3]->{'#text'} != "") {
 
 
 					$artistname = $artistSearchAlbumResultItem->artist;
 					$artistname = json_decode('"' . $artistname . '"');
 			
-					$artistAlbumsHtml .= '<div class="albumItem left">';	
-					$artistAlbumsHtml .= '<div class="albumItemImg">';
-					$artistAlbumsHtml .= '<img src="' . $artistSearchAlbumResultItem->image[2]->{'#text'} . '" height="125" width="125">';
-					$artistAlbumsHtml .= '</div>'; 
+					$artistAlbumsHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";	
+					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[2]->{'#text'}  . "' border='0'></div>";
+					//$artistAlbumsHtml .= "<div class='caption'>";
 					$artistAlbumsHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
-					$artistAlbumsHtml .= '</div>';
+					//$artistAlbumsHtml .= "</div>";
+					//$artistAlbumsHtml .= "</div>";
+					$artistAlbumsHtml .= "</div>";
 					$count++;
 					if($count >= $num) {
 						break;	
@@ -196,30 +222,35 @@ class searchControler
 
 	private function printAblumSearchResult($count, $currentSearchString, $artistAlbumsHtml)
 	{
-		echo "<div id='albumSearchResults' class='left'>";
-		echo "<div class='searchResultsTitle left'>";
-        echo "ALBUMS";
+		echo "<div id='AlbumSearchResults' class='col-md-12'>";
+ 		echo "<div class='row'>";
+		echo "<div id='header' class='col-md-10'>";
+ 		echo "<h2 class='sub-header'>Albums</h2></div>";
+ 		echo "<div id='more-results' class='col-md-2'>";
+ 		if ($count == 6) {
+        	echo "<h3 class='text-right'><a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">more</a></h3>";	
+        }
+        echo "</div>";  
         echo "</div>";
-        echo "<div class='searchResultsCount right' style='width:350px;text-align:right'>";
-        if($count == 5)
-		{
-			echo  "<a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">more</a></br>";	                                          
-		}
-		echo "</div>";
-        echo  "<div id='artistSearchResultsList' class='clear'>";
-
-		if ($count != 0) 
-			echo $artistAlbumsHtml; 
-		else
-			echo "No results found";
-		
-		echo "</div>";
-		echo "</div>";
+ 		if ($count == 0) 
+ 		{
+ 			echo "No Results Found";
+ 		}
+ 		else
+ 		{
+ 			echo $artistAlbumsHtml;
+ 		}
+ 		echo "</div>";
 		if($count == 30)
 		{	
-			echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
-		}	
-		
+			//echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
+			echo "<div class='col-md-12 text-center'>";
+			echo "<button type='button' id='loadmore' data-loading-text='Loading...' class='btn btn-primary' page='2' category='albums'
+					style='width: 90%;margin-bottom: 20'>
+ 				 Load More
+			</button>";
+			echo "</div>";
+		}
        	
 	}
 
@@ -246,15 +277,14 @@ class searchControler
 					
 				$artistname =  json_decode($artistname);
 
-				$artistSongsHtml .= '<div class="left suggestedArtistItem">';
-
-				$artistSongsHtml .= '<div class="songItemTitle left">';
-				$artistSongsHtml .= '<a href="./song-detail.php?songName=' .$songSearchResultItem->name. '&artistName='. $artistname . '">';
-				$artistSongsHtml .= $songSearchResultItem->name . '</a><br>';
-				$artistSongsHtml .= '<span class="songItemTitleFootnote">'. $artistname .'</span></br>';	
-				$artistSongsHtml .= "</div>";
-				$artistSongsHtml .= "</div>";
-
+				$artistSongsHtml .= "<tr>";
+				$artistSongsHtml .= "<td>" . ($count+1) . "</td>";
+				$artistSongsHtml .= "<td>";
+				$artistSongsHtml .= "<a href='./song-detail.php?songName=" .$songSearchResultItem->name. "&artistName=". $artistname . "'>";
+				$artistSongsHtml .= $songSearchResultItem->name . '</a>';
+				$artistSongsHtml .= "</td>";
+				$artistSongsHtml .= "<td><p class='songItemTitleFootnote'>". $artistname ."</p></td>";
+				$artistSongsHtml .= "</tr>";
 				$count++;
 				
 			} 
@@ -268,29 +298,45 @@ class searchControler
 
 	private function printSongSearchResults($count, $currentSearchString, $artistSongsHtml)
 	{
-		echo "<div id='songSearchResults' class='left'>";
-		echo"<div class='searchResultsTitle left'>";
-        echo "SONGS";
-       	echo"</div>";
-        echo "<div class='searchResultsCount right' style='width:350px;text-align:right'>";
-        if ($count == 10) {
-        	echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">more</a></br>";	
-        }  
-       	echo "</div>";
-        echo"<div id='artistSearchResultsList' class='clear'>";
-        if($count != 0)
-	        echo $artistSongsHtml; 
-	    else
-	    	echo "No results found";
 
-		echo "</div>";
-		echo "</div>";
-		if($count > 10)
+		echo "<div id='ArtistSearchResults' class='col-md-12'>";
+		echo "<div class='row'>";
+		echo "<div id='header' class='col-md-10'>";
+ 		echo "<h2 class='sub-header'>Songs</h2></div>";
+ 		echo "<div id='more-results' class='col-md-2'>";
+ 		if ($count == 10) {
+        	echo "<h3 class='text-right'><a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">more</a></h3>";	
+        }
+        echo "</div>";  
+        echo "</div>";
+  		echo "<div class='table-responsive'>";
+  		echo "<table class='table table-striped'>
+      			<thead>
+        			<tr>
+        			</tr>
+      			</thead>
+      			<tbody>";
+      	if ($count != 0) {
+      		echo $artistSongsHtml;
+      	}
+      	else
+      	{
+      		echo "No Results Found";
+      	}
+      	echo " 	</tbody>
+    		 </table>";
+  		echo "</div>";
+  		echo "</div>";
+  		if($count > 10)
 		{	
-			echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
+			//echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
+			echo "<div class='col-md-12 text-center'>";
+			echo "<button type='button' id='loadmore' data-loading-text='Loading...' class='btn btn-primary' page='2' category='songs'
+					style='width: 90%;margin-bottom: 20'>
+ 				 Load More
+			</button>";
+			echo "</div>";
 		}
-
-
 	}
 
 }

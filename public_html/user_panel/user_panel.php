@@ -1,34 +1,39 @@
 <?php
 
-include "connect_database.php";
+include "../user_panel/connect_database.php";
 if (!isset($_SESSION)) { session_start(); }
 
 
 //echo "<p>hello, this is user panel.<br>determine user login status:<br></p>";
 
 
-if (!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Email']))
+if (!empty($_SESSION['loggedIn']))
 {
 	// user already logged in
     // show brief user information
+    // Carmen: please change here for the front-end design
     echo '<p>You have logged in! Nickname : <code>';
-    echo $_SESSION['Nickname'];
+    echo $_SESSION['nickname'];
     echo '</code> Email : <code>';
-    echo $_SESSION['Email'];
+    echo $_SESSION['email'];
+    echo '</code> ID : <code>';
+    echo $_SESSION['userID'];
     echo '</code></p>';
     ?>
 
-    <a href="add_lyrics.php">Add Lyric</a>
+    <a href="../user_panel/add_lyrics.php">Add Lyrics</a>
     .
     <a href="" id="signOutLink">Sign Out</a>
+
 
     <script>
     // Ajax Sign Out
     $(document).ready(function(){
         $("#signOutLink").click(function(){
-            $.post('sign_out_sql.php', function(data,status){
-                if (data="success") {
-                    $("head").append('<meta http-equiv="refresh" content="2;index_test.php">');    
+            // will run sign_out procedure and redirect page
+            $.post('../user_panel/sign_out.php', function(data,status){
+                if (data=="success") {
+                    $("head").append('<meta http-equiv="refresh" content="0;../user_panel/index_test.php">');    
                 }
             });
         });
@@ -41,7 +46,7 @@ else
 {
 	
 	?>
-
+    <!-- Carmen: change here for unlogged user panel UI design -->
     <a href="" data-toggle="modal" data-target="#signInModal">Sign In</a>
     .
     <a href="" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
@@ -52,7 +57,8 @@ else
         $("#signInButton").click(function(){
             var email = $("#emailSignIn").val();
             var password = $("#passwordSignIn").val();
-            $.post('sign_in_sql.php', {'email':email, 'password':password}, function(data){
+            // will run sign_in procedure, check with database, and redirect, or provide information for invalid log in
+            $.post('../user_panel/sign_in_sql.php', {'email':email, 'password':password}, function(data){
                 if (data == "success") {
                     $("#signInResult").text("yes! redirecting...").css("color","green");
                     $("head").append('<meta http-equiv="refresh" content="2">');
@@ -68,7 +74,8 @@ else
             var email = $("#emailSignUp").val();
             var password = $("#passwordSignUp").val();
             var nickname = $("#nicknameSignUp").val();
-            $.post('sign_up_sql.php', {'email':email, 'password':password, 'nickname':nickname}, function(data){
+            // will sign up and insert new user data into database, or provide information for duplicated email address
+            $.post('../user_panel/sign_up_sql.php', {'email':email, 'password':password, 'nickname':nickname}, function(data){
                 $("#signUpResult").text(data);
                 if (data == "success") {
                     $("#signUpResult").text("signed up! redirecting...").css("color","green");
@@ -81,7 +88,7 @@ else
     });
     </script>
 
-
+    <!-- Carmen: change sign in and sign up pop-up window UI design -->
     <!-- Bootstrap Modal Sign In -->
     <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
         <div class="modal-dialog">

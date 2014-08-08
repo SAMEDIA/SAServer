@@ -33,6 +33,8 @@ class SongAboutDB extends MySQLi {
 		$db->port = '3306';
 	}
 
+	$db->port = '3306';
+	
 	// connect to the database
 	@parent::__construct($host, $db->user, $db->pass, $db->schema, $port, false);
 
