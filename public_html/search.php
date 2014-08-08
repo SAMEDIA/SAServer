@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-
+<script language="javascript" type="text/javascript" src="jquery.equalheights.js"></script>
 
 <script>
 $(function() {
@@ -11,9 +11,10 @@ $(function() {
 	var query = getUrlParam('search');
     if (query != null)
     {
+    	document.getElementById('search').value = query;
     	query = query.replace(/\s+/g,"+");
     	query = query.trim();
-        document.getElementById('search').value = query;
+   
     }
 
 	/*$("#search").autocomplete({
@@ -23,10 +24,10 @@ $(function() {
 
     $('#loadmore').click(function() {
     	alert("load more");
-    	alert(query);
+    
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
-
+		alert(query +" " +category);
 	   	var $btn = $(this);
     	$btn.button('loading');
 
@@ -38,7 +39,13 @@ $(function() {
 	            var result = $.parseJSON(res);
 	            //alert(page);
 	            alert("success");
-	            $('#ArtistSearchResults').find('tbody').append(result);
+	            alert(result);
+
+	            if (category == "songs")
+	            	$('#ArtistSearchResults').find('tbody').append(result);
+	            else
+	            	$('#AlbumSearchResults').append(result);
+
 	            $('#loadmore').attr('page',++page);
 	            $btn.button('reset');
 	        },
@@ -47,6 +54,11 @@ $(function() {
 	        }
 	    });
 	});
+
+	
+    //equalHeight($(".thumbnail")); 
+    equalHeight($(".albumItem")); 
+    
 
 	/*$("button").click(function() {
     var $btn = $(this);
@@ -57,6 +69,18 @@ $(function() {
     }, 1000);*/
 
 });
+
+function equalHeight(group) {    
+	    /*tallest = 0;    
+	    group.each(function() {       
+	        thisHeight = $(this).height();       
+	        if(thisHeight > tallest) {          
+	            tallest = thisHeight;       
+	        }    
+	    }); 
+	    alert(tallest);  */ 
+	    group.each(function() { $(this).height(240); });
+	} 
 
 function getUrlParam(name)
 {

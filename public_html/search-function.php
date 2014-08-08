@@ -49,7 +49,7 @@ class searchControler
 		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a></li>";
 		echo "</ul>";
 
-		echo "<div class='container-fluid'>";   
+		echo "<div class='container-fluid' >";   
 
 	}
 
@@ -122,13 +122,16 @@ class searchControler
 						
 						$currentArtistName = json_decode('"' . $currentArtistName .'"');
 			
-						$artistResultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";
-						$artistResultHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchResultItem->image[3]->{'#text'}  . "' border='0' width='125' height='125'></div>";
-						
-						$artistResultHtml .= '<div class="artistItemTitle">';	
+						$artistResultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6 col-md-height'>";
+						$artistResultHtml .= "<div class='imageContainer'>";
+						$artistResultHtml .= "<div class='imageCenterer'>";
+						$artistResultHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchResultItem->image[2]->{'#text'}  . "' border='0' width='125' height='125'></div>";
+						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '<span class="artistItemTitle">';	
 						$artistResultHtml .= '<a href="./artist-detail.php?artistName='. $currentArtistName .'">';
 						$artistResultHtml .=  $currentArtistName . '</a><br>';
-						$artistResultHtml .= '</div>';
+						$artistResultHtml .= '</span>';
 						$artistResultHtml .= '</div>';
 						$count++;
 						
@@ -197,8 +200,11 @@ class searchControler
 					$artistname = json_decode('"' . $artistname . '"');
 			
 					$artistAlbumsHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";	
-					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[3]->{'#text'}  . "' border='0' ></div>";
+					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[2]->{'#text'}  . "' border='0'></div>";
+					//$artistAlbumsHtml .= "<div class='caption'>";
 					$artistAlbumsHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
+					//$artistAlbumsHtml .= "</div>";
+					//$artistAlbumsHtml .= "</div>";
 					$artistAlbumsHtml .= "</div>";
 					$count++;
 					if($count >= $num) {
@@ -237,7 +243,13 @@ class searchControler
  		echo "</div>";
 		if($count == 30)
 		{	
-			echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
+			//echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
+			echo "<div class='col-md-12 text-center'>";
+			echo "<button type='button' id='loadmore' data-loading-text='Loading...' class='btn btn-primary' page='2' category='albums'
+					style='width: 90%;margin-bottom: 20'>
+ 				 Load More
+			</button>";
+			echo "</div>";
 		}
        	
 	}

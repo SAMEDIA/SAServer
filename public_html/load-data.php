@@ -13,7 +13,7 @@ $resultHtml = '';
 
 //set the url first
 switch ($category) {
-	case 'ablums':
+	case 'albums':
 		$url = 'http://ws.audioscrobbler.com/2.0/?method=album.search&album=' . $currentSearchString .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit=30&page=' . $page;
 		break;
 	case 'songs':
@@ -65,34 +65,26 @@ if($category == "songs")
 	}
 }
 
-if($category == "ablums")
+if($category == "albums")
 {
 	$albumSearchResults = getCurlData($url);
 	$albumSearchResultsJSON = json_decode($albumSearchResults);
 
 	$totalNum = $albumSearchResultsJSON->results->{'opensearch:totalResults'};
 
-	if($page > $totalNum / 30)
-		break;
-
 	foreach ($albumSearchResultsJSON->results->albummatches->album as &$artistSearchAlbumResultItem) 
 	{
 		$artistname = $artistSearchAlbumResultItem->artist;
 		$artistname = json_decode('"' . $artistname . '"');
 
-		$resultHtml .= '<div class="albumItem left">';	
-		$resultHtml .= '<div class="albumItemImg">';
-		if($artistSearchAlbumResultItem->image[2]->{'#text'} != "") 
-		{
-			$resultHtml .= '<img src="' . $artistSearchAlbumResultItem->image[2]->{'#text'} . '" height="125" width="125">';
-		}
-		else
-		{
-			$resultHtml .= '<img src="' . $artistSearchAlbumResultItem->image[1]->{'#text'} . '" height="125" width="125">';
-		}
-		$resultHtml .= '</div>'; 
+		$resultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6' style='height:240;'>";	
+		if ($artistSearchAlbumResultItem->image[3]->{'#text'} != "")
+			$resultHtml .= "<div class='albumImg'><img src='" . $artistSearchAlbumResultItem->image[3]->{'#text'}  . "' border='0' style='height:160;width:160;'></div>";
+		else 
+			$resultHtml .= "<div class='albumImg'><img src='" . $artistSearchAlbumResultItem->image[1]->{'#text'}  . "' border='0' style='height:160;width:160;'></div>";
 		$resultHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
-		$resultHtml .= '</div>';
+		$resultHtml .= "</div>";
+
 	}			
 }
 
