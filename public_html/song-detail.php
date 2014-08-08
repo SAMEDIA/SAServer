@@ -341,6 +341,28 @@
                 <div id="songComments">
 					<h2>Leave Comments</h2>
                     	<div class="fb-comments" data-href="http://www.songabout.fm/artist/<?php echo $artistName ?>/song/<?php echo $songName ?>" data-width="600"></div>
+
+                    </div>
+                </div>
+                <span class="clear"></span>
+            </div><span class="clear"></span>
+		</div>
+    </div>
+	<span class="clear"></span>
+    <script src="http://www.songabout.fm/scripts/soundmanager/soundmanager2.js"></script>
+    <script src="http://www.songabout.fm/scripts/soundmanager/songabout-hook.js"></script>   
+    <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
+    	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
+			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
+		<?php } else { ?>
+			 <img src="http://www.songabout.fm/images/noSGcover.png" width="125" height="125" style="float:left;"/>
+            <div style="float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
+		<?php } ?>      
+    </div>     
+<?php 	include 'includes/footer.php'; ?>
+<?php
+	file_put_contents($cache_filename, sanitize_output(ob_get_contents()));  ?>
+
                 </div>                
             </div>
 
@@ -348,5 +370,6 @@
 </div>
 <?php include 'includes/footertest.php'; ?>
 <?php 
+//>>>>>>> FETCH_HEAD
 	ob_end_flush();
 ?>

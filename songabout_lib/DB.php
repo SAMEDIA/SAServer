@@ -27,8 +27,13 @@ class SongAboutDB extends MySQLi {
 	$db->pass = 'mysql';
 	$db->schema = $db_name;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$db->port = '3306';
 
+=======
+	$db->port = '3306';*/
+/*
+>>>>>>> FETCH_HEAD
 =======
 	$db->port = '3306';
 	*/

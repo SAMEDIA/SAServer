@@ -20,17 +20,17 @@
 
 <?php
 
-include "connect_database.php";
+include "../user_panel/connect_database.php";
 if (!isset($_SESSION)) { session_start(); }
 
-if (!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Email']))
+if (!empty($_SESSION['loggedIn']))
 {
     // user already logged in
     // show brief user information
     echo '<p>You have logged in! Nickname : <code>';
-    echo $_SESSION['Nickname'];
+    echo $_SESSION['nickname'];
     echo '</code> Email : <code>';
-    echo $_SESSION['Email'];
+    echo $_SESSION['email'];
     echo '</code></p>';
     ?>
 
@@ -40,9 +40,9 @@ if (!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Email']))
     // Ajax Sign Out
     $(document).ready(function(){
         $("#signOutLink").click(function(){
-            $.post('sign_out.php', function(data,status){
-                if (data="success") {
-                    $("head").append('<meta http-equiv="refresh" content="2;index_test.php">');    
+            $.post('../user_panel/sign_out.php', function(data,status){
+                if (data=="success") {
+                    $("head").append('<meta http-equiv="refresh" content="2;../user_panel/index_test.php">');    
                 }
             });
         });
@@ -58,7 +58,7 @@ else
     <script>
     $(document).ready(function(){
         $("body").html('<h1 style="color:red">You are not logged in! Redirecting..</h1>');
-        $("head").append('<meta http-equiv="refresh" content="2;index_test.php">');
+        $("head").append('<meta http-equiv="refresh" content="2;../user_panel/index_test.php">');
     });
     </script>
 <?php
@@ -121,7 +121,7 @@ else
                 var artist = $("#artist").val();
                 var song = $("#song").val();
 
-                $.post('search_duplicate.php', {'artist':artist, 'song':song}, function(data){
+                $.post('../user_panel/search_duplicate.php', {'artist':artist, 'song':song}, function(data){
                     var dataJSON = $.parseJSON(data);
                     $("#searchDuplicateResult").html('<h2>Help us precent duplicate songs</h2>result:'+dataJSON.totalresults+"<br><ol></ol>");
                     for (var i = 0; i < dataJSON.totalresults && i < 10; i++) {
@@ -137,7 +137,7 @@ else
                 var artist = $("#artist").val();
                 var song = $("#song").val();
 
-                $.post('search_duplicate.php', {'artist':artist, 'song':song}, function(data){
+                $.post('../user_panel/search_duplicate.php', {'artist':artist, 'song':song}, function(data){
                     var dataJSON = $.parseJSON(data);
                     $("#searchDuplicateResult").html('<h2>Help us precent duplicate songs</h2>result:'+dataJSON.totalresults+"<br><ol></ol>");
                     for (var i = 0; i < dataJSON.totalresults && i < 10; i++) {
