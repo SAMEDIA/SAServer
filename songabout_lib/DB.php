@@ -6,7 +6,7 @@ class SongAboutDB extends MySQLi {
         // turn of error reporting
         //mysqli_report(MYSQLI_REPORT_OFF);
 		
-	$conn = mysql_connect('localhost', 'songabou_db001', 'yN3)AH?GaQT%');
+	$conn = mysql_connect('localhost', 'schoolin_devuser', 'Lz7+i=TMFfWh');
     //$conn = mysql_connect('localhost', 'root', 'mysql');
 	if (!$conn) {
     	die('Could not connect: ' . mysql_error());
@@ -16,8 +16,10 @@ class SongAboutDB extends MySQLi {
 	
 	$db = (object) "";
 	$db->host = 'localhost';
-	$db->user = 'songabou_db001';
-	$db->pass = 'yN3)AH?GaQT%';
+	//$db->user = 'songabou_db001';
+	//$db->pass = 'yN3)AH?GaQT%';
+	$db->user = 'schoolin_devuser';
+	$db->pass = 'Lz7+i=TMFfWh';
 	$db->schema = $db_name;
 	$db->port = '3306';
 	/*

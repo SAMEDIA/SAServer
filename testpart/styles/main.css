@@ -1,0 +1,1012 @@
+@charset "utf-8";
+/* CSS Document */
+
+html { 
+	margin: 0;
+	height: 100%;
+	min-height:100%;	
+}
+
+body { 
+	background-repeat:repeat-x;
+	background-position: 50% 0;
+	margin: 0;
+	height: 100%;
+	min-height:100%;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 200;
+	font-size: 15px;
+	color:#FFF;
+	width: 100%;
+}
+
+.center {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+.clear {
+	clear:both;
+}
+
+.left {
+	float:left;
+}
+
+.right {
+	float:right;
+}
+
+.grayBG {
+	background-image: url(http://www.songabout.fm/images/backgrounds/songaboutSectionBG.png);
+}
+
+.sg-borderless {
+	border-bottom: 0px !important;
+}
+
+.alphaPgBreak {
+	clear:both; 
+	height:30px;
+	width:100%;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.songPiecePopUp {
+	width: 400px;	
+}
+
+.songPieceLyricPop {
+	font-style:italic;
+	float: left;
+}
+
+.songPieceLyricMeaningPop {
+	clear: left;
+	float: left;
+	margin-top: 37px;
+	margin-bottom: 50px;
+}
+
+.ui-widget-header {
+	background:none !important;
+	border: none !important;	
+}
+
+.ui-button {
+	background: #fff !important;
+}
+
+.sgEmbedVideo {
+	width: 454px !important;
+	min-width: 454px !important;
+	height: 320px !important;	
+}
+
+.ui-dialog {
+	background: #f0ede6 !important;
+	border: 1px solid #f0ede6 !important;
+	width: 454px !important;
+}
+
+#headerSocialBar {
+	width: 100%;
+	height: 40px;
+	background-color:#e5e6e6;
+}
+
+#headerMenuBar {
+	height: 85px;
+	background-color:#1c1c1c;
+	border-bottom:3px solid #65c178;
+	width: 100%;
+}
+
+#headerMenuWrapper, #headerSocialWrapper {
+	width:1024px;	
+}
+
+#headerLogo {
+	margin-top: 15px;
+	margin-right: 7px;
+}
+
+#headerSearch input {
+	border-style: none;
+	background-color: #fff;
+	border: 1px solid #fff;
+	overflow: auto;
+	width: 250px;
+	color: #000;
+	margin-top: 15px;
+	margin-left: 10px;
+	float:left;
+	height:31px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-left-radius: 3px;	
+	-moz-border-radius-topleft: 3px;
+	border-top-left-radius: 3px;	
+}
+
+#headerSearch #searchSongButton {
+	width: 38px;
+	float: left;
+	margin-top: 15px;
+}
+
+#headerSearch #searchSongButton a {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#headerSearch #searchSongButton a:hover {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 70px; 
+}
+
+#headerSearch #searchSongButton a:active, #headerSearch #searchSongButton.active a {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 105px !important; 
+}
+
+#buttonToMusic {
+	width: 122px;
+}
+
+#buttonToMusic a {
+	background:url('http://www.songabout.fm/images/buttons/music_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonToMusic a:hover {
+	background:url('http://www.songabout.fm/images/buttons/music_button.png') 0 70px; 
+}
+
+#buttonToMusic a:active, #buttonToMusic.active a {
+	background:url('http://www.songabout.fm/images/buttons/music_button.png') 0 35px !important; 
+}
+
+#buttonArtistBio {
+	width: 157px;
+}
+
+#buttonArtistBio a {
+	background:url('http://www.songabout.fm/images/buttons/biography_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonArtistBio a:hover {
+	background:url('http://www.songabout.fm/images/buttons/biography_button.png') 0 70px; 
+}
+
+#buttonArtistBio a:active, #buttonArtistBio.active a {
+	background:url('http://www.songabout.fm/images/buttons/biography_button.png') 0 35px !important; 
+}
+
+#buttonClaimPage {
+	width: 157px;
+}
+
+#buttonClaimPage a {
+	background:url('http://www.songabout.fm/images/buttons/claim_page_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonClaimPage a:hover {
+	background:url('http://www.songabout.fm/images/buttons/claim_page_button.png') 0 70px; 
+}
+
+#buttonClaimPage a:active, #buttonClaimPage.active a {
+	background:url('http://www.songabout.fm/images/buttons/claim_page_button.png') 0 35px !important; 
+}
+
+#buttonClaimSubmit {
+	width: 94px;
+}
+
+#buttonClaimSubmit {
+	width: 94px;
+	margin-right: 24px;
+	margin-top: 10PX;
+}
+
+#buttonClaimSubmit a {
+	background:url('http://www.songabout.fm/images/buttons/submit_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonClaimSubmit a:hover {
+	background:url('http://www.songabout.fm/images/buttons/submit_button.png') 0 70px; 
+}
+
+#buttonClaimSubmit a:active, #buttonClaimSubmit.active a {
+	background:url('http://www.songabout.fm/images/buttons/submit_button.png') 0 35px !important; 
+}
+
+#buttonPlayVideo {
+	width: 116px;
+}
+
+#buttonPlayVideo a {
+	background:url('http://www.songabout.fm/images/buttons/play_video_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonPlayVideo a:hover {
+	background:url('http://www.songabout.fm/images/buttons/play_video_button.png') 0 70px; 
+}
+
+#buttonPlayVideo a:active, #buttonPlayVideo.active a {
+	background:url('http://www.songabout.fm/images/buttons/play_video_button.png') 0 35px !important; 
+}
+
+#buttonEditPlayVideo a {
+	background:url('http://www.songabout.fm/images/buttons/edit_video.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonEditPlayVideo {
+	width: 116px;
+}
+
+#buttonEditPlayVideo a:hover {
+	background:url('http://www.songabout.fm/images/buttons/edit_video.png') 0 70px; 
+}
+
+#buttonEditPlayVideo a:active, #buttonEditPlayVideo.active a {
+	background:url('http://www.songabout.fm/images/buttons/edit_video.png') 0 35px !important; 
+}
+
+#buttonBuyRingtone {
+	width: 147px;
+}
+
+#buttonBuyRingtone a {
+	background:url('http://www.songabout.fm/images/buttons/button_artist_store.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+
+#buttonBuyRingtone a:hover {
+	background:url('http://www.songabout.fm/images/buttons/button_artist_store.png') 0 70px; 
+}
+
+#buttonBuyRingtone a:active, #buttonBuyRingtone.active a {
+	background:url('http://www.songabout.fm/images/buttons/button_artist_store.png') 0 35px !important; 
+}
+
+#buttonBuyShirt {
+	width: 168px;
+}
+
+#buttonBuyShirt a {
+	background:url('http://www.songabout.fm/images/buttons/buttonBuyShirt.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+
+#buttonBuyShirt a:hover {
+	background:url('http://www.songabout.fm/images/buttons/buttonBuyShirt.png') 0 70px; 
+}
+
+#buttonBuyShirt a:active, #buttonBuyShirt.active a {
+	background:url('http://www.songabout.fm/images/buttons/buttonBuyShirt.png') 0 35px !important; 
+}
+
+#buttonBuySong {
+	width: 116px;
+}
+
+#buttonBuySong a{
+	background:url('http://www.songabout.fm/images/buttons/buy_song_button.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#buttonBuySong a:hover {
+	background:url('http://www.songabout.fm/images/buttons/buy_song_button.png') 0 70px; 
+}
+
+#buttonBuySong a:active, #buttonBuySong.active a {
+	background:url('http://www.songabout.fm/images/buttons/buy_song_button.png') 0 35px !important; 
+}
+
+.headerNav {
+	float:left;
+	min-width: 99px;
+	height:85px;	
+	cursor:pointer;
+}
+
+#navLyrics {
+	min-width: 99px;
+	border-right: 1px solid #1c1c1c;
+}
+
+#navLyrics a {
+	background:url('http://www.songabout.fm/images/nav/lyrics.jpg') 0 0;
+	height: 85px;
+	display:block;
+}
+
+#navLyrics a:hover {
+	background:url('http://www.songabout.fm/images/nav/lyrics.jpg') 0 170px; 
+}
+
+#navLyrics a:active, #navLyrics.active a {
+	background:url('http://www.songabout.fm/images/nav/lyrics.jpg') 0 85px !important; 
+}
+
+#navArtists {
+	min-width: 99px;
+	border-right: 1px solid #1c1c1c;
+}
+
+#navArtists a {
+	background:url('http://www.songabout.fm/images/nav/artists.jpg') 0 0;
+	height: 85px;
+	display:block;
+}
+
+#navArtists a:hover {
+	background:url('http://www.songabout.fm/images/nav/artists.jpg') 0 170px; 
+}
+
+#navArtists a:active, #navArtists.active a {
+	background:url('http://www.songabout.fm/images/nav/artists.jpg') 0 85px !important; 
+}
+
+#navAlbums {
+	min-width: 99px;
+	border-right: 1px solid #1c1c1c;
+}
+
+#navAlbums a {
+	background:url('http://www.songabout.fm/images/nav/albums.jpg') 0 0;
+	height: 85px;
+	display:block;
+}
+
+#navAlbums a:hover {
+	background:url('http://www.songabout.fm/images/nav/albums.jpg') 0 170px; 
+}
+
+#navAlbums a:active, #navAlbums.active a {
+	background:url('http://www.songabout.fm/images/nav/albums.jpg') 0 85px !important; 
+}
+
+#navVerifiedArtist {
+	min-width: 163px;
+}
+
+#navVerifiedArtist a {
+	background:url('http://www.songabout.fm/images/nav/verified_artists.jpg') 0 0;
+	height: 85px;
+	display:block;
+}
+
+#navVerifiedArtist a:hover {
+	background:url('http://www.songabout.fm/images/nav/verified_artists.jpg') 0 170px; 
+}
+
+#navVerifiedArtist a:active, #navVerifiedArtist.active a {
+	background:url('http://www.songabout.fm/images/nav/verified_artists.jpg') 0 85px !important; 
+}
+
+#headerSocialMenu {
+	width: 182px;
+	padding-top: 10px;
+	padding-left: 45px;	
+}
+
+.socialNav {
+	float:left;
+	min-width: 25px;
+	height:20px;	
+	cursor:pointer;
+	margin-left:16px;
+}
+
+#socialInstagram {
+	min-width: 25px;
+}
+
+#socialInstagram a {
+	background:url('http://www.songabout.fm/images/buttons/sa_instagram_icon.png') 0 0;
+	height: 24px;
+	display:block;
+}
+
+#socialInstagram a:hover {
+	background:url('http://www.songabout.fm/images/buttons/sa_instagram_icon.png') 0 48px; 
+}
+
+#socialInstagram a:active, #socialInstagram.active a {
+	background:url('http://www.songabout.fm/images/buttons/sa_instagram_icon.png') 0 48px !important; 
+}
+
+#socialTumbler {
+	min-width: 25px;
+}
+
+#socialTumbler a {
+	background:url('http://www.songabout.fm/images/buttons/sa_tumblr_icon.png') 0 0;
+	height: 24px;
+	display:block;
+}
+
+#socialTumbler a:hover {
+	background:url('http://www.songabout.fm/images/buttons/sa_tumblr_icon.png') 0 48px; 
+}
+
+#socialTumbler a:active, #socialTumbler.active a {
+	background:url('http://www.songabout.fm/images/buttons/sa_tumblr_icon.png') 0 48px !important; 
+}
+
+#socialTwitter {
+	min-width: 25px;
+}
+
+#socialTwitter a {
+	background:url('http://www.songabout.fm/images/buttons/sa_twitter_icon.png') 0 0;
+	height: 24px;
+	display:block;
+}
+
+#socialTwitter a:hover {
+	background:url('http://www.songabout.fm/images/buttons/sa_twitter_icon.png') 0 48px; 
+}
+
+#socialTwitter a:active, #socialTwitter.active a {
+	background:url('http://www.songabout.fm/images/buttons/sa_twitter_icon.png') 0 48px !important; 
+}
+
+#socialFooterTwitter {
+	min-width: 25px;
+}
+
+#socialFooterTwitter a {
+	background:url('http://www.songabout.fm/images/buttons/footer_twitter.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterTwitter a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_twitter.png') 0 40px; 
+}
+
+#socialFooterTwitter a:active, #socialTwitter.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_twitter.png') 0 20px !important; 
+}
+
+#socialFacebook, #socialFooterFacebook {
+	min-width: 25px;
+}
+
+#socialFacebook a {
+	background:url('http://www.songabout.fm/images/buttons/sa_facebook_icon.png') 0 0;
+	height: 24px;
+	display:block;
+}
+
+#socialFacebook a:hover {
+	background:url('http://www.songabout.fm/images/buttons/sa_facebook_icon.png') 0 48px; 
+}
+
+#socialFacebook a:active, #socialFacebook.active a {
+	background:url('http://www.songabout.fm/images/buttons/sa_facebook_icon.png') 0 48px !important; 
+}
+
+#socialFooterFacebook a {
+	background:url('http://www.songabout.fm/images/buttons/footer_facebook.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterFacebook a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_facebook.png') 0 40px; 
+}
+
+#socialFooterFacebook a:active, #socialFacebook.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_facebook.png') 0 20px !important; 
+}
+
+#socialGooglePlus, #socialFooterGooglePlus {
+	min-width: 25px;
+}
+
+#socialGooglePlus a {
+	background:url('http://www.songabout.fm/images/buttons/header_google.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialGooglePlus a:hover {
+	background:url('http://www.songabout.fm/images/buttons/header_google.png') 0 20px; 
+}
+
+#socialGooglePlus a:active, #socialGooglePlus.active a {
+	background:url('http://www.songabout.fm/images/buttons/header_google.png') 0 40px !important; 
+}
+
+#socialFooterGooglePlus a {
+	background:url('http://www.songabout.fm/images/buttons/footer_google.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterGooglePlus a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_google.png') 0 40px; 
+}
+
+#socialFooterGooglePlus a:active, #socialGooglePlus.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_google.png') 0 20px !important; 
+}
+
+#socialLike, #socialFooterInstagram, #socialFooterYoutube, #socialFooterTumble  {
+	min-width: 25px;
+}
+
+#socialLike a {
+	background:url('http://www.songabout.fm/images/buttons/header_like.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialLike a:hover {
+	background:url('http://www.songabout.fm/images/buttons/header_like.png') 0 20px; 
+}
+
+#socialLike a:active, #socialLike.active a {
+	background:url('http://www.songabout.fm/images/buttons/header_like.png') 0 40px !important; 
+}
+
+#socialFooterInstagram a {
+	background:url('http://www.songabout.fm/images/buttons/footer_instagram.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterInstagram a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_instagram.png') 0 40px; 
+}
+
+#socialFooterInstagram a:active, #socialFooterInstagram.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_instagram.png') 0 20px !important; 
+}
+
+#socialFooterYoutube a {
+	background:url('http://www.songabout.fm/images/buttons/footer_youtube.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterYoutube a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_youtube.png') 0 40px; 
+}
+
+#socialFooterYoutube a:active, #socialFooterYoutube.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_youtube.png') 0 20px !important; 
+}
+
+#socialFooterTumble a {
+	background:url('http://www.songabout.fm/images/buttons/footer_tumblr.png') 0 0;
+	height: 20px;
+	display:block;
+}
+
+#socialFooterTumble a:hover {
+	background:url('http://www.songabout.fm/images/buttons/footer_tumblr.png') 0 40px; 
+}
+
+#socialFooterTumble a:active, #socialFooterTumble.active a {
+	background:url('http://www.songabout.fm/images/buttons/footer_tumblr.png') 0 20px !important; 
+}
+
+#contentHeaderWrapper {
+	background-color: #fff;
+	color:#000;
+	width:100%;
+	border-bottom: 1px solid #DCDCDC;
+}
+
+#contentHeader {
+	width: 975px;
+}
+
+#contentWrapper {
+	min-height: 600px;
+	background-color: #fff;
+	color:#000;
+	width:100%;
+	border-bottom: 1px solid #DCDCDC;
+}
+
+.contentFooterWidget {
+	width: 975px;
+	height: 365px;	
+}
+
+.contentFooterWrapperWidget {
+	background-color: #fff;
+	color:#000;
+	width:100%;
+	border-bottom: 1px solid #DCDCDC;
+	clear:left;
+	margin-bottom: 40px;
+}
+
+#aboutUsContentHeaderWrapper {
+	background-color: #65c178;
+	color:#000;
+	width:100%;
+	border-bottom: 1px solid #65c178;
+	background:url('http://www.songabout.fm/images/aboutHeaderImageBG.png')
+}
+
+#aboutUsContentHeaderWrapper p {
+	color:#fff;
+}
+
+#songAboutContent {
+	width: 975px;
+}
+
+#footerWrapper {
+	background-color: #1c1c1c;
+	height:370px;
+	color:#ccc;
+	border-bottom: 8px solid #65c178;
+	width: 100%;
+}
+
+#footerMenuWrapper {
+	width:1024px;	
+}
+
+#footerCol1, #footerCol2, #footerCol3 {
+	width:300px;
+	margin-top:55px;
+	padding-left: 20px;
+	padding-right: 20px;	
+}
+
+#footerDescription {
+	margin-top: 25px;
+}
+
+#footerSocialMenu {
+	margin-top: 30px;
+}
+
+#footerNav {
+	margin-top:58px;
+	line-height:33px;
+}
+
+#footerNav a {
+	color:#fff;
+	text-decoration:none;
+	font-weight: 800;
+	font-size: 14px;
+}
+
+#footerNav a:hover {
+	color:#65c178;
+	text-decoration:none;	
+}
+
+#footerPolicy {
+	margin-top: 30px;
+	font-size:12px;
+}
+
+#footerPolicy a {
+	color:#ccc;
+	text-decoration:none;
+}
+
+#footerPolicy a:hover {
+	color:#fff;
+	text-decoration:none;
+}
+
+#contactEmail a {
+	color:#ccc;
+	text-decoration:none;
+}
+
+#contactEmail a:hover {
+	color:#fff;
+	text-decoration:none;
+}
+
+#songAboutStatBubble {
+	color:#65c178;
+	font-size:12px;
+	font-weight: bold;
+	margin-top: 45px;
+}
+
+#copyrightInfo {
+	color:#ccc;
+	font-size:11px;
+	margin-top: 2px;
+}
+
+.contactItem {
+	background-repeat: no-repeat;
+	background-position: 0% 50%;
+	text-align: center;
+	height: 27px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	line-height: 30px;	
+}
+
+#contactEmail {
+	background-image: url('http://www.songabout.fm/images/icons/iconFooterEmail.png');
+	width: 225px;	
+}
+
+#contactPhone {
+	background-image: url('http://www.songabout.fm/images/icons/iconFooterCall.png');
+	width: 188px;	
+}
+
+#contactAddress {
+	margin-top: 58px;
+	font-size: 13px;
+}
+
+#alphbetWrapper {
+	width: 300px;
+	height: 33px;
+	line-height: 35px;
+	margin-left: 7px;
+}
+
+#alphbetWrapper a {
+	color:#999;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 12px;
+	margin-left: 3px;
+}
+
+#alphbetWrapper a:hover {
+	color: #65c178;
+	text-decoration: none;	
+}
+
+#songaboutSlideWrapper {
+	width: 100%;
+	height: 455px;
+	background-color: #fff;
+	color:#000;
+	background-image: url('http://www.songabout.fm/images/homePageSlides/songaboutSlideRihannaBG.png');		
+}
+
+#songaboutSlideSearchContent {
+	font-size: 24px;
+	font-weight: 900;
+	width: 400px;
+	margin-left: 31px;
+	padding-top: 53px;
+	color:#65c178;
+}
+
+#songaboutSlideSearchMenu {
+	width: 310px;
+	padding-top: 24px;
+	margin-right: 6PX;
+}
+
+#songaboutSlideSearch {
+	position: relative;
+	top: -70px;
+	width: 765px;
+	height: 135px;
+	background-color: #FFF;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-left-radius: 3px;	
+	-moz-border-radius-topleft: 3px;
+	border-top-left-radius: 3px;	
+	box-shadow: 0px 8px 10px #CCB;
+}
+
+#songaboutSlideSearch input {
+	border-style: none;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	overflow: auto;
+	width: 250px;
+	color: #000;
+	margin-left: 10px;
+	float:left;
+	height:31px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-left-radius: 3px;	
+	-moz-border-radius-topleft: 3px;
+	border-top-left-radius: 3px;	
+}
+
+#songaboutSlideSearch #searchSongButton {
+	width: 38px;
+	float: left;
+}
+
+#songaboutSlideSearch #searchSongButton a {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 0;
+	height: 35px;
+	display:block;
+}
+
+#songaboutSlideSearch #searchSongButton a:hover {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 70px; 
+}
+
+#songaboutSlideSearch #searchSongButton a:active, #headerSearch #searchSongButton.active a {
+	background:url('http://www.songabout.fm/images/nav/search.png') 0 105px !important; 
+}
+
+#songaboutSlideSearch #alphbetWrapper a {
+	color:#000;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 11px;
+	margin-left: 3px;
+}
+
+#songaboutSlideSearch #alphbetWrapper a:hover {
+	color: #65c178;
+	text-decoration: none;	
+}
+
+#songAboutBaseTitle {
+	width:100%;
+	clear:both;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight:900;	
+}
+
+#songAboutBase {
+	width: 975px;
+	height: 250px;
+	clear:both;	
+}
+
+#aboutUsBox {
+	
+}
+
+#songAboutContent .col-1 {
+	width:250px;
+	min-width:250px;
+	min-height: 300px;
+	padding-left: 20px;
+	margin-top: 36px;
+	background-color: #f0ede6;
+}
+
+#songAboutContent .col-1-wrapper {
+	
+}
+
+#songAboutContent .col-2 {
+	width:600px;
+	min-width:600px;
+	min-height: 300px;
+	margin-left: 20px;
+}
+
+.searchResultsTitle {
+	width:200px;
+	clear:both;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-weight:bold;
+	font-size:17px;
+}
+
+.searchResultsCount {
+	width: 15px;
+	height:10px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-weight:bold;
+	font-size:17px;
+}
+
+#artistSearchResults, #albumSearchResults, #songSearchResults {
+	clear:both;
+	width:100%;	
+	min-height: 200px;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+	margin-bottom: 0px;
+}
+
+#artistItemSocialIcons {
+	width:100px;	
+}
+
+#artistItemSocialIcons #artistItemSocialFB {
+	width: 27px;
+	float: left;
+	margin-left: 5px;	
+}
+
+#artistItemSocialIcons #artistItemSocialFB a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconFB.png') 0 0;
+	height: 28px;
+	display:block;	
+}
+
+#artistItemSocialIcons #artistItemSocialFB a:hover {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconFB.png') 0 0px; 
+}
+
+#artistItemSocialIcons #artistItemSocialFB a:active, #artistItemSocialIcons #artistItemSocialFB.active a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconFB.png') 0 0px !important; 
+}
+
+#artistItemSocialIcons #artistItemSocialTwitter {
+	width: 27px;
+	float: left;
+	margin-left: 5px;	
+}
+
+#artistItemSocialIcons #artistItemSocialTwitter a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconTwitter.png') 0 0;
+	height: 28px;
+	display:block;
+}
+
+#artistItemSocialIcons #artistItemSocialTwitter a:hover {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconTwitter.png') 0 0px; 
+}
+
+#artistItemSocialIcons #artistItemSocialTwitter a:active, #artistItemSocialIcons #artistItemSocialTwitter.active a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconTwitter.png') 0 0px !important; 
+}
+
+#artistItemSocialIcons #artistItemSocialShare {
+	width: 27px;
+	float: left;
+	margin-left: 5px;	
+}
+
+#artistItemSocialIcons #artistItemSocialShare a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconShare.png') 0 0;
+	height: 28px;
+	display:block;
+}
+
+#artistItemSocialIcons #artistItemSocialShare a:hover {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconShare.png') 0 0px; 
+}
+
+#artistItemSocialIcons #artistItemSocialShare a:active, #artistItemSocialIcons #artistItemSocialShare.active a {
+	background:url('http://www.songabout.fm/images/icons/songaboutIconShare.png') 0 0px !important; 
+}
+
+.sgEmbedVideo {
+	width: 550px !important;
+	min-width: 550px !important;
+	height: 320px !important;	
+}
