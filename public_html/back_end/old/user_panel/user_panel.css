@@ -1,0 +1,111 @@
+
+/*get google fonts*/
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic&subset=latin&v2);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700&subset=latin&v2);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin&v2);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin&v2);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin&v2);
+@import url(http://fonts.googleapis.com/css?family=Alex+Brush:400&subset=latin&v2);
+
+/*Set background image and margins */
+body {
+	font-weight: 200;
+	color: black;
+	font-family: 'Source Sans Pro',sans-serif;
+	font-size: 1.5rem;
+	margin:auto;
+	padding:auto;
+	height:100%;
+	background-color: #DADADA;
+	background-position: center top;
+	background-repeat: repeat-y;
+	height: 900px;
+	overflow-x: scroll;
+}
+
+h1{
+	color: black;
+	font-family: 'Source Sans Pro', arial, serif; 
+    font-size:1.4rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+h2 {
+	color:#5D5F5E;
+	font-family: 'Source Sans Pro', arial, serif;
+	font-size:2.6rem;	
+	font-weight:600;
+	text-align:left;
+	width:57%;
+	margin:auto;
+}
+
+h3{
+	color:#666;
+	font-family: 'Droid Sans', arial, serif;
+	font-size:1.4rem;	
+	font-weight:400;
+	text-align:center;
+	margin:auto;
+	padding:3px;
+}
+	
+h4{
+	font-weight:bold;
+	color: black;
+	font-family: 'Source Sans Pro',sans-serif;
+	font-size: 2.2rem;
+	color:#65c718;
+}
+
+h5{
+	font-weight:200;
+	color: black;
+	font-family: 'Source Sans Pro',sans-serif;
+	font-size: 1.2rem;
+}
+
+h6{
+	color:#5D5F5E;
+	font-family: 'Source Sans Pro', arial, serif;
+	font-size:2.6rem;	
+	font-weight:600;
+	text-align:center;
+	width:100%;
+	margin:auto;
+	padding:10px;
+}
+
+
+.facebook_button{
+	width: 200px;
+	height:30px;
+}
+
+
+#signInButton, #signUpButton, #signUpClose{
+	margin-top:20px;
+	width: 148px;
+	height:30px;
+}
+
+.modal-dialog label{
+    display: block;
+    margin-top: 10px;
+}
+.modal-dialog input[type="text"], .modal-dialog input[type="password"]
+{
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    border:1px solid #ddd;
+}
+
+
+.welcomeback {
+    color: #fff;
+    margin-right: 10px;
+}
+

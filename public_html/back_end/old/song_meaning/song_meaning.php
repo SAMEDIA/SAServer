@@ -6,24 +6,28 @@ include "../user_panel/connect_database.php";
 if (!isset($_SESSION)) { session_start(); }
 
 
-if(isset($_GET["songID"])) {
-    $songID = $_GET["songID"];
+if(isset($_GET["artistName"]) && isset($_GET["songName"])) {
+    $artist = $_GET["artistName"];
+    $trackname = $_GET["songName"];
     // show song meanings
     // search for meaning in our database
-    $meaningQueryResult = mysql_query("SELECT * FROM song_meaning WHERE SongID = '".$songID."'");
+    $meaningQueryResult = mysql_query("SELECT * FROM songs WHERE Artist = '".$artist."' AND Trackname = '".$trackname."'");
     // if we have meaning in database for this song
     if(mysql_num_rows($meaningQueryResult) == 1)
     {
         $row = mysql_fetch_array($meaningQueryResult);
         $meaning = $row['Meaning'];
-        
-        echo '<h3>Here is the meaning:</h3><p>'.$meaning.'</p></div>';
 
+        if ($meaning != "") {
+            echo '<h3>Here is the meaning:</h3><p>'.$meaning.'</p></div>';
+        }
+        else { // there is no meaning for now
+            echo '<h3>There is no meaning right now.</h3>';
+        }
     }
     else // there is no meaning for now
     {
         echo '<h3>There is no meaning right now.</h3>';
-        
     }
     // let logged in user submit new meaning
     if (!empty($_SESSION['loggedIn'])) {
@@ -35,14 +39,16 @@ if(isset($_GET["songID"])) {
         $(document).ready(function(){
             $("#meaningSubmitButton").click(function(){
                 var userID = <?php echo $_SESSION['userID'] ?>;
-                var songID = <?php echo $_GET['songID'] ?>;
+                var artist = '<?php echo $_GET["artistName"] ?>';
+                var trackname = '<?php echo $_GET["songName"] ?>';
                 var meaning = $("#meaning").val();
-                //$("#result").html("<h1>"+userID+" "+songID+" "+meaning+"</h1>");
-                $.post('../song_meaning/submit_meaning.php', {'songID':songID, 'meaning':meaning, 'userID':userID}, function(data,status){
+                //$("#result").html("<h1>"+userID+" "+artist+" "+trackname+" "+meaning+"</h1>");
+                $.post('../song_meaning/submit_meaning.php', {'artist':artist, 'trackname':trackname, 'meaning':meaning, 'userID':userID}, function(data,status){
                     if ("success" == data) {
                         $("#result").html("Meaning Submitted!");
                         $("head").append('<meta http-equiv="refresh" content="2">');    
                     }
+                    //$("#result").html(data);
                 });
             });
         });

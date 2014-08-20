@@ -28,7 +28,8 @@ if (!empty($_POST['accept'])) {
         //var_dump($songQueryResult);
 
         $row = mysql_fetch_array($songQueryResult);
-        $songID = $row['SongID'];
+        $artist = $row['Artist'];
+        $trackname = $row['Trackname'];
         $meaning = $row['Meaning'];
         $userID = $row['UserID'];
 
@@ -38,18 +39,18 @@ if (!empty($_POST['accept'])) {
             echo "fail";
         }
 
-        $queryResult = mysql_query("SELECT * FROM song_meaning WHERE SongID = '".$songID."';");
+        $queryResult = mysql_query("SELECT * FROM song_meaning WHERE Artist = '".$artist."' AND Trackname = '".$trackname."'");
 
         // if meaning already in database, replace it
         if (mysql_num_rows($queryResult) == 1) {
-            $queryResult = mysql_query("UPDATE song_meaning SET Meaning = '".$meaning."', UserID = '".$userID."' WHERE SongID = '".$songID."';");
+            $queryResult = mysql_query("UPDATE song_meaning SET Meaning = '".$meaning."', UserID = '".$userID."' WHERE Artist = '".$artist."' AND Trackname = '".$trackname."'");
             if ($queryResult == true) {
                 echo "success";
             }
         }
         // if not, add it
         else {
-            $queryResult = mysql_query("INSERT INTO song_meaning (SongID, Meaning, UserID) VALUES ('".$songID."', '".$meaning."', '".$userID."');");
+            $queryResult = mysql_query("INSERT INTO song_meaning (Artist, Trackname, Meaning, UserID) VALUES ('".$artist."', '".$trackname."', '".$meaning."', '".$userID."');");
             if ($queryResult == true) {
                 echo "success";
             }

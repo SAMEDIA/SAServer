@@ -1,0 +1,53 @@
+# for user sign in/sign up
+
+CREATE TABLE users (
+UserID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+Email VARCHAR(64) NOT NULL UNIQUE,
+Password VARCHAR(64) NOT NULL,
+Nickname VARCHAR(32) NOT NULL
+);
+
+
+# for song meanings
+
+CREATE TABLE song_meaning (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL,
+PRIMARY KEY (Artist, Trackname)
+);
+
+# for song meanings queue
+
+CREATE TABLE song_meaning_queue (
+SubmissionID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+Processed BOOLEAN DEFAULT FALSE,
+TimeStamp TIMESTAMP,
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL
+);
+
+# for song lyrics
+
+CREATE TABLE song_lyrics (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL,
+PRIMARY KEY (Artist, Trackname)
+);
+
+# for song lyrics queue
+
+CREATE TABLE song_lyrics_queue (
+SubmissionID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+Processed BOOLEAN DEFAULT FALSE,
+TimeStamp TIMESTAMP,
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL
+);
