@@ -259,11 +259,11 @@ class searchControler
 		$count = 0;
 
 		// search both LastFM and SongAbout.fm database
-		require_once "back_end/SongInfo.php";
-		$songSearchResults = SongInfo::searchSong($currentSearchString, $num);
+		//require_once "back_end/SongInfo.php";
+		//$songSearchResults = SongInfo::searchSong($currentSearchString, $num);
 		
 		// search only LastFM database
-		//$songSearchResults = $this->getCurlData('http://ws.audioscrobbler.com/2.0/?method=track.search&track='. $currentSearchString .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit='.$num);
+		$songSearchResults = $this->getCurlData('http://ws.audioscrobbler.com/2.0/?method=track.search&track='. $currentSearchString .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit='.$num);
 		
 
 		$songSearchResultsJSON = json_decode($songSearchResults);
