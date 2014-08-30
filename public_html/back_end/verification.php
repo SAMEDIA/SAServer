@@ -102,6 +102,24 @@ if (!empty($_SESSION['admin']))
 		
     	<?php
     	// display all the to-be-verified meaning here
+        $conn = SADatabase::getConnection();
+        $sql = 'SELECT * FROM song_meaning_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $queryResult = $stmt->get_result();
+        while ($row = $queryResult->fetch_array()) {
+            echo "<tr>";
+            echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptMeaning">Accept</button><button class="btn btn-danger denyMeaning">Deny</button></div></td>';
+            echo "<td>".$row['Artist']."</td>";
+            echo "<td>".$row['Trackname']."</td>";
+            echo "<td>".$row['Meaning']."</td>";
+            echo "<td>".$row['UserID']."</td>";
+            echo "<td>".$row['TimeStamp']."</td>";
+            echo "</tr>";
+        }
+        
+
+        /*
         SADatabase::connect();
 		$meaningQueryResult = mysql_query("SELECT * FROM song_meaning_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC");
 		
@@ -117,7 +135,7 @@ if (!empty($_SESSION['admin']))
 			echo "</tr>";
 
 		}
-		
+		*/
 		
 
     	?>
@@ -136,6 +154,22 @@ if (!empty($_SESSION['admin']))
         
         <?php
         // display all the to-be-verified lyrics here
+        $conn = SADatabase::getConnection();
+        $stmt = $conn->prepare('SELECT * FROM song_lyrics_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC');
+        $stmt->execute();
+        $queryResult = $stmt->get_result();
+        while ($row = $queryResult->fetch_array()) {
+            echo "<tr>";
+            echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptLyrics">Accept</button><button class="btn btn-danger denyLyrics">Deny</button></div></td>';
+            echo "<td>".$row['Artist']."</td>";
+            echo "<td>".$row['Trackname']."</td>";
+            echo "<td>".$row['Lyrics']."</td>";
+            echo "<td>".$row['UserID']."</td>";
+            echo "<td>".$row['TimeStamp']."</td>";
+            echo "</tr>";
+        }
+
+        /*
         SADatabase::connect();
         $queryResult = mysql_query("SELECT * FROM song_lyrics_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC");
         
@@ -151,7 +185,7 @@ if (!empty($_SESSION['admin']))
             echo "</tr>";
 
         }
-        
+        */
         
 
         ?>

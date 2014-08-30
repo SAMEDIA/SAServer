@@ -13,9 +13,7 @@ class SongInfo {
 
 		if (!empty($artist) && !empty($trackname)) {
 	    
-		    
-		    $sql = 'SELECT * FROM song_meaning WHERE Artist = ? AND Trackname = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('SELECT * FROM song_meaning WHERE Artist = ? AND Trackname = ?');
 			$stmt->bind_param('ss', $artist, $trackname);
 			 
 			// Execute statement
@@ -43,8 +41,7 @@ class SongInfo {
 
 		if (!empty($artist) && !empty($trackname) && !empty($meaning) && !empty($userID)) {
 			
-			$sql = 'INSERT INTO song_meaning_queue (Artist, Trackname, Meaning, UserID) VALUES(?, ?, ?, ?)';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('INSERT INTO song_meaning_queue (Artist, Trackname, Meaning, UserID) VALUES(?, ?, ?, ?)');
 			$stmt->bind_param('sssi', $artist, $trackname, $meaning, $userID);
 			$stmt->execute();
 			
@@ -65,8 +62,7 @@ class SongInfo {
 		// deny
 	    if ($accept == 'false') {
 	        // dequeue
-			$sql = 'UPDATE song_meaning_queue SET Processed = TRUE WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('UPDATE song_meaning_queue SET Processed = TRUE WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();
 
@@ -80,8 +76,7 @@ class SongInfo {
 	    // accept
 	    else if ($accept == 'true') {
 	        // get meaning infomation
-	        $sql = 'SELECT * FROM song_meaning_queue WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('SELECT * FROM song_meaning_queue WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();	        
 			$queryResult = $stmt->get_result();
@@ -93,8 +88,7 @@ class SongInfo {
 	        $stmt->close();
 
 	        // dequeue
-	        $sql = 'UPDATE song_meaning_queue SET Processed = TRUE WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('UPDATE song_meaning_queue SET Processed = TRUE WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();
 	        // succesfully dequeued
@@ -104,8 +98,7 @@ class SongInfo {
 		    }
 
 		    // check if meaning already exists
-	        $sql = 'SELECT * FROM song_meaning WHERE Artist = ? AND Trackname = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('SELECT * FROM song_meaning WHERE Artist = ? AND Trackname = ?');
 			$stmt->bind_param('ss', $artist, $trackname);
 			$stmt->execute();	        
 			$queryResult = $stmt->get_result();
@@ -142,6 +135,8 @@ class SongInfo {
 		$trackname = SongInfo::normalize($trackname);
 		$conn = SADatabase::getConnection();
 
+		// http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:coldplay,trackname:green+eyes&output=json&useragent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36
+
 		//$url = 'http://api.lyricfind.com/search.do?apikey=1bba44bbd68a434fa9b6f155d6cff727&reqtype=default&searchtype=track&track='.$track.'&artist='.$artist.'&alltracks=no&displaykey=7500cc6251b190a18374131c56a0b7f2&output=json';
 		$url = 'http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:' . $artist .',trackname:'. $trackname .'&output=json&useragent=' . $_SERVER['HTTP_USER_AGENT'];
 
@@ -177,19 +172,20 @@ class SongInfo {
 				            			'source' => 'SONGABOUT'
 				        			),
 				    'track' => 	array(
-				                		'title' => $trackname,
+				                		'title' => SongInfo::denormalize($trackname),
 	      								'artist' => array(
-	         										'name' => $artist
+	         										'name' => SongInfo::denormalize($artist)
 	         										),
 	      								'lyrics' => $lyrics
 					            )
 			        )
 				);
 		    }
+		    $stmt->close();
 		    
 		}
 
-		$stmt->close();
+		
 		return $result;
 	}
 
@@ -221,8 +217,7 @@ class SongInfo {
 		// deny
 	    if ($accept == 'false') {
 	        // dequeue
-			$sql = 'UPDATE song_lyrics_queue SET Processed = TRUE WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('UPDATE song_lyrics_queue SET Processed = TRUE WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();
 
@@ -236,8 +231,7 @@ class SongInfo {
 	    // accept
 	    else if ($accept == 'true') {
 	        // get meaning infomation
-	        $sql = 'SELECT * FROM song_lyrics_queue WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('SELECT * FROM song_lyrics_queue WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();	        
 			$queryResult = $stmt->get_result();
@@ -249,8 +243,7 @@ class SongInfo {
 	        $stmt->close();
 
 	        // dequeue
-	        $sql = 'UPDATE song_lyrics_queue SET Processed = TRUE WHERE SubmissionID = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('UPDATE song_lyrics_queue SET Processed = TRUE WHERE SubmissionID = ?');
 			$stmt->bind_param('i', $submissionID);
 			$stmt->execute();
 	        // succesfully dequeued
@@ -260,8 +253,7 @@ class SongInfo {
 		    }
 
 		    // check if meaning already exists
-	        $sql = 'SELECT * FROM song_lyrics WHERE Artist = ? AND Trackname = ?';
-			$stmt = $conn->prepare($sql);
+			$stmt = $conn->prepare('SELECT * FROM song_lyrics WHERE Artist = ? AND Trackname = ?');
 			$stmt->bind_param('ss', $artist, $trackname);
 			$stmt->execute();	        
 			$queryResult = $stmt->get_result();
@@ -275,7 +267,7 @@ class SongInfo {
 	            if ($stmt->affected_rows == 1) {
 	                echo "success";
 	            }
-	            else echo "failed";
+	            else echo "fail";
 	        }
 	        // if not, add it
 	        else {
@@ -290,6 +282,79 @@ class SongInfo {
 	        
 	    }
 	    $stmt->close();
+	}
+
+	public static function submitMeta($artist, $trackname) {
+		$artist = SongInfo::normalize($artist);
+		$trackname = SongInfo::normalize($trackname);
+		$conn = SADatabase::getConnection();
+
+		$result = 'fail';
+
+		if (!empty($artist) && !empty($trackname)) {
+			
+			$stmt = $conn->prepare('SELECT * FROM song_meta WHERE Artist = ? AND Trackname = ?');
+			$stmt->bind_param('ss', $artist, $trackname);
+			$stmt->execute();
+			$queryResult = $stmt->get_result();
+
+			if ($queryResult->num_rows == 1) {
+				$result = 'song_exist';
+			}
+			else {
+				$stmt = $conn->prepare('INSERT INTO song_meta (Artist, Trackname) VALUES(?, ?)');
+				$stmt->bind_param('ss', $artist, $trackname);
+				$stmt->execute();
+				
+				if($stmt->affected_rows == 1)
+			    {
+			        $result = 'success';
+			    }
+			    else $result = 'fail';
+			}
+   
+		}
+
+		$stmt->close();
+		return $result;
+	}
+
+	public static function searchSong($trackname, $limit) {
+		$trackname = SongInfo::normalize($trackname);
+		$conn = SADatabase::getConnection();
+
+		$url = 'http://ws.audioscrobbler.com/2.0/?method=track.search&track='. $trackname .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit='.$limit;
+
+		$result = SongInfo::getCurlData($url);
+
+		// if no result from LastFM API, search SongAbout.fm database
+		$resultJSON = json_decode($result);
+
+		if ($resultJSON->results->{'opensearch:totalResults'} == 0) {
+			$stmt = $conn->prepare('SELECT * FROM song_meta WHERE Trackname = ?');
+			$stmt->bind_param('s', $trackname);
+			$stmt->execute();
+			$queryResult = $stmt->get_result();
+			if ($queryResult->num_rows >= 1) {
+				$resultJSON->results->{'opensearch:totalResults'} = min($limit, $queryResult->num_rows);
+				$resultJSON->results->trackmatches = new stdClass();
+				$resultJSON->results->trackmatches->track = array();
+
+				
+				$i = 0;
+				while ($row = $queryResult->fetch_array()) {
+					$resultJSON->results->trackmatches->track[$i] = new stdClass();
+					$resultJSON->results->trackmatches->track[$i]->artist = SongInfo::denormalize($row['Artist']);
+					$resultJSON->results->trackmatches->track[$i]->name = SongInfo::denormalize($row['Trackname']);
+					$i++;
+					if ($i >= $limit) break;
+				}
+				$result = json_encode($resultJSON);
+			}
+
+		}
+		
+		return $result;
 	}
 
 	public static function adminSignIn($password) {
@@ -307,6 +372,10 @@ class SongInfo {
 
 	private static function normalize($s) {
 		return strtolower(str_replace(" ","+",$s));
+	}
+
+	private static function denormalize($s) {
+		return ucwords(str_replace("+"," ",$s));
 	}
 
 	private static function getCurlData($url) {

@@ -51,3 +51,23 @@ Trackname VARCHAR(128) NOT NULL,
 Lyrics VARCHAR(2048) NOT NULL,
 UserID INT UNSIGNED NOT NULL
 );
+
+# for song metainfo
+CREATE TABLE song_meta (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+PRIMARY KEY (Artist, Trackname)
+);
+
+
+what info is shown in the song detail page, other than meaning and lyrics?
+Album info? including genre, album, year?
+how to get album info, given artist and track? api?
+
+how about artist detail page/album detail page?
+
+document for whole website user flow, well defined
+overall structural design for back-end and front-end
+separate tasks
+finish all functions by some day
+launch

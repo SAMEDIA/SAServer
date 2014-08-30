@@ -23,7 +23,7 @@ class searchControler
 	public function printCategory($currentSearchString, $category)
 	{
 		echo "<ul class='nav nav-tabs nav-justified' role='tablist'>";
-		if ($category == "all") 
+		if ($category == "all")
 			echo "<li class='active'>";
 		else
 			echo "<li>";
@@ -49,7 +49,7 @@ class searchControler
 		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a></li>";
 		echo "</ul>";
 
-		echo "<div class='container-fluid' >";   
+		echo "<div class='container-fluid' >";
 
 	}
 
@@ -232,7 +232,7 @@ class searchControler
         }
         echo "</div>";  
         echo "</div>";
- 		if ($count == 0) 
+ 		if ($count == 0)
  		{
  			echo "No Results Found";
  		}

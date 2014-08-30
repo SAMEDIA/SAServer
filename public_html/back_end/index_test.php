@@ -33,7 +33,15 @@ p.frame  {
 		?>
 	</fieldset>
 	<fieldset>
+		
+	<?php
+		echo SongInfo::searchSong('helloweihan',10);
+	?>
+	</fieldset>
+
+	<fieldset>
 		<?php
+		require_once "new_song.php";
 		require_once "song_detail.php";
 		?>
 	</fieldset>

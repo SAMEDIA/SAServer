@@ -31,6 +31,11 @@ if (!empty($_POST['action'])) {
 	    }
 	    break;
 
+	    case 'submitMeta':
+	    if (!empty($_POST['artist']) && !empty($_POST['trackname'])) {
+	    	echo SongInfo::submitMeta($_POST['artist'], $_POST['trackname']);
+	    }
+
 	    case 'adminSignIn':
 	    if (!empty($_POST['password']))
 	    	echo SongInfo::adminSignIn($_POST['password']);
