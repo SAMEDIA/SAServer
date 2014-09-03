@@ -2,7 +2,7 @@
  * Base structure
  */
 body {
-	background: url(../images/backgrounds/sos.png) repeat;
+	background: url(../images/backgrounds/congruent_outline.png) repeat;
 	margin:0;
 	padding:0;
 }
@@ -66,7 +66,11 @@ default width = 800/5 = 160px;
 	-o-transform: skew(-20deg);
 }
 
-#lPanel , #rPanel{
+#lPanel {
+	width: 22%;
+}
+
+#rPanel {
 	width: 23%;
 }
 
@@ -78,8 +82,8 @@ default width = 800/5 = 160px;
 
 .features ul:hover #lPanel {width: 18%;}
 .features ul #lPanel:hover {width: 28%;}
-.features ul:hover #rPanel {width: 18%;}
-.features ul #rPanel:hover {width: 28%;}
+.features ul:hover #rPanel {width: 17%;}
+.features ul #rPanel:hover {width: 27%;}
 
 .features li img {
 	display: block;
@@ -134,10 +138,9 @@ default width = 800/5 = 160px;
 
 .main-content {
 	background:#FFF;
-	max-width: 1200px;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
-	
 }
 
 #topAlbums, #topArtist {
@@ -285,4 +288,14 @@ default width = 800/5 = 160px;
   left: 50%;
   top: 0;
   margin-left: -80px;
+}
+
+.artistTopImg {
+	display:block; 
+	margin: auto;
+	visibility:hidden;
+}
+
+.songPiecePopUp {
+	display: none;
 }

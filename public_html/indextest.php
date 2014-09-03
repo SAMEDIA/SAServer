@@ -15,7 +15,7 @@
 				//$topArtists = $songAboutEchonest->getArtistApi()->search(array('results' => '6', 'sort' => 'hotttnesss-desc', 'bucket' => array("images", "hotttnesss")));	
 				
 				$topArtistsObj = new PopularArtistCache();
-				$topArtistsObj->updateDailyData();	
+				//$topArtistsObj->updateDailyData();	
 				$artistHtml = 0;
 				$topArtists = $topArtistsObj->fetchAllArtist(1, 5, 'All', '', '', '  day_rating DESC');
 				$topArtistCount = 0;
@@ -35,7 +35,7 @@
 						if(isset($artist->profile_image_url) && $artist->profile_image_url != "") {									
 									$artistHtml .= '<a href="/artist/' . str_replace("+","-",urlencode(preg_replace("~[\\\\/:*?'()&<>,|]~","",$artist->artist_name)))  . '"><img class="lazy feature-panel" data-original=' . $artist->profile_image_url . ' src="'. $artist->profile_image_url .'"></a>';
                         }
-                        $artistHtml .= '<div class="image_title col-md-3 col-sm-3 col-xs-6"><a href="#">'. $artist->artist_name . '</a></div></li>';
+                        $artistHtml .= '<div class="image_title col-md-3 col-sm-3 col-xs-6"><a style="color: black" href="#"><span style="color: red">FEATURED: </span>'. $artist->artist_name . '</a></div></li>';
                         $topArtistCount++;
                         if($topArtistCount >= 5)
                         	break;
@@ -311,26 +311,31 @@ $songHtml .= '<td><a href="/artist/' . str_replace("+","-",urlencode(preg_replac
 	});
 	
 	function ResizeFeatures(winWidth, winHeight) {
-		/*
-		$(".feature-panel").css("width", "220%");
+		
+		$(".feature-panel").css("width", .4*winWidth);
 		$(".feature-panel").css("height", "auto");
 
-		featureWidth = $(".feature-panel").width();
-		featureHeight = $(".feature-panel").height();
+		featureWidth = $("#lPanel img").width();
+		featureHeight = $("#lPanel img").height();
 		
-		$(".feature-panel").css("width", featureWidth);
+		$(".feature-panel").css("width", featureWidth*1.3);
 		$(".feature-panel").css("height", featureHeight);
 		
+		$("#rPanel img").css("height", featureHeight);
+		$("#rPanel img").css("width", "auto");
 		
-		$(".features ul").css("width", "112%");
+		$(".features ul").css("width", "115%");
 		$(".features ul").css("height", featureHeight);
 		
+		$(".features ul li, .features ul #lPanel, .features ul #rPanel").css("height", featureHeight);
 		
 		$(".features ul:hover li").css("height", featureHeight);
 		$(".features ul li:hover").css("height", featureHeight);
 		
 		$(".main-content").css("margin-top", 25);
-		*/
+
+		/*
+
 		$("#lPanel img").css("width", .4*winWidth);
 		$("#lPanel img").css("height", "auto");
 
@@ -351,5 +356,7 @@ $songHtml .= '<td><a href="/artist/' . str_replace("+","-",urlencode(preg_replac
 		$(".features ul li:hover").css("height", featureHeight);
 		
 		$(".main-content").css("margin-top", 25);
+		*/
+		
 	}
 </script>
