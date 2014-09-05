@@ -154,6 +154,10 @@ $start = $time;
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script><!--<script async src="http://assets.bop.fm/embed.js"></script>-->
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -181,7 +185,7 @@ $start = $time;
 	<div id="searchForm" class="navbar-right">
   <span style="display:none"><?php include 'includes/alphabetWidget.php'; ?></span>
   <form class="navbar-form" action="search.php">
-    <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text">
+    <input id="search" name="search" class="form-control" placeholder="Search for artists, albums, lyrics..." type="text" autocomplete="on">
     <input type="hidden" name="category" value="all">
     <button id="hidden"></button>
     <button id="button" class="btn glyphicon glyphicon-search"></button>

@@ -2,6 +2,8 @@
 
 class searchControler
 {
+	private $category;
+
 	public function getCurrentSearchString()
 	{
 		if(isset($_GET["search"])) {
@@ -11,45 +13,57 @@ class searchControler
 			//$currentSearchStringEchonest = str_replace(" ","-",$_GET["search"]);
 		} else if(isset($_POST["search"])) 
 		{
-			$currentSearchString = $_POST["search"];
+			$query = $_POST["search"];
 			$currentSearchString = trim($currentSearchString);
 			$currentSearchString = str_replace(" ","+",$currentSearchString);
 			//$currentSearchStringEchonest = str_replace(" ","-",$_POST["search"]);
 		}
+
+		//after using auto complete to fill the search box
+		//delete the 
+		$index = strpos($currentSearchString, "--");
+		if($index != 0)
+		{
+			$currentSearchString = substr($currentSearchString, 0, $index);
+		}
+
 		return $currentSearchString;
 
 	}
 
-	public function printCategory($currentSearchString, $category)
+	public function printCategory($query, $category)
 	{
+		$this->category = $category;
+
+
 		echo "<ul class='nav nav-tabs nav-justified' role='tablist'>";
 		if ($category == "all") 
 			echo "<li class='active'>";
 		else
 			echo "<li>";
- 		echo "<a href=\"./search.php?category=all&search=". $currentSearchString ."\">All</a>";
+ 		echo "<a href=\"./search.php?category=all&search=". $query ."\">All</a>";
  		echo "</li>";
 
  		if ($category == "artists") 
 			echo "<li class='active'>";
 		else
 			echo "<li>";
- 		echo "<a href=\"./search.php?category=artists&search=". $currentSearchString ."\">Artists</a></li>";
+ 		echo "<a href=\"./search.php?category=artists&search=". $query ."\">Artists</a></li>";
 
  		if ($category == "albums") 
 			echo "<li class='active'>";
 		else
 			echo "<li>";
-		echo "<a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">Albums</a></li>";
+		echo "<a href=\"./search.php?category=albums&page=1&search=". $query ."\">Albums</a></li>";
 
 		if ($category == "songs") 
 			echo "<li class='active'>";
 		else
 			echo "<li>";
-		echo "<a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">Songs</a></li>";
+		echo "<a href=\"./search.php?category=songs&page=1&search=". $query ."\">Songs</a></li>";
 		echo "</ul>";
 
-		echo "<div class='container-fluid' >";   
+		echo "<div class='container-fluid' style='margin-bottom:20px;' >";   
 
 	}
 
@@ -66,7 +80,7 @@ class searchControler
 
 	
 
-	public function searchArtist($num,$currentSearchString)
+	public function searchArtist($num,$currentSearchString,$query)
 	{
 		$count = 0;
 		$page = 1;
@@ -125,10 +139,11 @@ class searchControler
 						$artistResultHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6 col-md-height'>";
 						$artistResultHtml .= "<div class='imageContainer'>";
 						$artistResultHtml .= "<div class='imageCenterer'>";
-						$artistResultHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchResultItem->image[2]->{'#text'}  . "' border='0' width='125' height='125'></div>";
+						$artistResultHtml .= '<a href="./artist-detail.php?artistName='. $currentArtistName .'">';
+						$artistResultHtml .= "<img class='lazy' data-original='" . $artistSearchResultItem->image[3]->{'#text'}  . "' border='0'></a>";
 						$artistResultHtml .= '</div>';
 						$artistResultHtml .= '</div>';
-						$artistResultHtml .= '<span class="artistItemTitle">';	
+						$artistResultHtml .= "<span class='searchResultItemTitle'>";	
 						$artistResultHtml .= '<a href="./artist-detail.php?artistName='. $currentArtistName .'">';
 						$artistResultHtml .=  $currentArtistName . '</a><br>';
 						$artistResultHtml .= '</span>';
@@ -149,7 +164,7 @@ class searchControler
 			$page++;
 				
 		}
-		$this->printSearchArtistResults($count, $currentSearchString, $artistResultHtml);
+		$this->printSearchArtistResults($count, $query, $artistResultHtml);
 	}
 
 	private function printSearchArtistResults($count, $currentSearchString, $artistResultHtml)
@@ -166,7 +181,12 @@ class searchControler
         echo "</div>";
  		if ($count == 0) 
  		{
- 			echo "No Results Found";
+			if($this->category == "artists")
+ 				echo "<div style='height:400px'>";
+ 			else
+ 				echo "<div style='height:120px'>";
+      		echo "No Results Found";
+      		echo "</div>";
  		}
  		else
  		{
@@ -177,7 +197,7 @@ class searchControler
 
 
 
-	public function searchAlbum($num,$currentSearchString)
+	public function searchAlbum($num,$currentSearchString,$query)
 	{
 		$albumSearchResults = $this->getCurlData('http://ws.audioscrobbler.com/2.0/?method=album.search&album=' . $currentSearchString .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit='.$num . "&page=" . $page);	
 		$albumSearchResultsJSON = json_decode($albumSearchResults);
@@ -199,8 +219,9 @@ class searchControler
 					$artistname = $artistSearchAlbumResultItem->artist;
 					$artistname = json_decode('"' . $artistname . '"');
 			
-					$artistAlbumsHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";	
-					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[2]->{'#text'}  . "' border='0'></div>";
+					$artistAlbumsHtml .= "<div class='albumItem col-md-2 col-sm-4 col-xs-6'>";
+					$artistAlbumsHtml .= '<a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">';	
+					$artistAlbumsHtml .= "<div class='albumImg'><img class='lazy' data-original='" . $artistSearchAlbumResultItem->image[2]->{'#text'}  . "' border='0'></div></a>";
 					//$artistAlbumsHtml .= "<div class='caption'>";
 					$artistAlbumsHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
 					//$artistAlbumsHtml .= "</div>";
@@ -215,12 +236,12 @@ class searchControler
 			
 		} 
 
-		$this->printAblumSearchResult($count, $currentSearchString, $artistAlbumsHtml);
+		$this->printAblumSearchResult($count, $query, $artistAlbumsHtml);
 		
 	}
 
 
-	private function printAblumSearchResult($count, $currentSearchString, $artistAlbumsHtml)
+	private function printAblumSearchResult($count, $query, $artistAlbumsHtml)
 	{
 		echo "<div id='AlbumSearchResults' class='col-md-12'>";
  		echo "<div class='row'>";
@@ -228,13 +249,18 @@ class searchControler
  		echo "<h2 class='sub-header'>Albums</h2></div>";
  		echo "<div id='more-results' class='col-md-2'>";
  		if ($count == 6) {
-        	echo "<h3 class='text-right'><a href=\"./search.php?category=albums&page=1&search=". $currentSearchString ."\">more</a></h3>";	
+        	echo "<h3 class='text-right'><a href=\"./search.php?category=albums&page=1&search=". $query ."\">more</a></h3>";	
         }
         echo "</div>";  
         echo "</div>";
  		if ($count == 0) 
  		{
- 			echo "No Results Found";
+ 			if($this->category == "albums")
+ 				echo "<div style='height:400px'>";
+ 			else
+ 				echo "<div style='height:120px'>";
+      		echo "No Results Found";
+      		echo "</div>";
  		}
  		else
  		{
@@ -246,7 +272,7 @@ class searchControler
 			//echo "<span id='loadmore' page='2' category='ablums'>Load More</span>";
 			echo "<div class='col-md-12 text-center'>";
 			echo "<button type='button' id='loadmore' data-loading-text='Loading...' class='btn btn-primary' page='2' category='albums'
-					style='width: 90%;margin-bottom: 20'>
+					style='width: 90%;margin-bottom: 20px'>
  				 Load More
 			</button>";
 			echo "</div>";
@@ -254,7 +280,7 @@ class searchControler
        	
 	}
 
-	public function searchSongs($num,$currentSearchString)
+	public function searchSongs($num,$currentSearchString,$query)
 	{
 		$count = 0;
 		
@@ -292,11 +318,11 @@ class searchControler
 	
 		}
 		
-		$this->printSongSearchResults($count, $currentSearchString, $artistSongsHtml);
+		$this->printSongSearchResults($count, $query, $artistSongsHtml);
 		
 	}
 
-	private function printSongSearchResults($count, $currentSearchString, $artistSongsHtml)
+	private function printSongSearchResults($count, $query, $artistSongsHtml)
 	{
 
 		echo "<div id='ArtistSearchResults' class='col-md-12'>";
@@ -305,7 +331,7 @@ class searchControler
  		echo "<h2 class='sub-header'>Songs</h2></div>";
  		echo "<div id='more-results' class='col-md-2'>";
  		if ($count == 10) {
-        	echo "<h3 class='text-right'><a href=\"./search.php?category=songs&page=1&search=". $currentSearchString ."\">more</a></h3>";	
+        	echo "<h3 class='text-right'><a href=\"./search.php?category=songs&page=1&search=". $query ."\">more</a></h3>";	
         }
         echo "</div>";  
         echo "</div>";
@@ -321,7 +347,12 @@ class searchControler
       	}
       	else
       	{
+      		if($this->category == "songs")
+ 				echo "<div style='height:400px'>";
+ 			else
+ 				echo "<div style='height:120px'>";
       		echo "No Results Found";
+      		echo "</div>";
       	}
       	echo " 	</tbody>
     		 </table>";
@@ -332,8 +363,8 @@ class searchControler
 			//echo "<span id='loadmore' page='2' category='songs' align='center'>Load More</span>";
 			echo "<div class='col-md-12 text-center'>";
 			echo "<button type='button' id='loadmore' data-loading-text='Loading...' class='btn btn-primary' page='2' category='songs'
-					style='width: 90%;margin-bottom: 20'>
- 				 Load More
+					style='width: 90%;margin-bottom: 20px'>
+					Load More
 			</button>";
 			echo "</div>";
 		}
