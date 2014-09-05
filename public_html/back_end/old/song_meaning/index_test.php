@@ -15,9 +15,14 @@
 	<fieldset>
 	<?php require_once "../user_panel/user_panel.php" ?>
 	<?php require_once "song_meaning.php" ?>
+	<!--<?php require_once "../user_panel/lyrics_finder.php" ?>-->
 
+	<?php 
 
+	//$data = LyricsFinder::getLyrics("lady gaga","just dance2");
+	//echo $data;
 
+	?>
 
 
 

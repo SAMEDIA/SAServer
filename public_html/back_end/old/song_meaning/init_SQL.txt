@@ -1,0 +1,21 @@
+# for song meanings
+
+CREATE TABLE song_meaning (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT(32) NOT NULL,
+PRIMARY KEY (Artist, Trackname)
+);
+
+# for song meanings queue
+
+CREATE TABLE song_meaning_queue (
+SubmissionID INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+Processed BOOLEAN DEFAULT FALSE,
+TimeStamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT(32) NOT NULL
+);

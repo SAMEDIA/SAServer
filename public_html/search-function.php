@@ -37,7 +37,7 @@ class searchControler
 
 
 		echo "<ul class='nav nav-tabs nav-justified' role='tablist'>";
-		if ($category == "all") 
+		if ($category == "all")
 			echo "<li class='active'>";
 		else
 			echo "<li>";
@@ -62,6 +62,7 @@ class searchControler
 			echo "<li>";
 		echo "<a href=\"./search.php?category=songs&page=1&search=". $query ."\">Songs</a></li>";
 		echo "</ul>";
+
 
 		echo "<div class='container-fluid' style='margin-bottom:20px;' >";   
 
@@ -253,7 +254,7 @@ class searchControler
         }
         echo "</div>";  
         echo "</div>";
- 		if ($count == 0) 
+ 		if ($count == 0)
  		{
  			if($this->category == "albums")
  				echo "<div style='height:400px'>";
@@ -283,8 +284,15 @@ class searchControler
 	public function searchSongs($num,$currentSearchString,$query)
 	{
 		$count = 0;
+
+		// search both LastFM and SongAbout.fm database
+		//require_once "back_end/SongInfo.php";
+		//$songSearchResults = SongInfo::searchSong($currentSearchString, $num);
 		
+		// search only LastFM database
 		$songSearchResults = $this->getCurlData('http://ws.audioscrobbler.com/2.0/?method=track.search&track='. $currentSearchString .'&api_key=2b79d5275013b55624522f2e3278c4e9&format=json&limit='.$num);
+		
+
 		$songSearchResultsJSON = json_decode($songSearchResults);
 
 		if(isset($songSearchResultsJSON->results->{'opensearch:totalResults'}) && is_numeric($songSearchResultsJSON->results->{'opensearch:totalResults'})) {

@@ -2,17 +2,145 @@
  * Base structure
  */
 body {
-	background: url(../images/backgrounds/sos.png) repeat;
+	background: url(../images/backgrounds/congruent_outline.png) repeat;
 	margin:0;
 	padding:0;
 }
 
+/*****start features styles****/
+* {
+	margin: 0; 
+	padding: 0;
+}
+
+/*Time to apply widths for features to work
+Width of image = 640px
+total images = 5
+so width of hovered image = 640px
+width of un-hovered image = 40px - you can set this to anything
+so total container width = 640 + 40*4 = 800px;
+default width = 800/5 = 160px;
+*/
+
+.features {
+	width: 100%;
+	overflow: hidden;
+	
+	/*Time for some styling*/
+	margin:auto;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+
+/*A small hack to prevent flickering on some browsers*/
+.features ul {
+	width: 100%;
+	position: relative;
+	height: inherit;
+	/*This will give ample space to the last item to move
+	instead of falling down/flickering during hovers.*/
+}
+
+.features li {
+	position: relative;
+	display: block;
+	width: 18%;
+	float: left;
+	right: 5%;
+	overflow:hidden;
+	border-left: 1px solid #888;
+	
+	box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+	
+	/*Transitions to give animation effect*/
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	/*If you hover on the images now you should be able to 
+	see the basic features*/
+	-webkit-transform: skew(-20deg);
+	-moz-transform: skew(-20deg);
+	-o-transform: skew(-20deg);
+}
+
+#lPanel {
+	width: 22%;
+}
+
+#rPanel {
+	width: 23%;
+}
+
+/*Reduce width of un-hovered elements*/
+.features ul:hover li {width: 18%;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.features ul li:hover {width: 28%;}
+
+.features ul:hover #lPanel {width: 18%;}
+.features ul #lPanel:hover {width: 28%;}
+.features ul:hover #rPanel {width: 17%;}
+.features ul #rPanel:hover {width: 27%;}
+
+.features li img {
+	display: block;
+	position: relative;
+	right: 33%;
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-o-transform: skew(20deg);
+}
+
+/*Image title styles*/
+.image_title {
+	background: #6F9;
+	/*background: rgba(0, 0, 0, 0.5);*/
+	position: absolute;
+	bottom: 10px;
+	width: 120%;
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-o-transform: skew(20deg);	
+
+}
+
+#lPanel, #lPanel .image_title, #lPanel img{
+	-webkit-transform: skew(0deg);
+	-moz-transform: skew(0deg);
+	-o-transform: skew(0deg);
+	right: 0;
+}
+
+#lPanel img {
+	right: 0;
+}
+
+.image_title a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 3% 5% 3% 5%;
+	text-align:center;
+	position: relative;
+	font-size: 16px;
+}
+
+/******end features styles****/
+
+#features {
+	padding: 0;
+	margin:0;
+	background:#CCC;
+}
+
 .main-content {
 	background:#FFF;
-	max-width: 1200px;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
-	
 }
 
 #topAlbums, #topArtist {
@@ -61,17 +189,6 @@ body {
 	width: 50px;
 }
 
-@media (max-width: 768px) {
-	.scrollBody {
-		padding-top: 120px;
-	  }
-}
-@media (min-width: 768px) {
-	.scrollBody {
-	  padding-top: 70px;
-	}
-}
-
 
 /*
  * Global add-ons
@@ -102,7 +219,6 @@ body {
 .navbar {
 	border-bottom:3px solid #65c178;
 	background:#000;
-	padding-top:20px;
 	padding-bottom:10px;
 }
 
@@ -129,7 +245,7 @@ body {
  * Top navigation
  * Hide default border to remove 1px line.
  */
-.navbar-fixed-top {
+.navbar-sticky {
   padding-top:0;
   opacity: 0.8;
   padding-bottom:5px;
@@ -171,6 +287,7 @@ body {
   width: 160px;
   position: absolute;
   top: 0;
+<<<<<<< HEAD
   margin-left: -50px;
 }
 
@@ -181,4 +298,17 @@ body {
 	height: 25px;
 	border-spacing: 0px;
 	border-bottom: -5px;
+=======
+  margin-left: -80px;
+}
+
+.artistTopImg {
+	display:block; 
+	margin: auto;
+	visibility:hidden;
+}
+
+.songPiecePopUp {
+	display: none;
+>>>>>>> FETCH_HEAD
 }

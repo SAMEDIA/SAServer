@@ -94,7 +94,8 @@
 	}
 
 ?>
-<?php 	include 'includes/header.php'; ?>
+<?php 	include 'includes/headertest.php'; ?>
+
 <?php
 $SongAboutArtistObj = new SongAboutArtist($artistProfile["name"]);
 if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
@@ -114,9 +115,29 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 	$isVerifiedForPage = false;
 }
 ?> 
+
+ <?php 
+		$foundImage = false;
+		foreach ($artistProfile["images"] as &$artistImage) {
+			if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
+				echo '<div id="artistTop" style="background-image: url(&#39;'. $artistImage["url"] .'&#39;);background-size: cover;width: 100%;background-position: 0 10%;">';
+				echo '<div style="background: url(&#39;images/backgrounds/sprinkles.png&#39;);width: 100%;opacity:0.4">';
+				echo '<img width="50%" class="lazy artistTopImg" data-original="' . $artistImage["url"] .'" src="'. $artistImage["url"] .'">';
+				$foundImage = true;
+				break;
+			} 
+		}														
+		if(!$foundImage){
+			echo '<div id="artistTop" style="background-image: url(&#39;images/notes2.jpg&#39;);background-size: cover;width: 100%;">';
+			echo '<div style="background: url(&#39;images/backgrounds/sprinkles.png&#39;);width: 100%;opacity:0.4">';
+			echo '<img width="35%" data-original="images/noSGcover.png" src="images/noSGcover.png">';
+		}
+	?>
+	</div>
+	 </div>
  
-    <div id="contentWrapper" class="left"> 
-        <div id="songAboutContent" class="center">   
+    <div class="main-content">
+		<div class="container-fluid">  
 			<div id="" class="left col-1"> 
                 <?php 	include 'includes/sidebar-suggested-songs.php'; ?>           
                 
@@ -130,7 +151,7 @@ if(isset($_SESSION['activeUser']) && $_SESSION['activeUser']->user_id) {
 							$foundImage = false;
 							foreach ($artistProfile["images"] as &$artistImage) {
 								if(isset($artistImage["url"])  && url_exists($artistImage["url"])) {
-									echo '<img src="' . $artistImage["url"] .'" height="125" width="125" border="0">';
+									echo '<img class="lazy col-md-4 col-sm-4 col-xs-6" data-original="' . $artistImage["url"] .'" src="'. $artistImage["url"] .'">';
 									$foundImage = true;
 									break;
 								} 
@@ -302,14 +323,14 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
 						echo $artistAlbumsHtml; 					
 					?>                    
                 </div>
-                 <span class="clear"></span>
             </div>                		
-            <span class="clear"></span>
 		</div>
     </div>
-	<span class="clear"></span>
+    </div>
     <script src="/scripts/soundmanager/soundmanager2.js"></script>
     <script src="/scripts/soundmanager/songabout-hook.js"></script>
+
+    <!--
     <div id="artistVideoPop" <?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { echo 'class="sgEmbedVideo"'; } ?> >   
     	<?php if(isset($SongAboutArtistObj) and $SongAboutArtistObj->youtube_video_emb != "") { ?>
 			<div><?php echo $SongAboutArtistObj->youtube_video_emb ?></div>
@@ -318,8 +339,10 @@ $artistAlbumsHtml .= '<div class="artistAlbumTrack left">';
             <div style="float:float:left; margin-left:15px; height:125px; width: 229px; font-size: 14px;">Artist has yet to add a video.</div>			
 		<?php } ?>
         
-    </div>   
-<?php 	include 'includes/footer.php'; ?>
+    </div> 
+    -->
+
+<?php 	include 'includes/footertest.php'; ?>
 <?php
 	/*file_put_contents($cache_filename, ob_get_contents());  
 	ob_end_flush();*/

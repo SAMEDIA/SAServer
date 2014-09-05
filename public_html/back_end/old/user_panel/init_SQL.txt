@@ -1,0 +1,30 @@
+# for user sign in/sing up
+
+CREATE TABLE users (
+UserID INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+Email VARCHAR(128) NOT NULL UNIQUE,
+Password VARCHAR(128) NOT NULL,
+Nickname VARCHAR(32) NOT NULL
+);
+
+# for adding new lyrics
+
+CREATE TABLE song_lyrics (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL, 
+PRIMARY KEY (Artist, Trackname)
+);
+
+
+# for new songs
+
+CREATE TABLE songs (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Album VARCHAR(128) NOT NULL,
+Year INT(4) NOT NULL,
+Genre VARCHAR(64) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL, 
+PRIMARY KEY (Artist, Trackname)
+);

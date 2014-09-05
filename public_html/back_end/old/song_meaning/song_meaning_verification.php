@@ -72,7 +72,6 @@ if (!empty($_SESSION['admin']))
 			<th width="70">Artist</th>
 			<th width="70">Song</th>
 			<th width="300">Meaning</th>
-			<th width="100">Song ID</th>
 			<th width="70">User ID</th>
 			<th width="200">Time Stamp</th>
 		</tr>
@@ -85,10 +84,9 @@ if (!empty($_SESSION['admin']))
 		while ($row = mysql_fetch_array($meaningQueryResult, MYSQL_ASSOC)) {
 			echo "<tr>";
 			echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success accept">Accept</button><button class="btn btn-danger deny">Deny</button></div></td>';
-			echo "<td></td>";
-			echo "<td></td>";
+			echo "<td>".$row['Artist']."</td>";
+            echo "<td>".$row['Trackname']."</td>";
 			echo "<td>".$row['Meaning']."</td>";
-			echo "<td>".$row['SongID']."</td>";
 			echo "<td>".$row['UserID']."</td>";
 			echo "<td>".$row['TimeStamp']."</td>";
 			echo "</tr>";

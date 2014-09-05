@@ -16,8 +16,6 @@ if (!empty($_SESSION['loggedIn']))
     echo $_SESSION['nickname'];
     echo '</code> Email : <code>';
     echo $_SESSION['email'];
-    echo '</code> ID : <code>';
-    echo $_SESSION['userID'];
     echo '</code></p>';
     ?>
 
