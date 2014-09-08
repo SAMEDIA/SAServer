@@ -221,7 +221,8 @@
         	<a href="#"><img width="50px" class="lazy" data-original="images/icons/songaboutIconShare.png" src ="images/icons/songaboutIconShare.png"></a>
       </div>
       <div class="artistItemDetailText">
-        <h2><?php echo strtoupper($artistProfile["name"]); ?></h2>
+       <h2><?php echo  strtoupper(str_replace("-"," ",$songName)); ?></h2>
+        <h1 style="font-size: 20px"><?php echo strtoupper($artistProfile["name"]); ?></h1>
         <br />
         <?php
 						   $genreCount = 0;
@@ -260,7 +261,6 @@
                                 }                     
                             </div>*/?>
         <div class="songPlayerAction left">
-          <div class="songPlayerSongTitle left"> <?php echo  strtoupper(str_replace("-"," ",$songName)); ?> </div>
           <div class="songPlayerSongActionArea left">
             <?php /* Taking out but saving just in case other song preview dies out.
                                     <div id="playerPlayButton" class="playerPlay left"><a href="#" onclick="playPreviewSong('<?php echo $songPreviewJSON->response->songs[0]->tracks[0]->preview_url ?>'); return false;"><img src="http://www.songabout.fm/images/buttons/buttonPlayPlayer.png" height="11" width="7" border="0"></a></div>
@@ -301,18 +301,18 @@
 							}						
 						?>
       <div id="songDetailLyrics" class="left">
-        <div id="songDetailLyricsTextArea">
+        <div id="songDetailLyricsTextArea" class=".col-xs-12 .col-sm-6 .col-md-4">
           <?php if($isVerifiedForPage) { ?>
           <textarea cols="65" rows="8" id="songPieceInput-0" name="songMeaningTextArea" placeholder="Enter Song Meaning"><?php if($songMeaningsArray[0] != "") { echo $songMeaningsArray[0]->meaning_text;}?>
 </textarea>
           <div class="right" id="buttonClaimSubmit"><a href="#"  onclick="meaningSubmit('songPiece-0', 0, '<?php echo $songLyricsJSON->track->amg ?>'); return false;"></a></div>
           <?php } else if($songMeaningsArray[0] != "") { ?>
-          <div id="songLyric-0" class="songLyricItem left songLyricItemBox"><?php echo $songMeaningsArray[0]->meaning_text; ?></div>
+          <div id="songLyric-0" class="songLyricItem songLyricSummary"><?php echo $songMeaningsArray[0]->meaning_text; ?></div>
           <?php } else { ?>
-          <div id="songLyric-0" class="songLyricItem left songLyricItemBox">No song meaning at this time.</div>
+          <div id="songLyric-0" class="songLyricItem songLyricSummary">No song meaning at this time.</div>
           <?php } ?>
           <span class="clear"></span> </div>
-        <div id="songDetailLyricsTitle" class="left">
+        <div id="songDetailLyricsTitle" class=".col-xs-12 .col-sm-6 .col-md-8">
           <?php 
 									// Makes sure there are actual lyrics not a null songs should have more then 2 lyrics
 									//$songPiecesHtml .= '<div style="font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif; font-weight: 200; font-size: 15px; float: left;"><a href="http://www.lyricfind.com"><span class="slink">Lyrics Provided by LyricFind</span></a>&nbsp;<a href="lyrics_terms.asp?lyricprovider=lyricfind" rel="nofollow">Terms</a></div><br>';
@@ -401,3 +401,13 @@
 <?php
 	//ob_end_flush();
 ?>
+
+<script>
+$(document).ready(function() {
+	if($(window).scrollTop() > 300) {
+		$("songPlayer").animate({
+			width: 0;
+		}, 200);
+	}
+});
+</script>

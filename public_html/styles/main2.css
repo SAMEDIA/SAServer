@@ -2,7 +2,8 @@
  * Base structure
  */
 body {
-	background: url(../images/backgrounds/congruent_outline.png) repeat;
+	background: #2F3238;
+	/***old background: url(../images/backgrounds/congruent_outline.png) repeat;***/
 	margin:0;
 	padding:0;
 }
@@ -298,4 +299,8 @@ default width = 800/5 = 160px;
 
 .songPiecePopUp {
 	display: none;
+}
+
+.songLyricSummary {
+	background: #DEDEDE;
 }
