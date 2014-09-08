@@ -282,12 +282,22 @@ default width = 800/5 = 160px;
   height: 160px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 10px;
 }
 .imageCenterer {
   width: 160px;
   position: absolute;
-  left: 50%;
   top: 0;
+  margin-left: -50px;
+}
+
+.sectionTitle
+{
+	background-color: #68C07B;
+	padding: 0px;
+	height: 25px;
+	border-spacing: 0px;
+	border-bottom: -5px;
   margin-left: -80px;
 }
 
