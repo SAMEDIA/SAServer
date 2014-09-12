@@ -35,7 +35,7 @@ p.frame  {
 	<fieldset>
 		
 	<?php
-		echo SongInfo::searchSong('helloweihan',10);
+		//echo SongInfo::searchSong('helloweihan',10);
 	?>
 	</fieldset>
 

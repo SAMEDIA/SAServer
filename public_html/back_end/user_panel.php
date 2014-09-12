@@ -50,7 +50,7 @@ if (!empty($_SESSION['userID'])) {
             // will run sign_out procedure and redirect page
             $.post('User_controller.php', {'action':"signOut"}, function(data,status){
                 if ("success" == data) {
-                    $("head").append('<meta http-equiv="refresh" content="0;../user_panel/index_test.php">');    
+                    $("head").append('<meta http-equiv="refresh" content="0;../back_end/index_test.php">');    
                 }
             });
         });
