@@ -36,10 +36,10 @@ if (!empty($_SESSION['admin']))
                 }
             });
         });
-        // Ajax Accept Meaning Submission
-        $(".acceptMeaning").click(function(){
+        // Ajax Accept Info Submission
+        $(".acceptInfo").click(function(){
             var submissionID = $(this).parent().attr("id");
-            $.post('SongInfo_controller.php', {'action':'verifyMeaning', 'accept':'true', 'submissionID':submissionID}, function(data){
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'true', 'submissionID':submissionID}, function(data){
                 $('#test').append(data);
                 if (data == "success") {
                 	$("#test").text("accepted:"+submissionID);
@@ -47,10 +47,10 @@ if (!empty($_SESSION['admin']))
                 }
             });
         });
-        // Ajax Deny Meaning Submission
-        $(".denyMeaning").click(function(){
+        // Ajax Deny Info Submission
+        $(".denyInfo").click(function(){
         	var submissionID = $(this).parent().attr("id");
-            $.post('SongInfo_controller.php', {'action':'verifyMeaning', 'accept':'false', 'submissionID':submissionID}, function(data){
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'false', 'submissionID':submissionID}, function(data){
                 if (data == "success") {
                 	$("#test").text("denied:"+submissionID);
                     $("head").append('<meta http-equiv="refresh" content="1">');
@@ -59,10 +59,11 @@ if (!empty($_SESSION['admin']))
             });
         });
 
+        /*
         // Ajax Accept Lyrics Submission
         $(".acceptLyrics").click(function(){
             var submissionID = $(this).parent().attr("id");
-            $.post('SongInfo_controller.php', {'action':'verifyLyrics', 'accept':'true', 'submissionID':submissionID}, function(data){
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'true', 'submissionID':submissionID}, function(data){
                 $('#test').append(data);
                 if (data == "success") {
                     $("#test").text("accepted:"+submissionID);
@@ -73,13 +74,36 @@ if (!empty($_SESSION['admin']))
         // Ajax Deny Lyrics Submission
         $(".denyLyrics").click(function(){
             var submissionID = $(this).parent().attr("id");
-            $.post('SongInfo_controller.php', {'action':'verifyLyrics', 'accept':'false', 'submissionID':submissionID}, function(data){
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'false', 'submissionID':submissionID}, function(data){
                 if (data == "success") {
                     $("#test").text("denied:"+submissionID);
                     $("head").append('<meta http-equiv="refresh" content="1">');
                 }
             });
         });
+
+        // Ajax Accept Image Submission
+        $(".acceptImage").click(function(){
+            var submissionID = $(this).parent().attr("id");
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'true', 'submissionID':submissionID}, function(data){
+                $('#test').append(data);
+                if (data == "success") {
+                    $("#test").text("accepted:"+submissionID);
+                    $("head").append('<meta http-equiv="refresh" content="1">');
+                }
+            });
+        });
+        // Ajax Deny Image Submission
+        $(".denyImage").click(function(){
+            var submissionID = $(this).parent().attr("id");
+            $.post('SongInfo_controller.php', {'action':'verifyInfo', 'accept':'false', 'submissionID':submissionID}, function(data){
+                if (data == "success") {
+                    $("#test").text("denied:"+submissionID);
+                    $("head").append('<meta http-equiv="refresh" content="1">');
+                }
+            });
+        });
+        */
     });
     </script>
 
@@ -103,43 +127,55 @@ if (!empty($_SESSION['admin']))
     	<?php
     	// display all the to-be-verified meaning here
         $conn = SADatabase::getConnection();
-        $sql = 'SELECT * FROM song_meaning_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC';
+        $sql = 'SELECT * FROM song_info_verification_queue WHERE processed = FALSE AND info_type = "meaning" ORDER BY submission_id ASC';
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $queryResult = $stmt->get_result();
         while ($row = $queryResult->fetch_array()) {
             echo "<tr>";
-            echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptMeaning">Accept</button><button class="btn btn-danger denyMeaning">Deny</button></div></td>';
-            echo "<td>".$row['Artist']."</td>";
-            echo "<td>".$row['Trackname']."</td>";
-            echo "<td>".$row['Meaning']."</td>";
-            echo "<td>".$row['UserID']."</td>";
-            echo "<td>".$row['TimeStamp']."</td>";
+            echo '<td><div id="'.$row['submission_id'].'"><button class="btn btn-success acceptInfo">Accept</button><button class="btn btn-danger denyInfo">Deny</button></div></td>';
+            echo "<td>".$row['artist']."</td>";
+            echo "<td>".$row['trackname']."</td>";
+            echo "<td>".$row['info']."</td>";
+            echo "<td>".$row['user_id']."</td>";
+            echo "<td>".$row['submission_time']."</td>";
             echo "</tr>";
         }
-        
-
-        /*
-        SADatabase::connect();
-		$meaningQueryResult = mysql_query("SELECT * FROM song_meaning_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC");
-		
-
-		while ($row = mysql_fetch_array($meaningQueryResult, MYSQL_ASSOC)) {
-			echo "<tr>";
-			echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptMeaning">Accept</button><button class="btn btn-danger denyMeaning">Deny</button></div></td>';
-			echo "<td>".$row['Artist']."</td>";
-            echo "<td>".$row['Trackname']."</td>";
-			echo "<td>".$row['Meaning']."</td>";
-			echo "<td>".$row['UserID']."</td>";
-			echo "<td>".$row['TimeStamp']."</td>";
-			echo "</tr>";
-
-		}
-		*/
-		
 
     	?>
 	</table>
+
+    <h2>Video Link</h2>
+    <table width="900">
+        <tr>
+            <th width="150"></th>
+            <th width="70">Artist</th>
+            <th width="70">Song</th>
+            <th width="300">Link</th>
+            <th width="70">User ID</th>
+            <th width="200">Time Stamp</th>
+        </tr>
+        
+        <?php
+        // display all the to-be-verified meaning here
+        $conn = SADatabase::getConnection();
+        $sql = 'SELECT * FROM song_info_verification_queue WHERE processed = FALSE AND info_type = "video_link" ORDER BY submission_id ASC';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $queryResult = $stmt->get_result();
+        while ($row = $queryResult->fetch_array()) {
+            echo "<tr>";
+            echo '<td><div id="'.$row['submission_id'].'"><button class="btn btn-success acceptInfo">Accept</button><button class="btn btn-danger denyInfo">Deny</button></div></td>';
+            echo "<td>".$row['artist']."</td>";
+            echo "<td>".$row['trackname']."</td>";
+            echo "<td>".$row['info']."</td>";
+            echo "<td>".$row['user_id']."</td>";
+            echo "<td>".$row['submission_time']."</td>";
+            echo "</tr>";
+        }
+
+        ?>
+    </table>
 
     <h2>Lyrics</h2>
     <table width="900">
@@ -155,41 +191,57 @@ if (!empty($_SESSION['admin']))
         <?php
         // display all the to-be-verified lyrics here
         $conn = SADatabase::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM song_lyrics_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC');
+        $stmt = $conn->prepare('SELECT * FROM song_info_verification_queue WHERE processed = FALSE AND info_type = "lyrics" ORDER BY submission_id ASC');
         $stmt->execute();
         $queryResult = $stmt->get_result();
         while ($row = $queryResult->fetch_array()) {
             echo "<tr>";
-            echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptLyrics">Accept</button><button class="btn btn-danger denyLyrics">Deny</button></div></td>';
-            echo "<td>".$row['Artist']."</td>";
-            echo "<td>".$row['Trackname']."</td>";
-            echo "<td>".$row['Lyrics']."</td>";
-            echo "<td>".$row['UserID']."</td>";
-            echo "<td>".$row['TimeStamp']."</td>";
+            echo '<td><div id="'.$row['submission_id'].'"><button class="btn btn-success acceptInfo">Accept</button><button class="btn btn-danger denyInfo">Deny</button></div></td>';
+            echo "<td>".$row['artist']."</td>";
+            echo "<td>".$row['trackname']."</td>";
+            echo "<td>".$row['info']."</td>";
+            echo "<td>".$row['user_id']."</td>";
+            echo "<td>".$row['submission_time']."</td>";
             echo "</tr>";
         }
-
-        /*
-        SADatabase::connect();
-        $queryResult = mysql_query("SELECT * FROM song_lyrics_queue WHERE Processed = FALSE ORDER BY SubmissionID ASC");
-        
-
-        while ($row = mysql_fetch_array($queryResult, MYSQL_ASSOC)) {
-            echo "<tr>";
-            echo '<td><div id="'.$row['SubmissionID'].'"><button class="btn btn-success acceptLyrics">Accept</button><button class="btn btn-danger denyLyrics">Deny</button></div></td>';
-            echo "<td>".$row['Artist']."</td>";
-            echo "<td>".$row['Trackname']."</td>";
-            echo "<td>".$row['Lyrics']."</td>";
-            echo "<td>".$row['UserID']."</td>";
-            echo "<td>".$row['TimeStamp']."</td>";
-            echo "</tr>";
-
-        }
-        */
         
 
         ?>
     </table>
+
+    <h2>Images</h2>
+    <table width="900">
+        <tr>
+            <th width="150"></th>
+            <th width="70">Artist</th>
+            <th width="70">Song</th>
+            <th width="300">Image File</th>
+            <th width="70">User ID</th>
+            <th width="200">Time Stamp</th>
+        </tr>
+        
+        <?php
+        // display all the to-be-verified images here
+        $imagePath = "images/";
+        $conn = SADatabase::getConnection();
+        $stmt = $conn->prepare('SELECT * FROM song_info_verification_queue WHERE processed = FALSE AND info_type = "image" ORDER BY submission_id ASC');
+        $stmt->execute();
+        $queryResult = $stmt->get_result();
+        while ($row = $queryResult->fetch_array()) {
+            echo "<tr>";
+            echo '<td><div id="'.$row['submission_id'].'"><button class="btn btn-success acceptInfo">Accept</button><button class="btn btn-danger denyInfo">Deny</button></div></td>';
+            echo "<td>".$row['artist']."</td>";
+            echo "<td>".$row['trackname']."</td>";
+            echo "<td><img src='".$imagePath.$row['info']."'></td>";
+            echo "<td>".$row['user_id']."</td>";
+            echo "<td>".$row['submission_time']."</td>";
+            echo "</tr>";
+        }
+        
+
+        ?>
+    </table>
+
     <?php
 }
 else
