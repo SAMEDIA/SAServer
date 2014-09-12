@@ -8,43 +8,49 @@ Nickname VARCHAR(32) NOT NULL
 );
 
 
-# for user-generated song info
+# for song meanings
 
-CREATE TABLE song_info_user_generated (
-artist VARCHAR(128) NOT NULL,
-trackname VARCHAR(128) NOT NULL,
-meaning VARCHAR(2048),
-video_link VARCHAR(1024),
-image VARCHAR(2014),
-PRIMARY KEY (artist, trackname)
+CREATE TABLE song_meaning (
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL,
+PRIMARY KEY (Artist, Trackname)
 );
 
-# user-generated song info verification queue
+# for song meanings queue
 
-CREATE TABLE song_info_verification_queue (
-submission_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-processed BOOLEAN DEFAULT FALSE,
-submission_time TIMESTAMP,
-artist VARCHAR(128) NOT NULL,
-trackname VARCHAR(128) NOT NULL,
-info_type VARCHAR(32) NOT NULL,
-info VARCHAR(2048) NOT NULL,
-user_id INT UNSIGNED NOT NULL
+CREATE TABLE song_meaning_queue (
+SubmissionID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+Processed BOOLEAN DEFAULT FALSE,
+TimeStamp TIMESTAMP,
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Meaning VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL
 );
-
-# info_type: lyrics, meaning, video_link, image
 
 # for song lyrics
 
 CREATE TABLE song_lyrics (
-artist VARCHAR(128) NOT NULL,
-trackname VARCHAR(128) NOT NULL,
-lyrics VARCHAR(2048) NOT NULL,
-user_id INT UNSIGNED NOT NULL,
-last_update_time TIMESTAMP,
-PRIMARY KEY (artist, trackname)
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL,
+PRIMARY KEY (Artist, Trackname)
 );
 
+# for song lyrics queue
+
+CREATE TABLE song_lyrics_queue (
+SubmissionID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+Processed BOOLEAN DEFAULT FALSE,
+TimeStamp TIMESTAMP,
+Artist VARCHAR(128) NOT NULL,
+Trackname VARCHAR(128) NOT NULL,
+Lyrics VARCHAR(2048) NOT NULL,
+UserID INT UNSIGNED NOT NULL
+);
 
 # for song metainfo
 CREATE TABLE song_meta (
@@ -52,3 +58,16 @@ Artist VARCHAR(128) NOT NULL,
 Trackname VARCHAR(128) NOT NULL,
 PRIMARY KEY (Artist, Trackname)
 );
+
+
+what info is shown in the song detail page, other than meaning and lyrics?
+Album info? including genre, album, year?
+how to get album info, given artist and track? api?
+
+how about artist detail page/album detail page?
+
+document for whole website user flow, well defined
+overall structural design for back-end and front-end
+separate tasks
+finish all functions by some day
+launch

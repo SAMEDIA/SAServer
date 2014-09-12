@@ -3,294 +3,7 @@
 require_once "SADatabase.php";
 
 class SongInfo {
-	// get user-generated info of songs in SongAbout.fm database
-	public static function getInfo($artist, $trackname) {
-		$artist = SongInfo::normalize($artist);
-		$trackname = SongInfo::normalize($trackname);
-		$conn = SADatabase::getConnection();
-
-		$result = NULL;
-
-		if (!empty($artist) && !empty($trackname)) {
-	    
-			$stmt = $conn->prepare('SELECT * FROM song_info_user_generated WHERE artist = ? AND trackname = ?');
-			$stmt->bind_param('ss', $artist, $trackname);
-			 
-			// Execute statement
-			$stmt->execute();
-
-			// Get result
-			$queryResult = $stmt->get_result();
-
-			if ($queryResult->num_rows == 1) {
-				$row = $queryResult->fetch_array();
-				// form JSON object of song info
-				$result = json_encode(
-				    array(
-				    'artist' => SongInfo::denormalize($artist),
-				    'trackname' => SongInfo::denormalize($trackname),
-				    'meaning' => json_decode($row['meaning']),
-				    'videoLink' => json_decode($row['video_link']),
-				    'image' => json_decode($row['image'])
-				    )
-				);
-			}
-			
-		}
-		return $result;
-	}
-
-	// submit song info/lyrics for verification
-	public static function submitInfo($artist, $trackname, $infoType, $info, $userID) {
-		$artist = SongInfo::normalize($artist);
-		$trackname = SongInfo::normalize($trackname);
-		
-
-		$conn = SADatabase::getConnection();
-		
-		$stmt = $conn->prepare('INSERT INTO song_info_verification_queue (artist, trackname, info_type, info, user_id) VALUES(?, ?, ?, ?, ?)');
-		$stmt->bind_param('ssssi', $artist, $trackname, $infoType, $info, $userID);
-		$stmt->execute();
-		
-		if($stmt->affected_rows == 1)
-	    {
-	        return 'success';
-	    }
-	    else return 'failed';
-	}
-
-	// verify song info/lyrics
-	public static function verifyInfo($accept, $submissionID) {
-		$conn = SADatabase::getConnection();
-
-		// deny
-	    if ($accept == 'false') {
-	        // dequeue
-			$stmt = $conn->prepare('UPDATE song_info_verification_queue SET processed = TRUE WHERE submission_id = ?');
-			$stmt->bind_param('i', $submissionID);
-			$stmt->execute();
-
-			// if info is image, delete stored image
-
-	        // succesfully denied
-	        if($stmt->affected_rows == 1)
-		    {
-		        return 'success';
-		    }
-		    else {
-		    	return 'deny_failed';
-		    }
-	    }
-
-	    // accept
-	    else if ($accept == 'true') {
-	        // get info
-			$stmt = $conn->prepare('SELECT * FROM song_info_verification_queue WHERE submission_id = ?');
-			$stmt->bind_param('i', $submissionID);
-			$stmt->execute();	        
-			$queryResult = $stmt->get_result();
-	        $row = $queryResult->fetch_array();
-	        $artist = $row['artist'];
-	        $trackname = $row['trackname'];
-	        $infoType = $row['info_type'];
-	        $info = $row['info'];
-	        $userID = $row['user_id'];
-
-	        // dequeue //TODO
-	        /*
-			$stmt = $conn->prepare('UPDATE song_info_verification_queue SET processed = TRUE WHERE submission_id = ?');
-			$stmt->bind_param('i', $submissionID);
-			$stmt->execute();
-	        // succesfully dequeued
-	        if($stmt->affected_rows != 1)
-		    {
-		        return 'dequeue failed';
-		    }
-		    */
-
-		    // for lyrics
-        	if ($infoType == 'lyrics') {
-	        	return SongInfo::acceptLyrics($artist, $trackname, $info, $userID);
-        	}
-        	// for meaning, video_link, image
-        	else {
-        		return SongInfo::acceptInfo($artist, $trackname, $infoType, $info, $userID);
-        	}
-	    }
-	}
-
-	private static function acceptLyrics($artist, $trackname, $lyrics, $userID) {
-		$conn = SADatabase::getConnection();
-
-		// check if meaning already exists
-		$stmt = $conn->prepare('SELECT * FROM song_lyrics WHERE artist = ? AND trackname = ?');
-		$stmt->bind_param('ss', $artist, $trackname);
-		$stmt->execute();
-		$queryResult = $stmt->get_result();
-
-        // if meaning already in database, replace it
-        if ($queryResult->num_rows == 1) {
-
-        	// if same user submit same lyrics again, do nothing
-        	$row = $queryResult->fetch_array();
-        	if ($row['lyrics'] == $lyrics && $row['user_id'] == $userID) {
-        		return "duplicate_lyrics_failed";
-        	}
-
-			$stmt = $conn->prepare('UPDATE song_lyrics SET lyrics = ?, user_id = ? WHERE artist = ? AND trackname = ?');
-            $stmt->bind_param('siss', $lyrics, $userID, $artist, $trackname);
-            $stmt->execute();
-            if ($stmt->affected_rows == 1) {
-                return "success";
-            }
-            else return "update_lyrics_failed";
-        }
-        // if not, add it
-        else {
-            $stmt = $conn->prepare('INSERT INTO song_lyrics (artist, trackname, lyrics, user_id) VALUES (?,?,?,?)');
-            $stmt->bind_param('sssi', $artist, $trackname, $lyrics, $userID);
-			$stmt->execute();
-            if ($stmt->affected_rows == 1) {
-                return "success";
-            }
-            else return "insert_lyrics_failed";
-        }
-	}
-
-	private static function acceptInfo($artist, $trackname, $infoType, $info, $userID) {
-		$conn = SADatabase::getConnection();
-
-		// check if song record already exists
-		$stmt = $conn->prepare('SELECT * FROM song_info_user_generated WHERE artist = ? AND trackname = ?');
-		$stmt->bind_param('ss', $artist, $trackname);
-		$stmt->execute();
-		$queryResult = $stmt->get_result();
-
-		// info JSON object
-		$infoJSON = json_encode(
-	        	array(
-	        		'value' => $info,
-	        		'userID' => $userID,
-	        		'time' => time()
-			        )
-	        	);
-
-        // if song record already in database, replace info(no matter is it NULL or not)
-        if ($queryResult->num_rows == 1) {
-	        $row = $queryResult->fetch_array();
-        	
-			$stmt = $conn->prepare('UPDATE song_info_user_generated SET '.$infoType.' = ? WHERE artist = ? AND trackname = ?');
-            $stmt->bind_param('sss', $infoJSON, $artist, $trackname);
-            $stmt->execute();
-            if ($stmt->affected_rows == 1) {
-                return "success";
-            }
-            else return "update_info_failed";
-        }
-        // if not, add song record
-        else {
-            $stmt = $conn->prepare('INSERT INTO song_info_user_generated (artist, trackname, '.$infoType.') VALUES (?,?,?)');
-            $stmt->bind_param('sss', $artist, $trackname, $infoJSON);
-			$stmt->execute();
-            if ($stmt->affected_rows == 1) {
-                return "success";
-            }
-            else return "insert_songinfo_record_failed";
-        }
-	}
-
-	// get lyrics from LyricFind API or SongAbout.fm database, merge of two database is transparent to method user
-	public static function getLyrics($artist, $trackname) {
-		$artist = SongInfo::normalize($artist);
-		$trackname = SongInfo::normalize($trackname);
-		$conn = SADatabase::getConnection();
-
-		// http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:coldplay,trackname:green+eyes&output=json&useragent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36
-
-		//$url = 'http://api.lyricfind.com/search.do?apikey=1bba44bbd68a434fa9b6f155d6cff727&reqtype=default&searchtype=track&track='.$track.'&artist='.$artist.'&alltracks=no&displaykey=7500cc6251b190a18374131c56a0b7f2&output=json';
-		$url = 'http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:' . $artist .',trackname:'. $trackname .'&output=json&useragent=' . $_SERVER['HTTP_USER_AGENT'];
-
-		$result = SongInfo::getCurlData($url);
-
-		// if no result from LyricFind API, search SongAbout.fm database
-		$resultJSON = json_decode($result);
-
-		//echo SongInfo::normalize($resultJSON->{'track'}->{'title'});
-		
-		if ($resultJSON->{'response'}->{'code'} != 101 || SongInfo::normalize($resultJSON->{'track'}->{'title'}) != $trackname) {
-			
-			$result = NULL;
-			
-			
-			// artist and track in database are all lower case and use '+' for space
-			$stmt = $conn->prepare('SELECT * FROM song_lyrics WHERE artist = ? AND trackname = ?');
-			$stmt->bind_param('ss', $artist, $trackname);
-			$stmt->execute();
-			$queryResult = $stmt->get_result();
-			if ($queryResult->num_rows == 1)
-		    {
-		        $row = $queryResult->fetch_array();
-		        $lyrics = $row['lyrics'];
-
-		        // build JSON object, should have same strcuture with LyricFind API
-			    $result = json_encode(
-				    array(
-				    'response' => 	array(
-				            			'code' => 101,
-				            			'description' => 'SUCCESS: LICENSE, LYRICS',
-				            			'source' => 'SONGABOUT'
-				        			),
-				    'track' => 	array(
-				                		'title' => SongInfo::denormalize($trackname),
-	      								'artist' => array(
-	         										'name' => SongInfo::denormalize($artist)
-	         										),
-	      								'lyrics' => $lyrics
-					            )
-			        )
-				);
-		    }
-		    
-		}
-		return $result;
-	}
-
-	public static function uploadImage($imageName) {
-
-	}
-	/*
-	public static function getInfo($infoType, $artist, $trackname) {
-		$artist = SongInfo::normalize($artist);
-		$trackname = SongInfo::normalize($trackname);
-		$conn = SADatabase::getConnection();
-
-		$result = NULL;
-
-		if (!empty($artist) && !empty($trackname)) {
-	    
-			$stmt = $conn->prepare('SELECT * FROM song_info_user_generated WHERE Artist = ? AND Trackname = ?');
-			$stmt->bind_param('ss', $artist, $trackname);
-			 
-			// Execute statement
-			$stmt->execute();
-
-			// Get result
-			$queryResult = $stmt->get_result();
-
-			if ($queryResult->num_rows == 1) {
-				$row = $queryResult->fetch_array();
-				if (array_key_exists($inforType, $row))
-					$result = $row[$infoType];
-			}
-			
-		}
-		$stmt->close();
-		return $result;
-	}
-	*/
-
 	// get meaning from SongAbout.fm database
-	/*
 	public static function getMeaning($artist, $trackname) {
 		$artist = SongInfo::normalize($artist);
 		$trackname = SongInfo::normalize($trackname);
@@ -342,8 +55,7 @@ class SongInfo {
 		$stmt->close();
 		return $result;
 	}
-	*/
-	/*
+
 	public static function verifyMeaning($accept, $submissionID) {
 		$conn = SADatabase::getConnection();
 
@@ -416,9 +128,67 @@ class SongInfo {
 	    }
 	    $stmt->close();
 	}
-*/
-	
-/*
+
+	// get lyrics from LyricFind API or SongAbout.fm database, merge of two database is transparent to method user
+	public static function getLyrics($artist, $trackname) {
+		$artist = SongInfo::normalize($artist);
+		$trackname = SongInfo::normalize($trackname);
+		$conn = SADatabase::getConnection();
+
+		// http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:coldplay,trackname:green+eyes&output=json&useragent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36
+
+		//$url = 'http://api.lyricfind.com/search.do?apikey=1bba44bbd68a434fa9b6f155d6cff727&reqtype=default&searchtype=track&track='.$track.'&artist='.$artist.'&alltracks=no&displaykey=7500cc6251b190a18374131c56a0b7f2&output=json';
+		$url = 'http://test.lyricfind.com/api_service/lyric.do?apikey=7500cc6251b190a18374131c56a0b7f2&reqtype=default&trackid=artistname:' . $artist .',trackname:'. $trackname .'&output=json&useragent=' . $_SERVER['HTTP_USER_AGENT'];
+
+		$result = SongInfo::getCurlData($url);
+
+		// if no result from LyricFind API, search SongAbout.fm database
+		$resultJSON = json_decode($result);
+
+		//echo SongInfo::normalize($resultJSON->{'track'}->{'title'});
+		
+		if ($resultJSON->{'response'}->{'code'} != 101 || SongInfo::normalize($resultJSON->{'track'}->{'title'}) != $trackname) {
+			
+			$result = NULL;
+			
+			
+
+			// artist and track in database are all lower case and use '+' for space
+			$stmt = $conn->prepare('SELECT * FROM song_lyrics WHERE Artist = ? AND Trackname = ?');
+			$stmt->bind_param('ss', $artist, $trackname);
+			$stmt->execute();
+			$queryResult = $stmt->get_result();
+			if ($queryResult->num_rows == 1)
+		    {
+		        $row = $queryResult->fetch_array();
+		        $lyrics = $row['Lyrics'];
+
+		        // build JSON object, should have same strcuture with LyricFind API
+			    $result = json_encode(
+				    array(
+				    'response' => 	array(
+				            			'code' => 101,
+				            			'description' => 'SUCCESS: LICENSE, LYRICS',
+				            			'source' => 'SONGABOUT'
+				        			),
+				    'track' => 	array(
+				                		'title' => SongInfo::denormalize($trackname),
+	      								'artist' => array(
+	         										'name' => SongInfo::denormalize($artist)
+	         										),
+	      								'lyrics' => $lyrics
+					            )
+			        )
+				);
+		    }
+		    $stmt->close();
+		    
+		}
+
+		
+		return $result;
+	}
+
 	public static function submitLyrics($artist, $trackname, $lyrics, $userID) {
 		$artist = SongInfo::normalize($artist);
 		$trackname = SongInfo::normalize($trackname);
@@ -513,9 +283,7 @@ class SongInfo {
 	    }
 	    $stmt->close();
 	}
-	*/
 
-	/*
 	public static function submitMeta($artist, $trackname) {
 		$artist = SongInfo::normalize($artist);
 		$trackname = SongInfo::normalize($trackname);
@@ -550,7 +318,6 @@ class SongInfo {
 		$stmt->close();
 		return $result;
 	}
-	*/
 
 	public static function searchSong($trackname, $limit) {
 		$trackname = SongInfo::normalize($trackname);
