@@ -55,19 +55,6 @@
 	text-decoration:none;
 }
 
-.searchResultItemTitle {
-	width:160px;
-	clear:both;
-	margin-top: 15px;
-	font-weight:900;
-	text-align:center;
-}
-
-.searchResultItemTitle a {
-	color: #000;
-	text-decoration:none;
-}
-
 #artistClaimBox {
 	min-height: 150px;
 	width: 975px;	

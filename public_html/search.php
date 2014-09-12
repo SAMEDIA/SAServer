@@ -1,141 +1,29 @@
-<?php include '../www/includes/headertest.php'; ?>
- <style>
-    .ui-autocomplete-category {
-        color: gray;
-        border-bottom: none;
-        clear: both;
-        border-top: 1px solid grey;
-        text-align:right;
-    }
 
-    .artist-info
-    {
-    	font-size: 13px;
-    	height: 25px;
-    }
-
-    .album-info
-    {
-    	font-size: 13px;
-    }
-    </style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.equalheights.js"></script>
 
 <script>
 $(function() {
+
 	var query = getUrlParam('search');
     if (query != null)
     {
-    	query = query.replace(/\+/g," ");
-    	query = query.trim();
     	document.getElementById('search').value = query;
+    	query = query.replace(/\s+/g,"+");
+    	query = query.trim();
+   
     }
 
-    var $searchBox = $("#search");
-
-    var widgetInst = $searchBox.autocomplete({}).data('ui-autocomplete');
-
-    widgetInst._renderMenu = function(ul, items) {
-	  var self = this;
-	  var currentCategory = "";
-	  
-	  $.each( items, function( index, item ) {
-	    if ( item.category != currentCategory ) {
-				ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-				currentCategory = item.category;
-			}
-			self._renderItem( ul, item );
-	  });
-	};
-
-	widgetInst._renderItem = function( ul, item ) {
-    	
-		var searchMask = this.element.val().trim();
-		//split the key words with space
-		var keywords = searchMask.split(" ");
-		
-        var regEx = new RegExp(searchMask, "ig");
-        var replaceMask = "<font color='#68C07B'>$&</font>";
-        var result = item.label.replace(regEx, replaceMask);
-
-        if (result == item.label)
-      		{
-      			for (var i = 0; i < keywords.length; i++) {
-					if (keywords[i].length > 1) {	
-			        	var regEx = new RegExp(keywords[i], "ig");
-			        	var replaceMask = "<font color='#68C07B'>$&</font>";
-			        	result = result.replace(regEx, replaceMask);
-			    	}
-				};
-      		}
-      	if(item.artist == null)
-      	{
-      		
-      		return $( "<li></li>" )
-		    .data( "ui-autocomplete-item", item )
-		    .append($("<a class='artist-info'></a>").html(result))
-		    .appendTo( ul );
-      	}else
-      	{
-      		regEx = new RegExp(searchMask, "ig");
-	      	var artist = item.artist.replace(regEx, replaceMask);
-	      	if (artist == item.artist)
-      		{
-      			for (var i = 0; i < keywords.length; i++) {
-					if (keywords[i].length > 1) {	
-			        	var regEx = new RegExp(keywords[i], "ig");
-			        	var replaceMask = "<font color='#68C07B'>$&</font>";
-			        	artist = artist.replace(regEx, replaceMask);
-			    	}
-				};
-      		}
-
-	      	result = result + " - " + artist;
-		  	return $( "<li></li>" )
-		    .data( "ui-autocomplete-item", item )
-		    .append($("<a class='album-info'></a>").html(result))
-		    .appendTo( ul );
-		}
-    	
-	};
-
-	$searchBox.autocomplete({
+	/*$("#search").autocomplete({
        	source: "autocomplete.php",
         minLength: 2,
-        select: function( event, ui ) {
-	        
-        },
-        focus: function( event, ui ) {
-        	var selectedObj = ui.item;
-			return selectedObj.label;
-        }
-	   
-    });/*.data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-    	
-		var searchMask = this.element.val().trim();
-        var regEx = new RegExp(searchMask, "ig");
-        var replaceMask = "<mark>$&</mark>";
-        var result = item.label.replace(regEx, replaceMask);
-      	//if index is -1, then it means that it is the artist result
-      	if(item.artist == null)
-      	{
-      		return $( "<li></li>" )
-		    .data( "item.autocomplete", item )
-		    .append($("<a class='ui-menu-item'></a>").html(result))
-		    .appendTo( ul );
-      	}else
-      	{
-	      	var artist = item.artist.replace(regEx, replaceMask);
-		  	return $( "<li></li>" )
-		    .data( "item.autocomplete", item )
-		    .append($("<a class='ui-menu-item'></a>").html(result))
-		    .append("<a class='artist-info'>" + "  by " + artist + "</a>")
-		    .appendTo( ul );
-		}
-    	
-	};*/
+    });*/
 
     $('#loadmore').click(function() {
-    	//alert("load more");
+    	alert("load more");
     
 	    var page = $(this).attr('page');
 	   	var category = $(this).attr('category');
@@ -148,28 +36,18 @@ $(function() {
 	        type:'get',
 	        data:{'page':page, 'category': category , 'query':query},
 	        success: function (res) {
-	        	console.log(res);
 	            var result = $.parseJSON(res);
 	            //alert(page);
-	           // alert("success");
+	            alert("success");
 	            alert(result);
-		        if (result != "")
-		        {
-		            if (category == "songs")
-		            	$('#ArtistSearchResults').find('tbody').append(result);
-		            else
-		            	$('#AlbumSearchResults').append(result);
 
-		            $('#loadmore').attr('page',++page);
-		            $btn.button('reset');
-		        }
-		        else
-		        {
-		        	alert('No More Results');
-		        	//$btn.attr('data-loading-text') = 'No More Results';
-		        	//$btn.parentNode.remove($btn);
-		        	$btn.button('reset');
-		        }
+	            if (category == "songs")
+	            	$('#ArtistSearchResults').find('tbody').append(result);
+	            else
+	            	$('#AlbumSearchResults').append(result);
+
+	            $('#loadmore').attr('page',++page);
+	            $btn.button('reset');
 	        },
 	        error: function(){
 	        	alert("failed");
@@ -180,10 +58,16 @@ $(function() {
 	
     //equalHeight($(".thumbnail")); 
     equalHeight($(".albumItem")); 
+    
 
-    window.onscroll = function (e) {  
- 		$searchBox.autocomplete("close");
-	} 
+	/*$("button").click(function() {
+    var $btn = $(this);
+    $btn.button('loading');
+    // simulating a timeout
+    setTimeout(function () {
+        $btn.button('reset');
+    }, 1000);*/
+
 });
 
 function equalHeight(group) {    
@@ -211,7 +95,7 @@ function getUrlParam(name)
 </script>
 
 <meta charset="UTF-8">
-
+<?php include '../www/includes/headertest.php'; ?>
 <?php require_once './search-function.php'; ?>
 
 
@@ -228,35 +112,34 @@ function getUrlParam(name)
 
 	$category = $_GET['category'];
 
-	$query = $_GET['search'];
 
-	$searchControler->printCategory($query, $category);
+	$searchControler->printCategory($currentSearchString, $category);
 
 	if ($category == "all")
 	{	
-		$searchControler -> searchArtist(6,$currentSearchString,$query);
+		$searchControler -> searchArtist(6,$currentSearchString);
 		
 		
-		$searchControler->searchAlbum(6,$currentSearchString,$query);
+		$searchControler->searchAlbum(6,$currentSearchString);
 
 		
-		$searchControler->searchSongs(10,$currentSearchString,$query);
+		$searchControler->searchSongs(10,$currentSearchString);
 		
 	}
 
 	if ($category == "artists")
 	{
-		$searchControler->searchArtist(30,$currentSearchString,$query);
+		$searchControler->searchArtist(30,$currentSearchString);
 	}
 
 	if ($category == "albums")
 	{
-		$searchControler->searchAlbum(30,$currentSearchString,$query);		
+		$searchControler->searchAlbum(30,$currentSearchString);		
 	}
 
 	if ($category == "songs")
 	{
-		$searchControler->searchSongs(30,$currentSearchString,$query);
+		$searchControler->searchSongs(30,$currentSearchString);
 	}
 
 ?>

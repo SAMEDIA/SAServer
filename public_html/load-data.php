@@ -8,15 +8,6 @@ $page = $_GET['page'];
 $category = $_GET['category'];
 $currentSearchString = $_GET['query'];
 
-$index = strpos($currentSearchString, "--");
-if($index != 0)
-{
-	$currentSearchString = substr($currentSearchString, 0, $index);
-}
-
-$currentSearchString = trim($currentSearchString);
-$currentSearchString = str_replace(" ","+",$currentSearchString);
-
 $array = array();
 $resultHtml = '';
 
@@ -39,24 +30,38 @@ if($category == "songs")
 
 	$totalNum = $songSearchResultsJSON->results->{'opensearch:totalResults'};
 
+	//if($page > $totalNum / 30);
+		//break;
+
 	$count = ($page - 1 ) * 30;
-	
-	if ($songSearchResultsJSON != NULL) 
-	{
-		foreach ($songSearchResultsJSON->results->trackmatches->track as &$songSearchResultItem) 
-		{
-			$artistname = $songSearchResultItem->artist;
-			$artistname = '"'. $artistname . '"';
-			$artistname =  json_decode($artistname);
-			$count = $count + 1;
-			$resultHtml .= "<tr>";
-			$resultHtml .= "<td>" . $count . "</td>";
-			$resultHtml .= "<td>";
-			$resultHtml .= "<a href='./song-detail.php?songName=" .$songSearchResultItem->name. "&artistName=". $artistname . "'>";
-			$resultHtml .= $songSearchResultItem->name . "</a></td>";
-			$resultHtml .= "<td><p class='songItemTitleFootnote'>". $artistname ."</p>";
-			$resultHtml .= "</td></tr>";
-		}	
+	foreach ($songSearchResultsJSON->results->trackmatches->track as &$songSearchResultItem) {
+		
+		$artistname = $songSearchResultItem->artist;
+		$artistname = '"'. $artistname . '"';
+			
+		$artistname =  json_decode($artistname);
+
+		/*$resultHtml .= '<div class="left suggestedArtistItem">';
+
+		$resultHtml .= '<div class="songItemTitle left">';
+		$resultHtml .= '<a href="./song-detail.php?songName=' .$songSearchResultItem->name. '&artistName='. $artistname . '">';
+		$resultHtml .= $songSearchResultItem->name . '</a><br>';
+		$resultHtml .= '<span class="songItemTitleFootnote">'. $artistname .'</span></br>';	
+		$resultHtml .= "</div>";
+		$resultHtml .= "</div>";*/
+
+		$count = $count + 1;
+		$resultHtml .= "<tr>";
+		$resultHtml .= "<td>" . $count . "</td>";
+		/*if ($songSearchResultItem->image[1]->{'#text'} != "")
+			$resultHtml .= "<td><img border='0' height='60' width='60' src='" . $songSearchResultItem->image[1]->{'#text'} . "'></td>";
+		else
+			$resultHtml .= "<td><img border='0' height='60' width='60' src='" . $songSearchResultItem->image[0]->{'#text'} . "'></td>";*/
+		$resultHtml .= "<td>";
+		$resultHtml .= "<a href='./song-detail.php?songName=" .$songSearchResultItem->name. "&artistName=". $artistname . "'>";
+		$resultHtml .= $songSearchResultItem->name . "</a></td>";
+		$resultHtml .= "<td><p class='songItemTitleFootnote'>". $artistname ."</p>";
+		$resultHtml .= "</td></tr>";
 	}
 }
 
@@ -79,6 +84,7 @@ if($category == "albums")
 			$resultHtml .= "<div class='albumImg'><img src='" . $artistSearchAlbumResultItem->image[1]->{'#text'}  . "' border='0' style='height:160;width:160;'></div>";
 		$resultHtml .= '<span class="albumItemTitleFootnote"><strong><a href="./album-detail.php?albumName=' . $artistSearchAlbumResultItem->name .'&artistName=' . $artistname .'">'. $artistSearchAlbumResultItem->name .'</a></strong><br>' . $artistname . "</span>";
 		$resultHtml .= "</div>";
+
 	}			
 }
 

@@ -2,8 +2,7 @@
  * Base structure
  */
 body {
-	background: #2F3238;
-	/***old background: url(../images/backgrounds/congruent_outline.png) repeat;***/
+	background: url(../images/backgrounds/congruent_outline.png) repeat;
 	margin:0;
 	padding:0;
 }
@@ -282,22 +281,12 @@ default width = 800/5 = 160px;
   height: 160px;
   overflow: hidden;
   position: relative;
-  margin-bottom: 10px;
 }
 .imageCenterer {
   width: 160px;
   position: absolute;
+  left: 50%;
   top: 0;
-  margin-left: -50px;
-}
-
-.sectionTitle
-{
-	background-color: #68C07B;
-	padding: 0px;
-	height: 25px;
-	border-spacing: 0px;
-	border-bottom: -5px;
   margin-left: -80px;
 }
 
@@ -309,8 +298,4 @@ default width = 800/5 = 160px;
 
 .songPiecePopUp {
 	display: none;
-}
-
-.songLyricSummary {
-	background: #DEDEDE;
 }
